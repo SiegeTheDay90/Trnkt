@@ -1,0 +1,6 @@
+{
+"scripts": {
+    "start": "react-scripts start",
+    "build": "BUILD_PATH='../public' react-scripts build"
+  }
+}
