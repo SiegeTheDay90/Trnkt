@@ -1,6 +1,5 @@
 // import reportWebVitals from './reportWebVitals';
 import React from 'react';
-// import ReactDOM, { render } from 'react-dom';
 import {createRoot} from 'react-dom/client'
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -35,12 +34,7 @@ const renderApp = () => {
       <Root />
     </React.StrictMode>
   );
-  // ReactDOM.render(
-  //   <React.StrictMode>
-  //     <Root />
-  //   </React.StrictMode>,
-  //   document.getElementById('root')
-  // );
+
 }
 
 if (sessionStorage.getItem('X-CSRF-Token') === null) {

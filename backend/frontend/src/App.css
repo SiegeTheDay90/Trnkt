@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Arial, Georgia, 'Guardian Egyptian';
 }
 
 .App-logo {
@@ -14,8 +15,10 @@
 }
 
 .App-header {
+  display: flex;
+  justify-content: space-around;
   min-height: 10vh;
-  background-color: #575f6f;
+  background-color: #ffffff;
 }
 
 .App-body {
@@ -26,7 +29,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  background-color: #282c34;
+  background-color: #eeeeee;
 }
 
 .App-link {

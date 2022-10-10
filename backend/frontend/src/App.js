@@ -1,29 +1,22 @@
 import logo from './logo.svg';
-import LoginFormPage from './components/session/LoginFormPage';
-import SessionInfo from './components/session/SessionInfo';
-import SignUpPage from './components/session/SignUpPage';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
 
 
 function App() {
   return (
     <div className="App">
+
       <header className="App-header">
-      <Switch>
-        <Route path="/login">
-          <LoginFormPage />
-        </Route>
-        <Route path="/signup">
-          <SignUpPage />
-        </Route>
-        <Route path="/">
-          <SessionInfo />
-        </Route>
-      </Switch>
+      <Route path="/">
+        <Navigation />
+      </Route>
+
       </header>
+
       <div className='App-body'>
-        <img src={logo} className="App-logo" alt="logo" />
+
       </div>
     </div>
   );
