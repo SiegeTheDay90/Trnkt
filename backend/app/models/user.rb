@@ -12,9 +12,9 @@
 #
 class User < ApplicationRecord
   # has_secure_password
-  validates :username, :email, :password_digest, :password, :session_token, presence: true
+  validates :username, :email, :password_digest, :session_token, presence: true
   validates :username, :email, :password_digest, :session_token, uniqueness: true
-  validates :password, length: {in: 8..12, message: "password must be between 8 and 12 characters"}
+  validates :password, length: {in: 8..12, message: "password must be between 8 and 12 characters"}, allow_nil: true
   validates :username, length: {in: 6..16}, format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, email: {mode: :strict, require_fqdn: true, message: "must be a valid email"}
 
@@ -46,8 +46,7 @@ class User < ApplicationRecord
   end
 
   def reset_session_token!
-    self.session_token = generate_unique_session_token
-    self.save!
+    self.update!(session_token: generate_unique_session_token)
     self.session_token
   end
 

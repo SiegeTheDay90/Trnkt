@@ -6,12 +6,14 @@ import {login} from '../../store/session.js'
 const LoginFormPage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const [credential, setCredential] = useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirm, setConfirm] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const user = {credential, password};
+        const user = {username, password};
         dispatch(login(user));
     }
 
@@ -21,14 +23,18 @@ const LoginFormPage = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name:
-                    <input value={credential} placeholder="Username or Email" onChange={(e) => setCredential(e.target.value)}/>
+                    Username:
+                    <input value={username} placeholder="Username or Email" onChange={(e) => setUsername(e.target.value)}/>
+                </label>
+                <label>
+                    Username:
+                    <input value={username} placeholder="Username or Email" onChange={(e) => setUsername(e.target.value)}/>
                 </label>
                 <label>
                     Password:
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
-                <input type="submit" value="Login"/>
+                <input type="submit" value="Create Account"/>
             </form>
         </div>
     )
