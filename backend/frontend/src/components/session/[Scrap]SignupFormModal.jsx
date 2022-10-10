@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import {signup} from '../../store/session.js'
 
-const LoginFormPage = () => {
+const SignupFormModal = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [username, setUsername] = useState('');
@@ -54,4 +54,4 @@ const LoginFormPage = () => {
     )
 }
 
-export default LoginFormPage;
+export default SignupFormModal;

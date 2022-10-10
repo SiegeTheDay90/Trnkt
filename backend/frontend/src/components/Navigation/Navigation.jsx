@@ -1,7 +1,6 @@
 import SessionInfo from "../session/SessionInfo";
-import LoginFormModal from '../session/LoginFormModal';
-import SignUpPage from '../session/SignUpPage';
-import { Link, Route } from "react-router-dom";
+import FormModal from './FormModal';
+import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 import './Navigation.css'
@@ -32,7 +31,7 @@ const Navigation = () => {
           Cart Icon
         </div>
 
-        <LoginFormModal />
+        <FormModal />
       </nav>
     )
 }
