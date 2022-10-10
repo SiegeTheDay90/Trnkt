@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import LoginFormPage from './components/session/LoginFormPage';
 import SessionInfo from './components/session/SessionInfo';
+import SignUpPage from './components/session/SignUpPage';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
@@ -12,6 +13,9 @@ function App() {
       <Switch>
         <Route path="/login">
           <LoginFormPage />
+        </Route>
+        <Route path="/signup">
+          <SignUpPage />
         </Route>
         <Route path="/">
           <SessionInfo />
