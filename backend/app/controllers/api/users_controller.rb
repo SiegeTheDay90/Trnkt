@@ -27,10 +27,4 @@ class Api::UsersController < ApplicationController
       render json: nil
     end
   end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:username, :password, :email)
-  end
 end

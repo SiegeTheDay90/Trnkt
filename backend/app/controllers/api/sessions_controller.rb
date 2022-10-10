@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
 
-    before_action :require_logged_out, only: [ :create]
-    before_action :require_logged_in, only: [:show, :destroy]
+    # before_action :require_logged_out, only: [ :create]
+    # before_action :require_logged_in, only: [:show, :destroy]
 
 
     def show
@@ -13,15 +13,15 @@ class Api::SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by_credentials(params[:credential], params[:password])
-
+        @user = User.find_by_credentials(session_params[:credential], session_params[:password])
+        @user.password = session_params[:password]
         if @user
           login!(@user)
         else
           @user = nil
         end
 
-        render json: {user: @user}
+        render :show
     end
 
     def destroy

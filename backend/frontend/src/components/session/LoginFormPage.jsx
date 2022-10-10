@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 // import { useSelector, useDispatch } from 'react-redux'
 
-const SessionForm = () => {
+const LoginFormPage = () => {
     // const dispatch = useDispatch();
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
@@ -31,4 +31,4 @@ const SessionForm = () => {
     )
 }
 
-export default SessionForm;
+export default LoginFormPage;

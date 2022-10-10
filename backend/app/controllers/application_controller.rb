@@ -24,6 +24,10 @@ class ApplicationController < ActionController::API
         render json: { message: 'Unauthorized' }, status: :unauthorized unless current_user
     end
 
+    def require_logged_out
+        render json: { message: 'Unauthorized' }, status: :unauthorized unless current_user
+    end
+
     private
 
     def snake_case_params
@@ -48,5 +52,13 @@ class ApplicationController < ActionController::API
             
             logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
         end
+    end
+
+    private
+    def user_params
+        params.require(:user).permit(:username, :password, :email)
+    end
+    def session_params
+        params.require(:session).permit(:credential, :password)
     end
 end

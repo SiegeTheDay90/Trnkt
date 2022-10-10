@@ -1,16 +1,16 @@
 import logo from './logo.svg';
-import SessionForm from './components/session/SessionForm';
+import LoginFormPage from './components/session/LoginFormPage';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SessionForm />
+        <LoginFormPage />
       </header>
-      <body className='App-body'>
+      <div className='App-body'>
         <img src={logo} className="App-logo" alt="logo" />
-      </body>
+      </div>
     </div>
   );
 }
