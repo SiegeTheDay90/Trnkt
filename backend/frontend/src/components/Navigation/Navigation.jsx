@@ -1,7 +1,8 @@
 import SessionInfo from "../session/SessionInfo";
-import FormModal from './FormModal';
+import LoginFormModal from "../session/LoginFormModal";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
+
 
 import './Navigation.css'
 const Navigation = () => {
@@ -16,22 +17,22 @@ const Navigation = () => {
     return (
       <nav className="Navigation">
         <div>
-          <Link to="/"><img src="logo.png"/></Link>
+          <Link to="/"><img className="logo" alt="mainLogo" src="logo.png"/></Link>
         </div>
 
         {sessionUser && <SessionInfo />}
 
-        <img src="fake_search.png" width="70%" />
+        <img className="searchbar" alt="fake_search" src="fake_search.png" width="70%" />
 
 
         <div>
           {!sessionUser && <Link to="/" onClick={showLoginModal}>Sign In</Link>}<br/>
         </div>
-        <div>
-          Cart Icon
+        <div id="iconContainer">
+          <i id="cart" className="fa-solid fa-cart-shopping"></i> 
         </div>
 
-        <FormModal />
+        <LoginFormModal />
       </nav>
     )
 }

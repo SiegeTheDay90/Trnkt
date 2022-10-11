@@ -2,11 +2,11 @@ class Api::UsersController < ApplicationController
   wrap_parameters include: User.attribute_names + ['password']
 
   def create
-    @user = User.new(user_params)
+    @user = User.new({first_name: params[:first_name], email: params[:email], password: params[:password]})
 
     if @user.save
       login!(@user)
-      render json: {user: @user}
+      render json: {user: {email: @user.email, firstName: @user.first_name}}
     else
       render json: {errors: @user.errors.full_messages}, status: 422
     end
@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user
-      render json: {username: @user.username, email: @user.email}
+      render json: {firstName: @user.first_name, lastName: @user.last_name, email: @user.email}
     else
       render json: nil
     end

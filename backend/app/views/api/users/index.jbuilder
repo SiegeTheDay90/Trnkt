@@ -1,3 +1,3 @@
 json.array! @users do |user|
-    json.extract! user, :username, :email
+    json.extract! user, :first_name, :email
 end

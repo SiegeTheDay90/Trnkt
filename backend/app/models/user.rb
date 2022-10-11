@@ -3,7 +3,8 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  username        :string           not null
+#  first_name      :string           not null
+#  last_name       :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
@@ -12,21 +13,17 @@
 #
 class User < ApplicationRecord
   # has_secure_password
-  validates :username, :email, :password_digest, :session_token, presence: true
-  validates :username, :email, :password_digest, :session_token, uniqueness: true
+  validates :first_name, :email, :password_digest, :session_token, presence: true
+  validates :email, :password_digest, :session_token, uniqueness: true
   validates :password, length: {in: 8..12, message: "password must be between 8 and 12 characters"}, allow_nil: true
-  validates :username, length: {in: 6..16}, format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
+  validates :first_name, :last_name, format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, email: {mode: :strict, require_fqdn: true, message: "must be a valid email"}
 
   before_validation :ensure_session_token
   attr_reader :password
 
   def self.find_by_credentials(credential, password)
-    if(EmailValidator.valid?(credential))
-      user = User.find_by(email: credential)
-    else
-      user = User.find_by(username: credential)
-    end
+    user = User.find_by(email: credential)
 
     if (user && user.is_password?(password))
       return user

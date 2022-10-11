@@ -10,12 +10,12 @@ const SessionInfo = () => {
         e.preventDefault();
         dispatch(logout());
     }
-
+    // debugger;
     if(!sessionUser) return <Redirect to="/login" />;
 
     return(
         <div>
-            User: {sessionUser.username}<br/>
+            User: {sessionUser.firstName}<br/>
             <button onClick={handleSubmit}>Logout</button>
         </div>
     )
