@@ -26,7 +26,6 @@ dialog::backdrop {
     border-radius: 24px;
     padding: 5px 20px 30px 20px;
     border: 0px;
-    min-width: 350px;
 }
 
 .ModalDiv {
@@ -75,6 +74,11 @@ label {
     height: 30px;
 }
 
+.error {
+    display: none;
+    color: #ae0000;
+}
+
 .ModalButton-S {
     border-radius: 25px;
     background: #222222;
@@ -83,6 +87,16 @@ label {
     padding: 0px 15px 0px 15px;
     height: 50px;
     width: 100%;
+    border: none;
+}
+
+.ModalButton-S:disabled {
+    background: #555555;
+    cursor: not-allowed;
+}
+
+.ModalButton-R, .ModalButton-S {
+    cursor: pointer;
 }
 
 #ModalCheck {
@@ -102,8 +116,8 @@ label {
     color: white;
     width: 48px;
     height: 48px;
-    background: #ffffff11;
-    right: -175px;
+    background: #ffffff00;
+    right: -170px;
 }
 
 #CloseModalButton:hover{

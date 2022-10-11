@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import {login, signup} from '../../store/session.js'
@@ -10,27 +10,34 @@ const LoginFormModal = () => {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [confirm, setConfirm] = useState('');
+
     
     const [formType, setFormType] = useState('login');
-    
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(formType==='login'){
+            // if(!email){
+            //     const emailError = document.getElementById('emailError');
+            //     emailError.display = "inline";
+            // } else {
+            //     const user = {credential, password};
+            //     dispatch(login(user));
+            //     document.getElementById('OverlayContainer').close();
+            // }
             const user = {credential, password};
             dispatch(login(user));
             document.getElementById('OverlayContainer').close();
         } else if(formType==='signup'){
             const user = {username, email, password};
-    
-            if(password === confirm){
-                dispatch(signup(user));
-            } else {
-                return <Redirect to="/signup" />
-            }
+            dispatch(signup(user));
         }
+    }
+
+    const demoClick = (e) => {
+        e.preventDefault();
+        dispatch(login({credential: 'demo@user.io', password: 'password'}))
     }
 
     if(sessionUser) return <Redirect to="/" />;
@@ -45,23 +52,26 @@ const LoginFormModal = () => {
                 </div>
     
                 <form onSubmit={handleSubmit} className="ModalForm">
-                    <label for="LoginEmail">Email address</label>
+                    <label htmlFor="LoginEmail">Email address</label>
                     <input id="LoginEmail" value={credential} onChange={(e) => setCredential(e.target.value)} className="ModalInput" /><br/>
-                    
-                    <label for="LoginPassword">Password</label>
+                    <span className="error" id="emailError">Email cannot be blank.</span>
+
+                    <label htmlFor="LoginPassword">Password</label>
                     <input id="LoginPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput" /><br/>
                     
                     <div className="ModalDiv">
     
                         <div className="StaySignedIn"><input type="checkbox" id="ModalCheck"/> Stay signed in</div> 
     
-                        <div style={{'font-size': '12px', 'text-decoration': 'underline'}}>Forgot your password?</div>
+                        <div style={{'fontSize': '12px', 'textDecoration': 'underline'}}>Forgot your password?</div>
     
                     </div>
-                    <input className="ModalButton-S" type="submit" value="Sign in"/>
+                    <input className="ModalButton-S" type="submit" value="Sign in" disabled={!password}/>
                 </form>
-                <div style={{'font-size': '12px', 'text-decoration': 'underline'}}>Trouble signing in?</div>
-            <hr/>OR
+                <div style={{'fontSize': '12px', 'textDecoration': 'underline'}}>Trouble signing in?</div>
+                <div style={{'fontSize': '14px'}}><hr/>OR</div>
+                <input className="ModalButton-S" type="button" value="Demo User" onClick={demoClick}/>
+
             </div>
         )
     } else if (formType==='signup'){
@@ -75,16 +85,16 @@ const LoginFormModal = () => {
             </div>
             
             <form onSubmit={handleSubmit} className="ModalForm">
-                <label for="SignupUsername">Username *</label>
+                <label htmlFor="SignupUsername">Username *</label>
                 <input id="SignupUsername" value={username} placeholder="Username" onChange={(e) => setUsername(e.target.value)} className="ModalInput"/>
 
-                <label for="SignupEmail">Email *</label>
+                <label htmlFor="SignupEmail">Email *</label>
                 <input id="SignupEmail" value={email} placeholder="user@email.com" onChange={(e) => setEmail(e.target.value)} className="ModalInput"/>
                 
-                <label for="SignupPassword">Password *</label>
+                <label htmlFor="SignupPassword">Password *</label>
                 <input id="SignupPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput"/>
 
-                <input type="submit" value="Register" className="ModalButton-S"/>
+                <input type="submit" value="Register" className="ModalButton-S" disabled={!password || !username || !email}/>
             </form>
         </div>
         )
