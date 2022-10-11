@@ -18,17 +18,25 @@ const LoginFormModal = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(formType==='login'){
-            // if(!email){
-            //     const emailError = document.getElementById('emailError');
-            //     emailError.display = "inline";
-            // } else {
-            //     const user = {credential, password};
-            //     dispatch(login(user));
-            //     document.getElementById('OverlayContainer').close();
-            // }
-            const user = {credential, password};
-            dispatch(login(user));
-            document.getElementById('OverlayContainer').close();
+            if(!credential){
+                const emailError = document.getElementById('emailError');
+                const emailInput = document.getElementById('LoginEmail');
+                emailError.style.display = "block";
+                emailInput.style.background = "#ffdddd";
+                emailInput.style.border = "1px solid #bb0000";
+            } else {
+                const user = {credential, password};
+                dispatch(login(user));
+                if(sessionUser){
+                    document.getElementById('OverlayContainer').close();
+                } else {
+                    const passwordError = document.getElementById('passwordError');
+                    passwordError.style.display = "block";
+                }
+            }
+            // const user = {credential, password};
+            // dispatch(login(user));
+            // document.getElementById('OverlayContainer').close();
         } else if(formType==='signup'){
             const user = {username, email, password};
             dispatch(signup(user));
@@ -52,13 +60,18 @@ const LoginFormModal = () => {
                 </div>
     
                 <form onSubmit={handleSubmit} className="ModalForm">
-                    <label htmlFor="LoginEmail">Email address</label>
-                    <input id="LoginEmail" value={credential} onChange={(e) => setCredential(e.target.value)} className="ModalInput" /><br/>
-                    <span className="error" id="emailError">Email cannot be blank.</span>
 
+                    <div className="InputContainer">
+                    <label htmlFor="LoginEmail">Email address</label>
+                    <input id="LoginEmail" value={credential} onChange={(e) => setCredential(e.target.value)} className="ModalInput" require="true"/>
+                    <span className="error" id="emailError">Email can't be blank.</span>
+                    </div>
+
+                    <div className="InputContainer">
                     <label htmlFor="LoginPassword">Password</label>
-                    <input id="LoginPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput" /><br/>
-                    
+                    <input id="LoginPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput" />
+                    <span className="error" id="passwordError">Password was incorrect</span>
+                    </div>
                     <div className="ModalDiv">
     
                         <div className="StaySignedIn"><input type="checkbox" id="ModalCheck"/> Stay signed in</div> 
