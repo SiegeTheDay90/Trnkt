@@ -1,0 +1,50 @@
+#SearchText{
+    min-width: 89.5%;
+    border-radius: 96px 0 0 96px;
+    height: 16px;
+    border: 2px solid black;
+    border-right: 0;
+    padding: 14px;
+    padding-left: 20px;
+    font-size: 16px;
+    font-family: "Arial Light";
+    background-color: #f3f3f3;
+}
+
+#SearchText:focus{
+    outline: none;
+}
+
+#SearchSubmit:hover{
+    background-color: #e5e5e5;
+}
+
+#SearchText:focus + button, #SearchSubmit:focus {
+    color: white;
+    background-color: black;
+}
+
+#SearchSubmit{
+    min-width: 5%;
+    max-width: 5%;
+    border-radius: 96px 0 0 96px;
+    height: 48px;
+    border: 2px solid black;
+    background-color: #f3f3f3;
+    border-right: 0;
+    cursor: pointer;
+    font-size: 36px;
+    padding-top: 0;
+    padding-left: 20px;
+    color: #555555;
+    transform: scale(-1.11, 1);
+    transition: background-color 0.2s ease-out;
+}
+
+
+#SearchBar {
+    display: flex;
+    align-items: center;
+    width: 73%;
+}
+

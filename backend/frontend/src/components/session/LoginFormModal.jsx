@@ -2,10 +2,12 @@ import {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import {login, signup} from '../../store/session.js'
+import { storeErrors } from '../../store/errors.js';
 
 const LoginFormModal = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const errors = useSelector(state => state.errors);
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -16,50 +18,83 @@ const LoginFormModal = () => {
 
     const closeModal = (e) => {
         e.preventDefault();
+        if(formType === 'login'){
+            document.getElementById('emailError').style.display = "none";
+            document.getElementById('passwordError').style.display = "none";
+            const emailInput = document.getElementById('InputEmail');
+            emailInput.style.background = "#ffffff";
+            emailInput.style.border = "1px solid #cccccc";
+            const passwordInput = document.getElementById('InputPassword');
+            passwordInput.style.background = "#ffffff";
+            passwordInput.style.border = "1px solid #cccccc";
+        }
         setFormType('login');
         setCredential('');
         setPassword('');
         setFirstName('');
         setEmail('');
         document.getElementById('OverlayContainer').close();
-        document.getElementById('emailError').style.display = "none";
-        document.getElementById('passwordError').style.display = "none";
-
-        const emailInput = document.getElementById('LoginEmail');
-        emailInput.style.background = "#ffffff";
-        emailInput.style.border = "1px solid #cccccc";
-
-        const passwordInput = document.getElementById('LoginPassword');
-        passwordInput.style.background = "#ffffff";
-        passwordInput.style.border = "1px solid #cccccc";
     }
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        if(errors[0]){
+            const prevalentError = errors[0];
+            let errorContainer;
+            let inputField;
+            switch(prevalentError.slice(0, 5)){
+                case "Email":
+                    inputField = document.getElementById('InputEmail');
+                    errorContainer = document.getElementById('emailError');
+                    break;
+                case "First":
+                    inputField = document.getElementById('InputFirstName');
+                    errorContainer = document.getElementById('firstNameError');
+                    break;
+                case "Passw":
+                    inputField = document.getElementById('InputPassword');
+                    errorContainer = document.getElementById('passwordError');
+                    break;
+                default:
+                    alert("Uncaught Error in Sign Up");
+            }
+            if(errorContainer && inputField){
+                errorContainer.innerHTML = prevalentError+'.';
+                errorContainer.style.display = "block";
+                inputField.style.background = "#ffdddd";
+                inputField.style.border = "1px solid #bb0000";
+            }
+        }
+    }, [errors]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if(formType==='login'){
             if(!credential){
-                const emailError = document.getElementById('emailError');
-                const emailInput = document.getElementById('LoginEmail');
-                emailError.style.display = "block";
-                emailInput.style.background = "#ffdddd";
-                emailInput.style.border = "1px solid #bb0000";
+                dispatch(storeErrors({errors:["Email can't be blank"]}));
+                // const emailError = document.getElementById('emailError');
+                // const emailInput = document.getElementById('InputEmail');
+                // emailError.style.display = "block";
+                // emailInput.style.background = "#ffdddd";
+                // emailInput.style.border = "1px solid #bb0000";
+                // emailError.innerHTML = "Email can't be blank."
             } else {
                 const user = {credential, password};
-                dispatch(login(user));
+                await dispatch(login(user));
                 if(sessionUser){
                     closeModal();
                 } else {
-                    const passwordError = document.getElementById('passwordError');
-                    const passwordInput = document.getElementById('LoginPassword');
+                    dispatch(storeErrors({errors:["Password was incorrect"]}));
+                    // const passwordError = document.getElementById('passwordError');
+                    // const passwordInput = document.getElementById('InputPassword');
 
-                    passwordError.style.display = "block";
-                    passwordInput.style.background = "#ffdddd";
-                    passwordInput.style.border = "1px solid #bb0000";
+                    // passwordError.style.display = "block";
+                    // passwordInput.style.background = "#ffdddd";
+                    // passwordInput.style.border = "1px solid #bb0000";
                 }
             }
         } else if(formType==='signup'){
             const user = {firstName, email, password};
-            dispatch(signup(user));
+            await dispatch(signup(user));
             if(sessionUser){
                 closeModal();
             }
@@ -86,15 +121,15 @@ const LoginFormModal = () => {
             <form onSubmit={handleSubmit} className="ModalForm">
 
                 <div className="InputContainer">
-                <label htmlFor="LoginEmail">Email address</label>
-                <input id="LoginEmail" value={credential} onChange={(e) => setCredential(e.target.value)} className="ModalInput" require="true"/>
-                <span className="error" id="emailError">Email can't be blank.</span>
+                    <label htmlFor="InputEmail">Email address</label>
+                    <input id="InputEmail" value={credential} onChange={(e) => setCredential(e.target.value)} className="ModalInput" require="true"/>
+                    <span className="error" id="emailError"></span>
                 </div>
 
                 <div className="InputContainer">
-                <label htmlFor="LoginPassword">Password</label>
-                <input id="LoginPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput" />
-                <span className="error" id="passwordError">Password was incorrect</span>
+                <label htmlFor="InputPassword">Password</label>
+                <input id="InputPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput" />
+                <span className="error" id="passwordError"></span>
                 </div>
                 <div className="ModalDiv">
 
@@ -121,18 +156,24 @@ const LoginFormModal = () => {
         
         <form onSubmit={handleSubmit} className="ModalForm">
             <div className="InputContainer">
-                <label htmlFor="SignupEmail">Email <span style={{color: "#dd0000"}}>*</span></label>
-                <input id="SignupEmail" value={email} onChange={(e) => setEmail(e.target.value)} className="ModalInput"/>
+                <label htmlFor="InputEmail">Email <span style={{color: "#dd0000"}}>*</span></label>
+                <input id="InputEmail" value={email} onChange={(e) => setEmail(e.target.value)} className="ModalInput"/>
+                <span className="error" id="emailError"></span>
+
+
+
             </div>
 
             <div className="InputContainer">
-                <label htmlFor="SignupFirstName">First name <span style={{color: "#dd0000"}}>*</span></label>
-                <input id="SignupFirstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="ModalInput"/>
+                <label htmlFor="InputFirstName">First name <span style={{color: "#dd0000"}}>*</span></label>
+                <input id="InputFirstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="ModalInput"/>
+                <span className="error" id="firstNameError"></span>
             </div>
 
             <div className="InputContainer">
-                <label htmlFor="SignupPassword">Password <span style={{color: "#dd0000"}}>*</span></label>
-                <input id="SignupPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput"/>
+                <label htmlFor="InputPassword">Password <span style={{color: "#dd0000"}}>*</span></label>
+                <input id="InputPassword" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="ModalInput"/>
+                <span className="error" id="passwordError"></span>
             </div>
 
 

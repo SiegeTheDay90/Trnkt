@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf.js";
 import { storeCSRF } from "./csrf.js";
+import { storeErrors } from "./errors.js";
 
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
@@ -48,10 +49,17 @@ export const signup = (user) => async (dispatch) => {
       email,
       password
     })
+
+  }).then(async response => {
+    const data = await response.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user))
+
+  }).catch(async error => {
+    const data = await error.json();
+    dispatch(storeErrors(data));
   });
-  const data = await response.json();
-  storeCurrentUser(data.user);
-  dispatch(setCurrentUser(data.user));
+
 };
 
 export const logout = () => async (dispatch) => {

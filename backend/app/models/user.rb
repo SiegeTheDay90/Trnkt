@@ -13,9 +13,9 @@
 #
 class User < ApplicationRecord
   # has_secure_password
-  validates :first_name, :email, :password_digest, :session_token, presence: true
+  validates :first_name, :email, :password_digest, :session_token, presence: {message: "can't be blank."}
   validates :email, :password_digest, :session_token, uniqueness: true
-  validates :password, length: {in: 8..12, message: "password must be between 8 and 12 characters"}, allow_nil: true
+  validates :password, length: {in: 8..12, message: "must be between 8 and 12 characters"}, allow_nil: true
   validates :first_name, :last_name, format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, email: {mode: :strict, require_fqdn: true, message: "must be a valid email"}
 
