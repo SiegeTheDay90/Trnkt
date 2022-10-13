@@ -1,0 +1,11 @@
+.test-button {
+    width: 200px;
+    height: 50px;
+    background-color: white;
+}
+
+.test-button::after{
+    position: absolute;
+    background-color: green;
+    z-index: 2;
+}

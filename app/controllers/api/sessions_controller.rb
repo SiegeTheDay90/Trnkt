@@ -16,11 +16,12 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by_credentials(session_params[:credential], session_params[:password])
         if @user
           login!(@user)
+          render json: {user: current_user}
         else
           @user = nil
+          render json: {errors: ["Password was incorrect"], status: 422}
         end
 
-        render json: {errors: ["Password was incorrect"], status: 422}
     end
 
     def destroy

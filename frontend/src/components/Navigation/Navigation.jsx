@@ -16,6 +16,7 @@ const Navigation = () => {
     }
 
     return (
+      <div className="header-container">
       <nav className="Navigation">
         <div className="navrow">
           <div>
@@ -51,6 +52,7 @@ const Navigation = () => {
 
         <LoginFormModal />
       </nav>
+      </div>
     )
 }
 

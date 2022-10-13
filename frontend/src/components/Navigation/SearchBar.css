@@ -37,7 +37,7 @@
     padding-top: 0;
     padding-left: 20px;
     color: #555555;
-    transform: scale(-1.11, 1);
+    transform: scale(-1.1, 1);
     transition: background-color 0.2s ease-out;
 }
 
