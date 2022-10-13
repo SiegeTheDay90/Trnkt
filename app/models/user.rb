@@ -4,7 +4,7 @@
 #
 #  id              :bigint           not null, primary key
 #  first_name      :string           not null
-#  last_name       :string           not null
+#  last_name       :string
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
@@ -12,7 +12,6 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
-  # has_secure_password
   validates :first_name, :email, :password_digest, :session_token, presence: {message: "can't be blank."}
   validates :email, :password_digest, :session_token, uniqueness: true
   validates :password, length: {in: 8..12, message: "must be between 8 and 12 characters"}, allow_nil: true

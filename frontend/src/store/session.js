@@ -25,11 +25,16 @@ export const login = ({ credential, password }) => async dispatch => {
   const response = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify({ credential, password })
+  
+  }).then(async response => {
+    const data = await response.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+  }).catch(async error => {
+    const data = await error.json();
+    dispatch(storeErrors(data));
   });
 
-  const data = await response.json();
-  storeCurrentUser(data.user);
-  dispatch(setCurrentUser(data.user));
 };
 
 export const restoreSession = () => async dispatch => {

@@ -1,6 +1,3 @@
-import csrfFetch from "./csrf.js";
-import { storeCSRF } from "./csrf.js";
-
 const SET_ERRORS = 'errors/setErrors'
 
 const setErrors = (errors) => ({

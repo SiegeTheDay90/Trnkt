@@ -20,7 +20,8 @@ const Navigation = () => {
       <nav className="Navigation">
         <div className="navrow">
           <div>
-            <Link to="/"><img className="logo" alt="mainLogo" src="logo.png"/></Link>
+            <Link to="/"><img className="logo" alt="mainLogo" src="https://i.ibb.co/5cm3p8n/logo.png"/></Link>
+
           </div>
 
 

@@ -21,7 +21,6 @@ class Api::SessionsController < ApplicationController
           @user = nil
           render json: {errors: ["Password was incorrect"], status: 422}
         end
-
     end
 
     def destroy

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { logout } from '../../store/session.js'
@@ -10,12 +11,12 @@ const SessionInfo = () => {
         e.preventDefault();
         dispatch(logout());
     }
-    // debugger;
-    if(!sessionUser) return <Redirect to="/login" />;
-
+    
+    useEffect(() => {}, [sessionUser])
     return(
         <div>
-            User: {sessionUser.firstName}<br/>
+            {sessionUser.firstName}
+            {sessionUser.first_name}<br/>
             <button onClick={handleSubmit}>Logout</button>
         </div>
     )

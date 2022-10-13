@@ -16,8 +16,7 @@ const LoginFormModal = () => {
     
     const [formType, setFormType] = useState('login');
 
-    const closeModal = (e) => {
-        e.preventDefault();
+    const closeModal = () => {
         if(formType === 'login'){
             document.getElementById('emailError').style.display = "none";
             document.getElementById('passwordError').style.display = "none";
@@ -37,7 +36,9 @@ const LoginFormModal = () => {
     }
 
     useEffect(() => {
-        if(errors[0]){
+        if(sessionUser){
+            closeModal();
+        } else if(errors[0]){
             const prevalentError = errors[0];
             let errorContainer;
             let inputField;
@@ -64,40 +65,29 @@ const LoginFormModal = () => {
                 inputField.style.border = "1px solid #bb0000";
             }
         }
-    }, [errors]);
+    }, [errors, sessionUser]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if(formType==='login'){
             if(!credential){
                 dispatch(storeErrors({errors:["Email can't be blank"]}));
-                // const emailError = document.getElementById('emailError');
-                // const emailInput = document.getElementById('InputEmail');
-                // emailError.style.display = "block";
-                // emailInput.style.background = "#ffdddd";
-                // emailInput.style.border = "1px solid #bb0000";
-                // emailError.innerHTML = "Email can't be blank."
+
             } else {
                 const user = {credential, password};
-                await dispatch(login(user));
-                if(sessionUser){
-                    closeModal();
-                } else {
-                    dispatch(storeErrors({errors:["Password was incorrect"]}));
-                    // const passwordError = document.getElementById('passwordError');
-                    // const passwordInput = document.getElementById('InputPassword');
-
-                    // passwordError.style.display = "block";
-                    // passwordInput.style.background = "#ffdddd";
-                    // passwordInput.style.border = "1px solid #bb0000";
-                }
+                dispatch(login(user));
+                // if(sessionUser){
+                //     closeModal();
+                // } else {
+                //     dispatch(storeErrors({errors:["Password was incorrect"]}));
+                // }
             }
         } else if(formType==='signup'){
             const user = {firstName, email, password};
-            await dispatch(signup(user));
-            if(sessionUser){
-                closeModal();
-            }
+            dispatch(signup(user));
+            // if(sessionUser){
+            //     closeModal();
+            // }
         }
     }
 
@@ -105,8 +95,6 @@ const LoginFormModal = () => {
         e.preventDefault();
         dispatch(login({credential: 'demo@user.io', password: 'password'}))
     }
-
-    if(sessionUser) return <Redirect to="/" />;
 
     return(
         <dialog id="OverlayContainer">

@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_201938) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_13_150947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "shops", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.string "state", null: false
+    t.string "country", null: false
+    t.integer "rating"
+    t.integer "sales", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "seller_id"
+    t.index ["name"], name: "index_shops_on_name", unique: true
+    t.index ["seller_id"], name: "index_shops_on_seller_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
@@ -26,4 +40,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_201938) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "shops", "users", column: "seller_id"
 end
