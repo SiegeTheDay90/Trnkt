@@ -1,0 +1,14 @@
+{
+  "name": "trnkt",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "16.x"
+  }
+}

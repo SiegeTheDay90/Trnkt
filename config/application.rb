@@ -36,7 +36,8 @@ module TrnkT
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    # ...
+    config.railties_order = [:all, :main_app]
+
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
       key: '_trnkt_session',
@@ -48,7 +49,6 @@ end
 
 module Backend
   class Application < Rails::Application
-    # ...
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
       key: '_auth_me_session',

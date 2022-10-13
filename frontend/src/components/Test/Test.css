@@ -6,6 +6,8 @@
 
 .test-button::after{
     position: absolute;
+    width: 200px;
+    height: 30px;
     background-color: green;
     z-index: 2;
 }
