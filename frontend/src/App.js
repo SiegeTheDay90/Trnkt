@@ -4,6 +4,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import Test from './components/Test/Test';
 import Shop from './components/Shop/Shop';
+import Product from './components/Product/Product';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
       <div className='App-body'>
         <Route path="/shops/:id">
           <Shop />
+        </Route>
+        <Route path="/products/:id">
+          <Product />
         </Route>
         <Route path="/test">
           <Test />

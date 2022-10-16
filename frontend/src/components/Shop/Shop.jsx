@@ -1,16 +1,15 @@
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import './Shop.css'
 import { useParams } from "react-router-dom";
 import { getShop } from "../../store/shops";
 import { useEffect } from "react";
+import ProductListItem from './ProductListItem';
 
 const Shop = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     
     useEffect(() => {
-        debugger;
         dispatch(getShop(id))
     }, [id]);
 
@@ -22,7 +21,7 @@ const Shop = () => {
         <>
         {shop &&
         <div id="shop-outer-container">
-            <img id="shop-cover-photo" src={shop.coverphotourl}/>
+            <img id="shop-cover-photo" src="https://picsum.photos/1900/475/"/>
             <div id="shop-info-container">
                 <div id="header">
                     <div id="header-left">
@@ -56,76 +55,9 @@ const Shop = () => {
                             Categories
                         </div>
                         <div id="shop-item-grid">
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
-                            <div className="item">
-                                <img src="https://picsum.photos/256/206" />
-                                <span className="item-title">Lorem Ipsum Title Lorem Ipsum Title</span>
-                                <span className="item-price">$99.99</span>
-                            </div>                            
+                            {Object.values(shop.products).map((product) => (
+                                <ProductListItem id={product.id}/>
+                            ))}                                                
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,45 @@
+#product-outer-container, #product-header-container {
+    display: flex;
+    margin: 0 auto;
+}
+
+#product-outer-container {
+    background-color: green;
+    width:100%;
+}
+
+#product-header-container {
+    background-color: purple;
+    width: 90%;
+}
+
+#product-header-left {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 60%;
+    background-color: red;
+    margin: 30px;
+}
+
+#product-header-left h1 {
+    display: block;
+    width: 100%;
+}
+
+#product-header-right {
+    height: 500px;
+    width: 40%;
+    background-color: yellow;
+    margin: 30px;
+}
+
+#product-carousel-list {
+    width: 75px;
+    height: 550px;
+}
+
+#product-carousel-container img {
+    width: 50%;
+}

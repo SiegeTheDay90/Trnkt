@@ -18,7 +18,6 @@ const listUsers = (users) => ({
 })
 
 export const fetchUser = (id) => async dispatch => {
-    // debugger;
     await csrfFetch(`/api/users/${id}`
     ).then( async response => {
         const user = await response.json();
