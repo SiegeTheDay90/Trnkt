@@ -21,9 +21,9 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user
-      render json: {firstName: @user.first_name, lastName: @user.last_name, email: @user.email}
+      render json: {id: @user.id, firstName: @user.first_name, lastName: @user.last_name, email: @user.email}
     else
-      render json: nil
+      render json: {errors: ["User does not exist."], status: 422}
     end
   end
 end

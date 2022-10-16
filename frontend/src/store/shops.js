@@ -20,7 +20,7 @@ const initialState = {
   const shopsReducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_SHOP:
-        return {[action.shop.id] : action.shop}
+        return {...state, [action.shop.id] : action.shop}
   
       default:
         return state;

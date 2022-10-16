@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { logout } from '../../store/session.js'
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../store/session.js';
+import '../Navigation/Navigation.css';
 
 const SessionInfo = () => {
     const dispatch = useDispatch();
@@ -11,13 +11,19 @@ const SessionInfo = () => {
         e.preventDefault();
         dispatch(logout());
     }
+
+    const showLoginModal = (e) => {
+        e.preventDefault();
+        const modal = document.getElementById('OverlayContainer');
+        modal.showModal();
+    }
     
     useEffect(() => {}, [sessionUser])
     return(
-        <div>
-            {sessionUser.firstName}
-            {sessionUser.first_name}<br/>
-            <button onClick={handleSubmit}>Logout</button>
+        <div id="user-card">
+            {!sessionUser && <button onClick={showLoginModal} id="SignInButton" className="nav-session-button">Sign in</button>}<br/>
+            {sessionUser && <>Welcome, {sessionUser.firstName}<br/>
+            <button className="nav-session-button" onClick={handleSubmit}>Logout</button></>}
         </div>
     )
 }

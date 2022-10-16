@@ -54,3 +54,5 @@ end
 
 #additional gems
 gem "email_validator"
+gem "aws-sdk-s3"
+gem "down"

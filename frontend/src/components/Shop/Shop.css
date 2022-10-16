@@ -62,8 +62,10 @@
 }
 
 #shop-outer-container #button-follow:hover{
-    width: 211px;
-    height: 46px;
+    width: 215px;
+    height: 44px;
+    margin-top: 32px;
+    margin-left: 9px;
     background-color: white;
     box-shadow: 0 1px 10px #00000055;
 }
@@ -187,4 +189,10 @@
     border: 2px solid black;
     border-radius: 10px;
     padding: 5px;
+}
+
+#seller-name{
+    font-size: 13px;
+    letter-spacing: 1px;
+    transform: scale(1.0, 1.1);
 }

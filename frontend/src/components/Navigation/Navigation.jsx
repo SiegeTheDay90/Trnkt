@@ -9,12 +9,6 @@ import './Navigation.css'
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user);
 
-    const showLoginModal = (e) => {
-      e.preventDefault();
-      const modal = document.getElementById('OverlayContainer');
-      modal.showModal();
-    }
-
     return (
       <div className="header-container">
       <nav className="Navigation">
@@ -29,8 +23,7 @@ const Navigation = () => {
 
 
           <div>
-            {sessionUser && <SessionInfo />} 
-            {!sessionUser && <button onClick={showLoginModal} id="SignInButton" className="nav-button">Sign in</button>}<br/>
+            <SessionInfo /> 
           </div>
 
           <div id="iconContainer">

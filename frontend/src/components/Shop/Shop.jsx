@@ -8,14 +8,21 @@ import { useEffect } from "react";
 const Shop = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    useEffect(() => {dispatch(getShop(id))}, []);
+    
+    useEffect(() => {
+        debugger;
+        dispatch(getShop(id))
+    }, [id]);
+
+
     const shop = useSelector(state => state.shops[id]);
+
 
     return (
         <>
         {shop &&
         <div id="shop-outer-container">
-            <img id="shop-cover-photo" src="https://picsum.photos/1900/475"/>
+            <img id="shop-cover-photo" src={shop.coverphotourl}/>
             <div id="shop-info-container">
                 <div id="header">
                     <div id="header-left">
@@ -37,7 +44,7 @@ const Shop = () => {
 
                     <div id="header-right">
                         <img id="profile-pic" src="https://picsum.photos/75/75"/>
-                        <p>Seller Name</p>
+                        <p id="seller-name">{shop.seller.first_name}</p>
                         <button><i className="fa-solid fa-envelope-open-text"></i> Contact</button>
                     </div>
 

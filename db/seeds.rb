@@ -17,6 +17,7 @@
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Product.destroy_all
     Shop.destroy_all
     User.destroy_all
   
@@ -24,6 +25,7 @@ ApplicationRecord.transaction do
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('shops')
+    ApplicationRecord.connection.reset_pk_sequence!('products')
 
   
     puts "Creating users..."
@@ -45,18 +47,47 @@ ApplicationRecord.transaction do
       }) 
     end
 
+    # User.all.each do |user|
+    #   pic = Down.download("https://picsum.photos/100/100")
+    #   user.thumbnail.attach(io: pic, filename: "user#{user.id}_thumbnail.jpg")
+    # end
+
+    pic = Down.download("https://picsum.photos/100/100")
+    User.first.thumbnail.attach(io: pic, filename: "user#{User.first.id}_thumbnail.jpg")
+
 
     puts "Creating shops..."
 
-    7.times do 
+    10.times do 
       Shop.create!({
         name: Faker::Company.unique.name,
         description: [nil, Faker::Lorem.sentence(word_count: 4)].sample,
-        seller_id: [2,3,4,5,6,7,8,9,10].sample,
+        seller_id: (2..11).to_a.sample,
         country: Faker::Fantasy::Tolkien.location,
         state: Faker::Nation.capital_city,
         rating: [3,3.5,4,4.5,5].sample,
         sales: (50..1000).to_a.sample
       }) 
     end
+
+    # Shop.all.each do |shop|
+    #   pic = Down.download("https://picsum.photos/100/100")
+    #   shop.thumbnail.attach(io: pic, filename: "shop#{shop.id}_thumbnail.jpg")
+    # end
+
+    puts "Creating products..."
+
+    50.times do 
+      Product.create!({
+        name: Faker::Commerce.product_name,
+        description: Faker::Lorem.sentence(word_count: 12),
+        price: Faker::Commerce.price,
+        shop_id: (1..10).to_a.sample
+      }) 
+    end
+
+    # Product.all.each do |product|
+    #   pic = Down.download("https://picsum.photos/100/100")
+    #   product.thumbnail.attach(io: pic, filename: "product#{product.id}_thumbnail.jpg")
+    # end
   end

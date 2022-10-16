@@ -9,7 +9,8 @@ class Api::ShopsController < ApplicationController
       @shop = Shop.find(params[:id])
       if @shop
         @seller = User.find(@shop.seller_id)
-        render json: @shop
+        @cover_photo_url = @shop.cover_photo.url
+        render :show
       else
         render json: nil
       end

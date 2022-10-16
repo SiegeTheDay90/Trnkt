@@ -18,6 +18,16 @@ class User < ApplicationRecord
   validates :first_name, :last_name, format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
   validates :email, email: {mode: :strict, require_fqdn: true, message: "must be a valid email"}
 
+  has_many(
+    :shops,
+    class_name: 'Shop',
+    foreign_key: :seller_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
+  has_one_attached :thumbnail
+
   before_validation :ensure_session_token
   attr_reader :password
 
