@@ -2,12 +2,10 @@ import SessionInfo from "../session/SessionInfo";
 import LoginFormModal from "../session/LoginFormModal";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
-
-
 import './Navigation.css'
+
+
 const Navigation = () => {
-    const sessionUser = useSelector(state => state.session.user);
 
     return (
       <div className="header-container">
@@ -32,6 +30,7 @@ const Navigation = () => {
         </div>
 
         <div className="navrow nav-category-container">
+          
           <span className="nav-category">Halloween Hub</span>
           <span className="nav-category">Jewelry & Accessories</span>
           <span className="nav-category">Clothing & Shoes</span>

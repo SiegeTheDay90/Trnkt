@@ -2,9 +2,30 @@ class Api::SessionsController < ApplicationController
 
   def show
     if current_user
-      render json: {user: current_user}
+      @user = current_user
+      render :show
     else
       render json: {user: nil}
+    end
+  end
+
+  def update
+    if current_user
+      @user = current_user
+      ci = CartItem.new(buyer_id: current_user.id, product_id: params['product_id'], quantity: params['quantity'])
+
+      if ci.save
+        render :show
+      else
+
+        render json: {errors: ["Invalid Cart Item"], status: 422}
+
+      end
+
+    else
+
+      render json: {errors: ["No session user"], status: 403}
+
     end
   end
 
@@ -12,7 +33,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(session_params[:credential], session_params[:password])
     if @user
       login!(@user)
-      render json: {user: {email: @user.email, firstName: @user.first_name}}
+      render :show
     else
       @user = nil
       render json: {errors: ["Password was incorrect"], status: 422}

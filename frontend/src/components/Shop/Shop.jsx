@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './Shop.css'
 import { useParams } from "react-router-dom";
-import { getShop } from "../../store/shops";
+import { fetchShop } from "../../store/shops";
 import { useEffect } from "react";
 import ProductListItem from './ProductListItem';
 
@@ -10,22 +10,28 @@ const Shop = () => {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        dispatch(getShop(id))
-    }, [id]);
+        dispatch(fetchShop(id))
+    }, [id, dispatch]);
 
 
     const shop = useSelector(state => state.shops[id]);
+    const users = useSelector(state => state.users);
+    let seller = {firstName: "First"};
+    if (shop && users){
+        seller = users[shop.sellerId]
+    }
+    const products = useSelector(state => state.products);
 
 
     return (
         <>
         {shop &&
         <div id="shop-outer-container">
-            <img id="shop-cover-photo" src="https://picsum.photos/1900/475/"/>
+            <img id="shop-cover-photo" src={shop.coverPhotoUrl} alt="alt text"/>
             <div id="shop-info-container">
                 <div id="header">
                     <div id="header-left">
-                        <img id="shop-logo" src="https://picsum.photos/120/120"/>
+                        <img id="shop-logo" src={shop.photoUrl} alt="alt text"/>
                         <div id="shop-info">
                             <h1>{shop.name}</h1>
                             <p id="description">{shop.description}</p>
@@ -42,8 +48,8 @@ const Shop = () => {
                         {false && <p>star seller pics</p>/*star seller logic*/}
 
                     <div id="header-right">
-                        <img id="profile-pic" src="https://picsum.photos/75/75"/>
-                        <p id="seller-name">{shop.seller.first_name}</p>
+                        <img id="profile-pic" src={seller.photoUrl} alt="alt text"/>
+                        <p id="seller-name">{seller.firstName}</p>
                         <button><i className="fa-solid fa-envelope-open-text"></i> Contact</button>
                     </div>
 
@@ -55,7 +61,7 @@ const Shop = () => {
                             Categories
                         </div>
                         <div id="shop-item-grid">
-                            {Object.values(shop.products).map((product) => (
+                            {Object.values(products).map((product) => (
                                 <ProductListItem id={product.id}/>
                             ))}                                                
                         </div>

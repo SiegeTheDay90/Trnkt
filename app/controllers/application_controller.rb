@@ -59,6 +59,6 @@ class ApplicationController < ActionController::API
     end
 
     def session_params
-        params.require(:session).permit(:credential, :password)
+        params.require(:session).permit(:credential, :password, :cart)
     end
 end

@@ -16,6 +16,7 @@ const SessionInfo = () => {
         e.preventDefault();
         const modal = document.getElementById('OverlayContainer');
         modal.showModal();
+        document.getElementById('App').style.overflow = "hidden";
     }
     
     useEffect(() => {}, [sessionUser])

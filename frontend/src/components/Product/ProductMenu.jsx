@@ -1,0 +1,57 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import './ProductMenu.css'
+import { useParams } from "react-router-dom";
+import { useState } from 'react';
+import { sendCartItem } from '../../store/session';
+
+
+const ProductMenu = () => {
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    
+    const [quantity, setQuantity] = useState(1);
+
+
+    const product = useSelector(state => state.products[id]);
+    const shops = useSelector(state => state.shops);
+    let shop = {name: "Name"}
+    if (product && shops){
+        shop = shops[product.shopId]
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        dispatch(sendCartItem(product.id, quantity))
+    }
+
+    return (
+        <>
+        {product &&
+        <div id="product-menu-shop-details">
+            <span><Link to=   {`/shops/${product.shopId}`} id="shop-title">{shop.name}</Link> 
+            <button id="follow-button"><i className="fa-regular fa-heart"></i> Follow</button></span>
+            <div><span id="sales">{shop.sales} sales |&nbsp;</span>
+            <span id="rating">Rating: {shop.rating}</span></div>
+        </div>}
+        <div id="product-details">
+            <h1>{product.name}</h1>
+            <h2>${product.price.toFixed(2)}</h2>
+
+            <label htmlFor="quantity-select"><span>Quantity <span className="mandatory"> * </span></span>
+                <select id="quantity-select" className="menu-select" onChange={(e) => setQuantity(e.target.value)}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label><br/>
+            <button id="button-add-to-cart" onClick={handleClick}>Add to Cart</button><br/>
+            <p id="product-description"><span style={{"font-weight":"bold"}}>Description:</span> {product.description}</p>
+        </div>
+        </>
+    )
+}
+
+export default ProductMenu;

@@ -1,16 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './Product.css'
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { fetchProduct } from '../../store/products';
 
 const ProductCarousel = (props) => {
     const id = props.id;
-    const dispatch = useDispatch();
-    
-    useEffect(() => {
-        dispatch(fetchProduct(id))
-    }, [id]);
 
 
     const product = useSelector(state => state.products[id]);
@@ -21,11 +13,16 @@ const ProductCarousel = (props) => {
         {product &&
         <div id="product-carousel-container">
             <div id="product-carousel-list">
-                List
+                <img className="product-carousel-list-image" src={product.photoUrl} alt="Product"/>
+                <img className="product-carousel-list-image" src={product.photoUrl} alt="Product"/>
+                <img className="product-carousel-list-image" src={product.photoUrl} alt="Product"/>
+                <img className="product-carousel-list-image" src={product.photoUrl} alt="Product"/>
+                <img className="product-carousel-list-image" src={product.photoUrl} alt="Product"/>
             </div>
-            <img src="https://picsum.photos/500/500" alt="Product Image"/>
+            <div id="product-image-container">
+                <img id="product-image" src={product.photoUrl} alt="Product"/>
+            </div>
         </div>}
-        {!product && <h1>Invalid product ID</h1>}
         </>
     )
 }

@@ -3,15 +3,15 @@ import csrfFetch from "./csrf.js";
 const ADD_SHOP = 'shops/addShop'
 const ADD_PRODUCT = 'products/addProduct'
 
-const addProduct = (product) => ({
+const addProduct = (payload) => ({
     type: ADD_PRODUCT,
-    product
+    payload
 })
 
 export const fetchProduct = (id) => async dispatch => {
     const response = await csrfFetch(`/api/products/${id}`);
-    const product = await response.json();
-    dispatch(addProduct(product));
+    const data = await response.json();
+    dispatch(addProduct(data));
 }
 
 const initialState = { 
@@ -21,10 +21,10 @@ const initialState = {
 const productsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_PRODUCT:
-            return {...state, [action.product.id]: action.product}
+            return {...state, [action.payload.product.id]: action.payload.product}
       
         case ADD_SHOP:
-            return action.shop.products
+            return action.payload.products
   
         default:
             return state;

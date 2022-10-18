@@ -1,0 +1,121 @@
+#product-menu-shop-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+#product-menu-shop-details a {
+    text-decoration: none;
+    color: black;
+    font-family: arial;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+#product-menu-shop-details a:hover {
+    text-decoration: underline;
+}
+
+#product-details {
+    display: flex;
+    margin-top: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#product-details h1 {
+    font-size: 28px;
+    font-family: Georgia;
+    font-weight: light;
+    margin-bottom: 20px;
+}
+
+#product-details h2 {
+    font-size: 28px;
+    font-family: Arial;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#shop-title {
+    transform: scale(1.01, 1.2);
+}
+
+#follow-button {
+    border: 0;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    margin-left: 10px;
+    transition: 0.2s ease;
+}
+
+#follow-button:hover {
+    background-color: #eeeeee;
+}
+
+.fa-heart {
+    font-size: 14px;
+}
+
+label {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.mandatory {
+    color: #aa0000;
+    font-size: 20px;
+}
+
+
+
+.menu-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 3px #00000030;
+}
+
+#button-add-to-cart {
+    border-radius: 25px;
+    background: #222222;
+    color: white;
+    font-size: 16px;
+    padding: 0px 15px 0px 15px;
+    height: 50px;
+    width: 99%;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s ease;
+    align-self: center;
+    font-weight: bolder;
+}
+
+#button-add-to-cart:hover {
+    border-radius: 25px;
+    background: #333333;
+    color: white;
+    font-size: 16px;
+    padding: 0px 15px 0px 15px;
+    margin-top: -1px;
+    height: 51px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}
+
+#product-description {
+    text-align: left;
+    font-style: oblique;
+    font-size: 16px;
+    line-height: 1.2;
+}

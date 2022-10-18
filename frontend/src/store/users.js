@@ -47,7 +47,7 @@ const initialState = {
             return action.users
         
         case ADD_SHOP:
-            return {...state, [action.shop.seller.id] : action.shop.seller}
+            return {...state, [action.payload.seller.id] : action.payload.seller}
   
         default:
             return state;

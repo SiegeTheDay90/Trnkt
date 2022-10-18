@@ -149,21 +149,19 @@
     width: 100%;
 }
 
-#shop-item-grid:last-child{
+/* #shop-item-grid:last-child{
     justify-self: flex-end;
-}
+} */
 
 .item {
     display:flex;
     border-radius: 8px;
     flex-direction: column;
     align-items: flex-start;
-    width: 23%;
+    width: 25%;
     min-width: 200px;
-    max-width: 23%;
-    height: 250px;
-    margin: 0.5%;
-    padding: 5px;
+    margin: 1%;
+    padding: 10px;
     transition: box-shadow 0.2s ease-in;
     /* background-color: red; */
 }
@@ -187,7 +185,8 @@
 .item img{
     align-self: center;
     margin: 2px;
-    max-width: 100%;
+    max-width: 256px;
+    height: 206px;
 }
 
 #shop-item-categories{

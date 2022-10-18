@@ -8,8 +8,8 @@ class Api::ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     if @shop
-      @seller = User.find(@shop.seller_id)
-      @cover_photo_url = @shop.cover_photo.url
+      @products = @shop.products
+      @seller = @shop.seller
       render :show
     else
       render json: nil

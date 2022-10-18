@@ -26,6 +26,14 @@ class User < ApplicationRecord
     dependent: :destroy
   )
 
+  has_many(
+    :cart_items,
+    class_name: 'CartItem',
+    foreign_key: :buyer_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
   has_one_attached :thumbnail
 
   before_validation :ensure_session_token

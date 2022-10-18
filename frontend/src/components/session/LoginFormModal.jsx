@@ -76,18 +76,10 @@ const LoginFormModal = () => {
             } else {
                 const user = {credential, password};
                 dispatch(login(user));
-                // if(sessionUser){
-                //     closeModal();
-                // } else {
-                //     dispatch(storeErrors({errors:["Password was incorrect"]}));
-                // }
             }
         } else if(formType==='signup'){
             const user = {firstName, email, password};
             dispatch(signup(user));
-            // if(sessionUser){
-            //     closeModal();
-            // }
         }
     }
 
