@@ -34,9 +34,7 @@ export const fetchUsers = () => async dispatch => {
     dispatch(listUsers(users));
 }
 
-const initialState = { 
-    users: JSON.parse(sessionStorage.getItem("users"))
-};
+const initialState = JSON.parse(sessionStorage.getItem("users")) || {}
   
   const usersReducer = (state = initialState, action) => {
     switch (action.type) {

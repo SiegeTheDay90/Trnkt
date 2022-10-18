@@ -7,6 +7,7 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
+import { restoreSession } from './store/session';
 import * as sessionActions from './store/session';
 import * as userActions from './store/users';
 import * as shopActions from './store/shops';
@@ -41,11 +42,15 @@ const renderApp = () => {
 
 }
 
+// restoreSession();
+
 if (sessionStorage.getItem('X-CSRF-Token') === null) {
   restoreCSRF().then(renderApp);
 } else {
   renderApp();
 }
+
+
 
 
 // If you want to start measuring performance in your app, pass a function

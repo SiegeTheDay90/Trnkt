@@ -14,9 +14,7 @@ export const fetchProduct = (id) => async dispatch => {
     dispatch(addProduct(data));
 }
 
-const initialState = { 
-    products: JSON.parse(sessionStorage.getItem("products"))
-};
+const initialState = JSON.parse(sessionStorage.getItem("products"))  || {}
   
 const productsReducer = (state = initialState, action) => {
     switch (action.type) {

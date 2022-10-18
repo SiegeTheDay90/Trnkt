@@ -27,9 +27,7 @@ export const fetchShops = () => async dispatch => {
   dispatch(listShops(shops));
 }
 
-const initialState = { 
-    shops: JSON.parse(sessionStorage.getItem("shops"))
-};
+const initialState = JSON.parse(sessionStorage.getItem("shops")) || {}
   
   const shopsReducer = (state = initialState, action) => {
     switch (action.type) {

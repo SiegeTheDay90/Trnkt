@@ -48,7 +48,7 @@ const ProductMenu = () => {
                 </select>
             </label><br/>
             <button id="button-add-to-cart" onClick={handleClick}>Add to Cart</button><br/>
-            <p id="product-description"><span style={{"font-weight":"bold"}}>Description:</span> {product.description}</p>
+            <p id="product-description"><span style={{"fontWeight":"bold"}}>Description:</span> {product.description}</p>
         </div>
         </>
     )

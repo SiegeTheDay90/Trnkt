@@ -3,6 +3,10 @@ class Api::SessionsController < ApplicationController
   def show
     if current_user
       @user = current_user
+      cart_value_pairs = Hash.new
+      @user.cart_items.each {|item| cart_value_pairs[item.product_id] = item.quantity}
+      @products = Product.where(id: cart_value_pairs.keys)
+      @products.each {|product| product.quantity = cart_value_pairs[product.id]}
       render :show
     else
       render json: {user: nil}
@@ -12,20 +16,33 @@ class Api::SessionsController < ApplicationController
   def update
     if current_user
       @user = current_user
-      ci = CartItem.new(buyer_id: current_user.id, product_id: params['product_id'], quantity: params['quantity'])
+      if (params['type'] == 'add' && CartItem.find_by(product_id: params['product_id'], buyer_id: current_user.id))
+        ci = CartItem.find_by(product_id: params['product_id'], buyer_id: current_user.id)
 
-      if ci.save
-        render :show
-      else
+        if ci.update(quantity: params['quantity'])
+        else
+          render json: {errors: ["Invalid Cart Action"], status: 422}
+        end
 
-        render json: {errors: ["Invalid Cart Item"], status: 422}
+      elsif (params['type'] == 'add')
+        ci = CartItem.new(buyer_id: current_user.id, product_id: params['product_id'], quantity: params['quantity'])
+        if ci.save
+        else
+          render json: {errors: ["Invalid Cart Item"], status: 422}
+        end
 
+      elsif (params['type'] == 'remove')
+        CartItem.find_by(product_id: params['product_id'], buyer_id: current_user.id).destroy
       end
 
+      cart_value_pairs = Hash.new
+      @user.cart_items.each {|item| cart_value_pairs[item.product_id] = item.quantity}
+      @products = Product.where(id: cart_value_pairs.keys)
+      @products.each {|product| product.quantity = cart_value_pairs[product.id]}
+      render :show
+
     else
-
       render json: {errors: ["No session user"], status: 403}
-
     end
   end
 
@@ -33,6 +50,10 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(session_params[:credential], session_params[:password])
     if @user
       login!(@user)
+      cart_value_pairs = Hash.new
+      @user.cart_items.each {|item| cart_value_pairs[item.product_id] = item.quantity}
+      @products = Product.where(id: cart_value_pairs.keys)
+      @products.each {|product| product.quantity = cart_value_pairs[product.id]}
       render :show
     else
       @user = nil

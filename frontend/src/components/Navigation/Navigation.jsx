@@ -24,9 +24,8 @@ const Navigation = () => {
             <SessionInfo /> 
           </div>
 
-          <div id="iconContainer">
-            <i id="cart" className="fa-solid fa-cart-shopping"></i> 
-          </div>
+          <Link to="/cart"><button id="cart-button"><i id="cart" className="fa-solid fa-cart-shopping"></i></button></Link>
+
         </div>
 
         <div className="navrow nav-category-container">

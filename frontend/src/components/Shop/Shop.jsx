@@ -16,12 +16,15 @@ const Shop = () => {
 
     const shop = useSelector(state => state.shops[id]);
     const users = useSelector(state => state.users);
+
     let seller = {firstName: "First"};
     if (shop && users){
         seller = users[shop.sellerId]
     }
     const products = useSelector(state => state.products);
-
+    // debugger;
+    if (!seller) return null;
+    
 
     return (
         <>

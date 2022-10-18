@@ -14,6 +14,7 @@ class Product < ApplicationRecord
   validates :name, :description, :price, :shop_id, presence: true
   validates :name, length: {in: (4..32)}
   validates :price, numericality: { greater_than: 0 }
+  attr_accessor :quantity
 
   belongs_to(
     :shop,

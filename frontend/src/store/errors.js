@@ -9,9 +9,7 @@ export const storeErrors = (errors) => dispatch => {
     dispatch(setErrors(errors));
 }
 
-const initialState = { 
-    errors: JSON.parse(sessionStorage.getItem("errors"))
-  };
+const initialState = JSON.parse(sessionStorage.getItem("errors"))  || {}
   
   const errorsReducer = (state = initialState, action) => {
     switch (action.type) {

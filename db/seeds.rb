@@ -51,7 +51,6 @@ ApplicationRecord.transaction do
   # User.all.each do |user|
   #   pic = Down.download("https://picsum.photos/100/100")
   #   user.thumbnail.attach(io: pic, filename: "user#{user.id}_thumbnail.jpg")
-  #   Cart.create!(user_id: user.id)
   # end
 
 
@@ -101,4 +100,8 @@ ApplicationRecord.transaction do
   #   pic = Down.download("https://picsum.photos/256")
   #   product.thumbnail.attach(io: pic, filename: "product#{product.id}_thumbnail.jpg")
   # end
+
+  puts "Created #{User.count} users"
+  puts "Created #{Shop.count} shops"
+  puts "Created #{Product.count} products"
 end

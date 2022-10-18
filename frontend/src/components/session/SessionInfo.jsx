@@ -19,7 +19,6 @@ const SessionInfo = () => {
         document.getElementById('App').style.overflow = "hidden";
     }
     
-    useEffect(() => {}, [sessionUser])
     return(
         <div id="user-card">
             {!sessionUser && <button onClick={showLoginModal} id="SignInButton" className="nav-session-button">Sign in</button>}<br/>

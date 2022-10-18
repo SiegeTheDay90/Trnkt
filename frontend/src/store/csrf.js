@@ -4,8 +4,6 @@ export const restoreCSRF = async () => {
   if(response.ok){
     storeCSRF(response);
   }
-
-  return response;
 }
 
 export const storeCSRF = (response) => {

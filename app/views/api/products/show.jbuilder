@@ -6,5 +6,5 @@ end
 json.set! :shop do
     json.extract! @shop, :id, :name, :description, :seller_id, :sales, :rating, :state, :country, :created_at, :updated_at
     json.set! :cover_photo_url, @shop.cover_photo.url
-    json.set! :photo_url, @shop.thumbnail.urlend
+    json.set! :photo_url, @shop.thumbnail.url
 end
