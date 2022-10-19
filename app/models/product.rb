@@ -2,13 +2,15 @@
 #
 # Table name: products
 #
-#  id          :bigint           not null, primary key
-#  name        :string           not null
-#  description :text             not null
-#  price       :float            not null
-#  shop_id     :bigint           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id            :bigint           not null, primary key
+#  name          :string           not null
+#  description   :text             not null
+#  price         :float            not null
+#  shop_id       :bigint           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  likeable_type :string
+#  likeable_id   :bigint
 #
 class Product < ApplicationRecord
   validates :name, :description, :price, :shop_id, presence: true
@@ -22,6 +24,11 @@ class Product < ApplicationRecord
     foreign_key: :shop_id,
     primary_key: :id
   )  
+  
+  has_many(
+    :likes,
+    as: :likeable
+  )
   
   has_one_attached :thumbnail
 

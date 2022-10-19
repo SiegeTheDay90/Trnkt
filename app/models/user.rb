@@ -34,6 +34,8 @@ class User < ApplicationRecord
     dependent: :destroy
   )
 
+  has_many :likes
+
   has_one_attached :thumbnail
 
   before_validation :ensure_session_token

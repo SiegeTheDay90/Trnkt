@@ -1,0 +1,27 @@
+.nav-dropdown-content{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.nav-dropdown-content a {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.nav-dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+.nav-dropdown-content img:hover {
+    box-shadow: 0 0 6px 6px #00000030;
+}
+
+.nav-dropdown-content img {
+    border-radius: 8px;
+}

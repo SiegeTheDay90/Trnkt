@@ -2,16 +2,18 @@
 #
 # Table name: shops
 #
-#  id          :bigint           not null, primary key
-#  name        :string           not null
-#  description :text
-#  state       :string           not null
-#  country     :string           not null
-#  rating      :integer
-#  sales       :integer          default(0)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  seller_id   :bigint
+#  id            :bigint           not null, primary key
+#  name          :string           not null
+#  description   :text
+#  state         :string           not null
+#  country       :string           not null
+#  rating        :integer
+#  sales         :integer          default(0)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  seller_id     :bigint
+#  likeable_type :string
+#  likeable_id   :bigint
 #
 class Shop < ApplicationRecord
     validates :name, presence: {message: "can't be blank."}, uniqueness: {message: "is already taken."}
@@ -30,6 +32,11 @@ class Shop < ApplicationRecord
         foreign_key: :shop_id,
         primary_key: :id,
         dependent: :destroy
+    )
+
+    has_many(
+        :likes,
+        as: :likeable
     )
 
     has_one_attached :thumbnail

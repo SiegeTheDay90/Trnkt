@@ -10,6 +10,11 @@ const addShop = (payload) => ({
   payload
 });
 
+const likeShop = (payload) => ({
+  type: ADD_SHOP,
+  payload
+});
+
 const listShops = (shops) => ({
   type: LIST_SHOPS,
   shops
@@ -25,6 +30,12 @@ export const fetchShops = () => async dispatch => {
   const response = await csrfFetch(`/api/shops`);
   const shops = await response.json();
   dispatch(listShops(shops));
+}
+
+export const sendLike = (id) => async dispatch => {
+  const response = await csrfFetch(`/api/shops/${id}`, {method: 'PATCH'});
+  const shops = await response.json();
+  dispatch(likeShop(shops));
 }
 
 const initialState = JSON.parse(sessionStorage.getItem("shops")) || {}

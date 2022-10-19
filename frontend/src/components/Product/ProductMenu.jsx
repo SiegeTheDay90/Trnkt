@@ -31,7 +31,6 @@ const ProductMenu = () => {
 
     const goToCart = (e) => {
         e.preventDefault();
-        debugger;
         history.push('/cart');
     }
 

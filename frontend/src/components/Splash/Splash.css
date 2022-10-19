@@ -1,0 +1,63 @@
+#splash-container {
+    display: grid;
+    grid-template-areas:
+        'header header header header'
+        'item-1 item-3 item-5 item-7'
+        'item-1 item-4  item-5 item-8'
+        'item-2 item-4 item-6 item-8';
+    gap: 25px;
+    padding: 10px;
+    margin:30px;
+}
+
+#splash-container div {
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+#splash-container img:hover {
+    box-shadow: 0 0 6px 6px #00000030;
+}
+
+#splash-container img {
+    border-radius: 8px;
+}
+
+.item-1 img, .item-4 img, .item-5 img, .item-8 img {
+    height: 100%;
+    width: 100%;
+}
+
+.item-2 img, .item-3 img, .item-6 img, .item-7 img {
+    height: 100%;
+    width: 100%;
+}
+
+#splash-container h1 {
+    grid-area: header;
+}
+
+.item-1 {
+    grid-area: item-1;
+}
+.item-2 {
+    grid-area: item-2;
+}
+.item-3 {
+    grid-area: item-3;
+}
+.item-4 {
+    grid-area: item-4;
+}
+.item-5 {
+    grid-area: item-5;
+}
+.item-6 {
+    grid-area: item-6;
+}
+.item-7 {
+    grid-area: item-7;
+}
+.item-8 {
+    grid-area: item-8;
+}

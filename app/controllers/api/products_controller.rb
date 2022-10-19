@@ -1,7 +1,11 @@
 class Api::ProductsController < ApplicationController
 
     def index
-      @products = Product.all
+      if params[:num]
+        @products = Product.all.sample(params[:num].to_i)
+      else
+        @products = Product.all
+      end
       render :index
     end
   

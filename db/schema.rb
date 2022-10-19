@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_17_202815) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_19_203630) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_17_202815) do
     t.index ["product_id"], name: "index_cart_items_on_product_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "likeable_type"
+    t.bigint "likeable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -60,6 +70,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_17_202815) do
     t.bigint "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "likeable_type"
+    t.bigint "likeable_id"
+    t.index ["likeable_type", "likeable_id"], name: "index_products_on_likeable"
     t.index ["shop_id"], name: "index_products_on_shop_id"
   end
 
@@ -73,6 +86,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_17_202815) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "seller_id"
+    t.string "likeable_type"
+    t.bigint "likeable_id"
+    t.index ["likeable_type", "likeable_id"], name: "index_shops_on_likeable"
     t.index ["name"], name: "index_shops_on_name", unique: true
     t.index ["seller_id"], name: "index_shops_on_seller_id"
   end
@@ -93,6 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_17_202815) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_items", "products"
   add_foreign_key "cart_items", "users", column: "buyer_id"
+  add_foreign_key "likes", "users"
   add_foreign_key "products", "shops"
   add_foreign_key "shops", "users", column: "seller_id"
 end

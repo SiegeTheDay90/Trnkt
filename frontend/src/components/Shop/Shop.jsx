@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './Shop.css'
 import { useParams } from "react-router-dom";
-import { fetchShop } from "../../store/shops";
-import { useEffect } from "react";
+import { fetchShop, sendLike } from "../../store/shops";
+import { useEffect, useState } from "react";
 import ProductListItem from './ProductListItem';
 
 const Shop = () => {
@@ -16,13 +16,34 @@ const Shop = () => {
 
     const shop = useSelector(state => state.shops[id]);
     const users = useSelector(state => state.users);
+    const [liked, setLiked] = useState(false)
 
     let seller = {firstName: "First"};
     if (shop && users){
         seller = users[shop.sellerId]
+        if(shop.liked === "true"){
+            setLiked(true)
+        }
     }
     const products = useSelector(state => state.products);
     if (!seller) return null;
+
+    const followClick = () => {
+
+        dispatch(sendLike(shop.id))
+        const value = liked ? false : true;
+        setLiked(value);
+        // debugger;
+    }
+
+    const heart = () => {
+        // debugger;
+        if(!shop.liked){
+            return "fa-regular fa-heart"
+        } else{
+            return "fa-solid fa-heart"
+        }
+    }
     
 
     return (
@@ -42,7 +63,7 @@ const Shop = () => {
                                 {false && <p>star seller</p>/*star seller logic*/}
                                 <p id="sales">{shop.sales} sales |&nbsp;</p>
                                 <p id="rating">Rating: {shop.rating}</p>
-                        <button id="button-follow"><i className="fa-regular fa-heart"></i> &nbsp;Follow shop</button>
+                        <button id="button-follow" onClick={followClick}><i className={heart()} ></i> &nbsp;Follow shop</button>
                             </div>
                         </div>
 
