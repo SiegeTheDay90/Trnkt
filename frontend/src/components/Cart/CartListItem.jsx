@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import './CartListItem.css'
-import { sendCartItem } from "../../store/session";
+import { sendCartItem, deleteCartItem } from "../../store/session";
 
 const CartListItem = ({product, count}) => {
     const dispatch = useDispatch();
@@ -11,8 +11,12 @@ const CartListItem = ({product, count}) => {
 
     const quantitySelect = (e) => {
         setQuantity(e.target.value);
-        dispatch(sendCartItem(id, quantity));
+        dispatch(sendCartItem(id, e.target.value));
         debugger;
+    }
+
+    const handleRemove = (e) => {
+        dispatch(deleteCartItem(id))
     }
 
     return (
@@ -23,7 +27,6 @@ const CartListItem = ({product, count}) => {
                 <div className="cart-item-details">
                     <div className="cart-item-title">{product.name}</div>
                     <div className="cart-item-options">Option 1</div>
-                    <button className="cart-item-remove-button">Remove</button>
                 </div>
             </Link>
                 <div className="cart-item-right">
@@ -41,6 +44,8 @@ const CartListItem = ({product, count}) => {
                         <option value="10">10</option>
                         <option value="11">11</option>
                     </select>
+                    <button className="cart-item-remove-button" onClick={handleRemove}>Remove</button>
+
                     </form>
                     <span className="cart-item-price">${product.price.toFixed(2)}</span>
                 </div>
