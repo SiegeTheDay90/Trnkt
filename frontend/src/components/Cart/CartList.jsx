@@ -9,13 +9,11 @@ const CartList = ({ cart }) => {
 
 
     if(products.length === 0){
-        return (
-            <h1>There are no products in your cart.</h1>
-        )
+        return null
     }
 
     return (
-        <ol>
+        <ol id="cart-item-list">
         {products.map((product) => (
             <CartListItem key={product.id} product={product} />
         ))}

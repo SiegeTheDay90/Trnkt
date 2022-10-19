@@ -15,7 +15,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 0.1%;
+    margin-top: 0.8%;
     width: 100%;
     padding-right: 5px;
     max-width: 1450px;
@@ -31,6 +31,7 @@
 .nav-category-container{
     display: flex;
     justify-content: space-between;
+    padding-top: 10px;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -70,41 +71,16 @@ dialog::backdrop {
 }
 
 .nav-session-button {
-    background: white;
-    border: none;
     font-weight: bolder;
     font-size: 12px;
     width: 70px;
-    padding: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    cursor: pointer;
     border-radius: 50px;
     text-decoration: none;
     transition: background-color 0.2s ease-out;
-}
-
-.nav-session-button:hover{
-    background: #eeeeee;
 }
 
 #cart-button {
     margin-left: 25px;
-}
-
-button {
-    background: white;
-    border: none;
-    text-align: center;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background-color 0.2s ease-out;
-}
-
-button:hover{
-    background: #eeeeee;
 }
 
 #OverlayContainer {
@@ -233,9 +209,7 @@ label {
     background: #ffffff11
 }
 
-#user-card{
-    line-height: 1.3;
-}
+
 
 /* .nav-category-container::before, .nav-category-container::after {
     top: 106px;

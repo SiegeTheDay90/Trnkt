@@ -6,17 +6,31 @@
     margin: 0 5% 0 5%;
 }
 
-#cart-header, #cart-body {
+#cart-header {
     display: flex;
     justify-content: space-between;
-    width:95%;
-    margin: 50px;
+    margin: 25px 0 0 0;
+    width: 86%;
 }
 
+#cart-body {
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+}
+
+#keep-shopping-button{
+    font-size: 16px;
+    height: 35px;
+}
 
 #cart-body-left {
     display: flex;
     flex-direction: column;
     width: 50%;
-    background-color: yellow;
+}
+
+#cart-item-list {
+    width: 100%;
+    min-width: 100%;
 }

@@ -22,7 +22,6 @@ const Shop = () => {
         seller = users[shop.sellerId]
     }
     const products = useSelector(state => state.products);
-    // debugger;
     if (!seller) return null;
     
 
@@ -30,11 +29,11 @@ const Shop = () => {
         <>
         {shop &&
         <div id="shop-outer-container">
-            <img id="shop-cover-photo" src={shop.coverPhotoUrl} alt="alt text"/>
+            <img id="shop-cover-photo" src={shop.coverPhotoUrl} alt="cover photo"/>
             <div id="shop-info-container">
                 <div id="header">
                     <div id="header-left">
-                        <img id="shop-logo" src={shop.photoUrl} alt="alt text"/>
+                        <img id="shop-logo" src={shop.photoUrl} alt="shop logo"/>
                         <div id="shop-info">
                             <h1>{shop.name}</h1>
                             <p id="description">{shop.description}</p>
@@ -51,7 +50,7 @@ const Shop = () => {
                         {false && <p>star seller pics</p>/*star seller logic*/}
 
                     <div id="header-right">
-                        <img id="profile-pic" src={seller.photoUrl} alt="alt text"/>
+                        <img id="profile-pic" src={seller.photoUrl} alt="seller-pic"/>
                         <p id="seller-name">{seller.firstName}</p>
                         <button><i className="fa-solid fa-envelope-open-text"></i> Contact</button>
                     </div>

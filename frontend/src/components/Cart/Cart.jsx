@@ -1,40 +1,49 @@
-import { useDispatch, useSelector } from 'react-redux';
-import './Cart.css'
-import { useEffect } from "react";
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import './Cart.css';
 import CartList from './CartList';
+import Checkout from './Checkout';
 
 const Cart = () => {
-    const dispatch = useDispatch();
     
-    // useEffect(() => {
-    //     dispatch(fetchShop(id))
-    // }, [id, dispatch]);
 
     const sessionUser = useSelector(state => state.session.user);
     const sessionCart = useSelector(state => state.session.cart);
-    
-    if(!sessionUser || !sessionCart) return null;
+
+    const cartLength = () => {
+        try {
+            const length = `${Object.values(sessionCart).length}`;
+            if(length===0) return "No";
+            return length;
+        } catch {
+            return "No";
+        }
+    }
+
+
     return (
         <>
         <div id='cart-outer-container'>
             <div id='cart-header'>
                 <div id='cart-header-left'>
-                    <h1>{`${Object.values(sessionCart).length}`} items in your cart</h1>
+                    <h1>{cartLength()} items in your cart</h1>
                 </div>
                 <div id='cart-header-right'>
-                    Keep Shopping
+                    <Link to="/"><button className="button-white" id="keep-shopping-button">Keep Shopping</button></Link>
                 </div>
             </div>
 
-            <div id='cart-body'>
-                <div id='cart-body-left'>
-                    <CartList cart={sessionCart} />
+            {(sessionUser && sessionCart) &&
+                <div id='cart-body'>
+                    <div id='cart-body-left'>
+                        <CartList cart={sessionCart} />
+                    </div>
+                    <div id='cart-body-right'>
+                        <Checkout cart={sessionCart} />
+                    </div>
                 </div>
-                <div id='cart-body-right'>
-                    {/* <CartCheckoutMenu /> */}
-                    CartCheckoutMenu
-                </div>
-            </div>
+            }
+            
         </div>
         </>
     )

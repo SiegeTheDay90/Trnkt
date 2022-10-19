@@ -24,7 +24,7 @@ const Navigation = () => {
             <SessionInfo /> 
           </div>
 
-          <Link to="/cart"><button id="cart-button"><i id="cart" className="fa-solid fa-cart-shopping"></i></button></Link>
+          <Link to="/cart"><button id="cart-button" className="button-white"><i id="cart" className="fa-solid fa-cart-shopping"></i></button></Link>
 
         </div>
 

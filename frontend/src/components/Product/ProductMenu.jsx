@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './ProductMenu.css'
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState } from 'react';
 import { sendCartItem } from '../../store/session';
-
 
 const ProductMenu = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    
+    const history = useHistory();
     const [quantity, setQuantity] = useState(1);
 
 
@@ -20,9 +19,20 @@ const ProductMenu = () => {
         shop = shops[product.shopId]
     }
 
-    const handleClick = (e) => {
+    const addToCart = (e) => {
         e.preventDefault();
+        document.getElementById('product-atc-modal-container').showModal();
         dispatch(sendCartItem(product.id, quantity))
+    }
+
+    const closeModal = (e) => {
+        document.getElementById('product-atc-modal-container').close();
+    }
+
+    const goToCart = (e) => {
+        e.preventDefault();
+        debugger;
+        history.push('/cart');
     }
 
     return (
@@ -40,16 +50,29 @@ const ProductMenu = () => {
 
             <label htmlFor="quantity-select"><span>Quantity <span className="mandatory"> * </span></span>
                 <select id="quantity-select" className="menu-select" onChange={(e) => setQuantity(e.target.value)}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                 </select>
             </label><br/>
-            <button id="button-add-to-cart" onClick={handleClick}>Add to Cart</button><br/>
+            <button id="button-add-to-cart" className="button-black" onClick={addToCart}>Add to Cart</button><br/>
             <p id="product-description"><span style={{"fontWeight":"bold"}}>Description:</span> {product.description}</p>
         </div>
+
+        <dialog id="product-atc-modal-container">
+            <div id="product-atc-modal">
+                <h1>Added to Cart!</h1>
+                <button className="button-black" onClick={goToCart}>Go to Cart</button>
+                <button className="button-white" onClick={closeModal}>Keep Shopping</button>
+            </div>
+        </dialog>
         </>
     )
 }

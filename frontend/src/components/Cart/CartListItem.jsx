@@ -12,23 +12,23 @@ const CartListItem = ({product, count}) => {
     const quantitySelect = (e) => {
         setQuantity(e.target.value);
         dispatch(sendCartItem(id, e.target.value));
-        debugger;
     }
 
     const handleRemove = (e) => {
+        e.preventDefault();
         dispatch(deleteCartItem(id))
     }
 
     return (
 
-            <div className="cart-item">
-            <Link to={`/products/${id}`}>
-                <img src={product.photoUrl} alt={product.name}/>
+            <li className="cart-item">
+            <img src={product.photoUrl} alt={product.name}/>
                 <div className="cart-item-details">
-                    <div className="cart-item-title">{product.name}</div>
-                    <div className="cart-item-options">Option 1</div>
+                <Link to={`/products/${id}`}><div className="cart-item-title">{product.name}</div></Link>
+                    <div className="cart-item-options"></div>
+                    <button className="button-white cart-item-remove-button" onClick={handleRemove}>Remove</button>
                 </div>
-            </Link>
+            
                 <div className="cart-item-right">
                     <form>
                     <select className="menu-select" value={quantity} onChange={quantitySelect}>
@@ -40,16 +40,14 @@ const CartListItem = ({product, count}) => {
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
-                        <option value="9">5</option>
+                        <option value="9">9</option>
                         <option value="10">10</option>
-                        <option value="11">11</option>
                     </select>
-                    <button className="cart-item-remove-button" onClick={handleRemove}>Remove</button>
 
                     </form>
                     <span className="cart-item-price">${product.price.toFixed(2)}</span>
                 </div>
-            </div>
+            </li>
 
     )
 }

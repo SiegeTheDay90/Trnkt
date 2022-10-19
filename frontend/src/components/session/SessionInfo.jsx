@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/session.js';
-import '../Navigation/Navigation.css';
+import '../session/SessionInfo.css';
 
 const SessionInfo = () => {
     const dispatch = useDispatch();
@@ -21,9 +21,9 @@ const SessionInfo = () => {
     
     return(
         <div id="user-card">
-            {!sessionUser && <button onClick={showLoginModal} id="SignInButton" className="nav-session-button">Sign in</button>}<br/>
+            {!sessionUser && <button onClick={showLoginModal} id="SignInButton" className="button-white nav-session-button">Sign in</button>}
             {sessionUser && <>Welcome, {sessionUser.firstName}<br/>
-            <button className="nav-session-button" onClick={handleSubmit}>Logout</button></>}
+            <button className="button-black nav-session-button" onClick={handleSubmit}>Logout</button></>}
         </div>
     )
 }
