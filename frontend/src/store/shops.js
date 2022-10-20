@@ -26,11 +26,22 @@ export const fetchShop = (id) => async dispatch => {
     dispatch(addShop(data));
 }
 
-export const fetchShops = () => async dispatch => {
-  const response = await csrfFetch(`/api/shops`);
+export const fetchShops = (options = {}) => async dispatch => {
+  let response;
+  let url = '/api/shops?'
+
+  if(options.title){
+    url = url + `title=${options.title}&`;
+  }
+
+  if(options.num){
+    url = url + `num=${options.num}`;
+  }
+
+  response = await csrfFetch(url);
   const shops = await response.json();
   dispatch(listShops(shops));
-}
+  }
 
 export const sendLike = (id) => async dispatch => {
   const response = await csrfFetch(`/api/shops/${id}`, {method: 'PATCH'});
@@ -49,7 +60,7 @@ const initialState = JSON.parse(sessionStorage.getItem("shops")) || {}
         return {...state, [action.payload.shop.id] : action.payload.shop}
 
       case LIST_SHOPS:
-        return action.shops
+        return {...state, ...action.shops}
   
       default:
         return state;

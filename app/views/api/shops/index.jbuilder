@@ -6,7 +6,11 @@
         end
         json.set! :photo_url, shop.thumbnail.url
         json.set! :cover_photo_url, shop.cover_photo.url
-        liked = !(shop.likes.where(user_id: @current_user.id, likeable_id: shop.id).empty?)
+        if @current_user
+            liked = !(shop.likes.where(user_id: @current_user.id, likeable_id: shop.id).empty?)
+        else
+            liked = false
+        end
         json.liked liked
     end
 end

@@ -30,6 +30,10 @@
     width: 50%;
 }
 
+#cart-body-right {
+    width: 30%;
+}
+
 #cart-item-list {
     width: 100%;
     min-width: 100%;

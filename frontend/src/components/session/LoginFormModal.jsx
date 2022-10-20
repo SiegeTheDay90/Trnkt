@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
 import {login, signup} from '../../store/session.js'
 import { storeErrors } from '../../store/errors.js';
 

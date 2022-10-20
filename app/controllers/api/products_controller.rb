@@ -2,10 +2,19 @@ class Api::ProductsController < ApplicationController
 
     def index
       if params[:num]
-        @products = Product.all.sample(params[:num].to_i)
+        num = params[:num].to_i
+      else
+        num = nil
+      end
+
+      if params[:title]
+        @products = Product.where("name LIKE '%#{params[:title]}%'").limit(num)
+      elsif num
+        @products = Product.all.sample(num)
       else
         @products = Product.all
       end
+
       render :index
     end
   

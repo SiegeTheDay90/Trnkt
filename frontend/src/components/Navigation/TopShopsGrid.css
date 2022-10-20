@@ -20,6 +20,7 @@
 
 .nav-dropdown-content img:hover {
     box-shadow: 0 0 6px 6px #00000030;
+    transition: 0.1s;
 }
 
 .nav-dropdown-content img {

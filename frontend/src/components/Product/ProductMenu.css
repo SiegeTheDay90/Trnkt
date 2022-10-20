@@ -125,8 +125,8 @@ label {
     border-radius: 24px;
     padding: 30px 20px 30px 20px;
     border: 0px;
-    min-width: 350px;
-    width: 45%;
+    width: 30%;
+    height: 500px;
 }
 
 #product-atc-modal {
@@ -139,6 +139,12 @@ label {
     padding: 5px 20px 30px 20px;
     border: 0px;
     box-shadow: 0 0 20px #00000080;
+    line-height: 2em;
+}
+
+#product-atc-modal button{
+    height: 30px;
+    margin: 5px;
 }
 
 dialog::backdrop {

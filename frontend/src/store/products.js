@@ -20,8 +20,19 @@ export const fetchProduct = (id) => async dispatch => {
     dispatch(addProduct(data));
 }
 
-export const fetchProducts = (num) => async dispatch => {
-    const response = await csrfFetch(`/api/products?num=${num}`);
+export const fetchProducts = (options = {}) => async dispatch => {
+    let response;
+    let url = '/api/products?'
+    
+    if(options.title){
+        url = url + `title=${options.title}&`;
+    }
+    
+    if(options.num){
+        url = url + `num=${options.num}`;
+    }
+    
+    response = await csrfFetch(url);
     const data = await response.json();
     dispatch(addProducts(data));
 }
@@ -34,10 +45,10 @@ const productsReducer = (state = initialState, action) => {
             return {...state, [action.payload.product.id]: action.payload.product}
       
         case ADD_SHOP:
-            return action.payload.products
+            return {...state, ...action.payload.products}
         
         case ADD_PRODUCTS:
-            return action.payload
+            return {...state, ...action.payload}
   
         default:
             return state;

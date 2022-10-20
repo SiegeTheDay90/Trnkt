@@ -4,40 +4,56 @@ import NavCategories from "./NavCategories";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 import './Navigation.css'
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 
 const Navigation = () => {
 
-    return (
-      <div className="header-container">
-      <nav className="Navigation">
-        <div className="navrow">
-          <div>
-            <Link to="/"><img className="logo" alt="mainLogo" src="https://i.ibb.co/5cm3p8n/logo.png"/></Link>
+  const [cartCount, setCartCount] = useState(0);
 
-          </div>
+  const sessionCart = useSelector(state => state.session.cart);
+
+  useEffect(() => {
+    if(sessionCart){
+      setCartCount(Object.values(sessionCart).length);
+    } else {
+      setCartCount(0);
+    }
+  }, [sessionCart])
 
 
-          <SearchBar />
-
-
-          <div>
-            <SessionInfo /> 
-          </div>
-
-          <Link to="/cart"><button id="cart-button" className="button-white"><i id="cart" className="fa-solid fa-cart-shopping"></i></button></Link>
+  return (
+    <div className="header-container">
+    <nav className="Navigation">
+      <div className="navrow">
+        <div>
+          <Link to="/"><img className="logo" alt="mainLogo" src="https://i.ibb.co/5cm3p8n/logo.png"/></Link>
 
         </div>
 
-        <div className="navrow nav-category-container">
-          <NavCategories />
-        </div>
-        
 
-        <LoginFormModal />
-      </nav>
+        <SearchBar />
+
+
+        <div>
+          <SessionInfo /> 
+        </div>
+
+        <Link to="/cart"><button id="cart-button" className="button-white"><i id="cart" className="fa-solid fa-cart-shopping"></i></button></Link>
+        {cartCount}
+
       </div>
-    )
+
+      <div className="navrow nav-category-container">
+        <NavCategories />
+      </div>
+      
+
+      <LoginFormModal />
+    </nav>
+    </div>
+  )
 }
 
 export default Navigation;

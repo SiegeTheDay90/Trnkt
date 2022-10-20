@@ -48,6 +48,16 @@ export const sendCartItem = (productId, quantity) => async dispatch => {
     dispatch(addToCart(data));
   })
 }
+export const clearCart = () => async dispatch => {
+  await csrfFetch("/api/session", {
+    method: "PATCH",
+    body: JSON.stringify({type: "clear"})
+  }).then(async response => {
+    const data = await response.json();
+    storeCurrentUser(data.user, data.cart);
+    dispatch(addToCart(data));
+  })
+}
 
 export const deleteCartItem = (productId) => async dispatch => {
   await csrfFetch("/api/session", {
@@ -56,6 +66,7 @@ export const deleteCartItem = (productId) => async dispatch => {
   }).then(async response => {
     const data = await response.json();
     storeCurrentUser(data.user, data.cart);
+    debugger;
     dispatch(addToCart(data));
   })
 }

@@ -1,8 +1,22 @@
 class Api::ShopsController < ApplicationController
 
   def index
-    @shops = Shop.all
     @current_user = current_user
+
+    if params[:num]
+      num = params[:num].to_i
+    else
+      num = nil
+    end
+
+    if params[:title]
+      @shops = Shop.where("name LIKE '%#{params[:title]}%'").limit(num)
+    elsif num
+      @shops = Shop.all.sample(num)
+    else
+      @shops = Shop.all
+    end
+
     render :index
   end
 
@@ -11,7 +25,11 @@ class Api::ShopsController < ApplicationController
     if @shop
       @products = @shop.products
       @seller = @shop.seller
-      @liked = !(@shop.likes.where(user_id: current_user.id, likeable_id: @shop.id).empty?)
+      if current_user
+        @liked = !(@shop.likes.where(user_id: current_user.id, likeable_id: @shop.id).empty?)
+      else
+        @liked = false
+      end
       render :show
     else
       render json: nil

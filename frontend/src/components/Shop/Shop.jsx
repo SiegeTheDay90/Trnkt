@@ -1,23 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './Shop.css'
 import { useParams } from "react-router-dom";
-import { fetchShop, sendLike } from "../../store/shops";
+import { fetchShop, fetchShops, sendLike } from "../../store/shops";
 import { useEffect, useState } from "react";
 import ProductListItem from './ProductListItem';
+import ShopLeft from './ShopLeft';
 
 const Shop = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     
     useEffect(() => {
-        dispatch(fetchShop(id))
+        dispatch(fetchShop(id));
+        dispatch(fetchShops({num: 4}));
     }, [id, dispatch]);
-
-
-    const shop = useSelector(state => state.shops[id]);
+    
+    
+    const shops = useSelector(state => state.shops);
+    const shop = shops[id];
+    const otherShops = Object.values(shops).filter(ele => ele.id != id);
     const users = useSelector(state => state.users);
-    const [liked, setLiked] = useState(false)
-
+    const [liked, setLiked] = useState(false);
+    
     let seller = {firstName: "First"};
     if (shop && users){
         seller = users[shop.sellerId]
@@ -27,17 +31,15 @@ const Shop = () => {
     }
     const products = useSelector(state => state.products);
     if (!seller) return null;
-
+    
     const followClick = () => {
 
         dispatch(sendLike(shop.id))
         const value = liked ? false : true;
         setLiked(value);
-        // debugger;
     }
 
     const heart = () => {
-        // debugger;
         if(!shop.liked){
             return "fa-regular fa-heart"
         } else{
@@ -60,15 +62,13 @@ const Shop = () => {
                             <p id="description">{shop.description}</p>
                             <p id="location">{shop.state}, {shop.country}</p>
                             <div id="ratings">
-                                {false && <p>star seller</p>/*star seller logic*/}
                                 <p id="sales">{shop.sales} sales |&nbsp;</p>
                                 <p id="rating">Rating: {shop.rating}</p>
-                        <button id="button-follow" onClick={followClick}><i className={heart()} ></i> &nbsp;Follow shop</button>
+                        <button id="button-follow" onClick={followClick}><i className={heart()} ></i> &nbsp;{shop.liked ? 'Following' : 'Follow shop'}</button>
                             </div>
                         </div>
 
                     </div>
-                        {false && <p>star seller pics</p>/*star seller logic*/}
 
                     <div id="header-right">
                         <img id="profile-pic" src={seller.photoUrl} alt="seller-pic"/>
@@ -80,9 +80,7 @@ const Shop = () => {
                 <div id="shop-main">
                     <h1>Items</h1>
                     <div id="shop-main-item-container">
-                        <div id="shop-item-categories">
-                            Categories
-                        </div>
+                        <ShopLeft shops={otherShops}/>
                         <div id="shop-item-grid">
                             {Object.values(products).map((product) => (
                                 <ProductListItem id={product.id}/>

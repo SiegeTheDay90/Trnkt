@@ -12,7 +12,7 @@
 
 #splash-container div {
     border-radius: 8px;
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 #splash-container img:hover {
@@ -21,6 +21,7 @@
 
 #splash-container img {
     border-radius: 8px;
+    transition: 0.2s;
 }
 
 .item-1 img, .item-4 img, .item-5 img, .item-8 img {

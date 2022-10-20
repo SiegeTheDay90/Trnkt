@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 
 
 const Splash = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     
-    useEffect(() => {
-        dispatch(fetchProducts(8));
-    }, []);
+    // useEffect(() => {
+    //     dispatch(fetchProducts());
+    // }, []);
 
     const fetchedProducts = useSelector(state => state.products)
     const featuredProducts = Object.values(fetchedProducts);

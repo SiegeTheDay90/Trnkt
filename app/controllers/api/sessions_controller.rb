@@ -33,6 +33,8 @@ class Api::SessionsController < ApplicationController
 
       elsif (params['type'] == 'remove')
         CartItem.find_by(product_id: params['product_id'], buyer_id: current_user.id).destroy
+      elsif (params['type'] == 'clear')
+        CartItem.where(buyer_id: current_user.id).each {|item| item.destroy}
       end
 
       cart_value_pairs = Hash.new

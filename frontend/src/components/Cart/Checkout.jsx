@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './Checkout.css'
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { sendCartItem } from '../../store/session';
+import { clearCart } from '../../store/session';
 
 
 const Checkout = ({cart}) => {
+
+    const dispatch = useDispatch();
     
     const [subTotal, setSubTotal] = useState(0);
     const [discount, setDiscount] = useState(0.05);
@@ -21,9 +21,11 @@ const Checkout = ({cart}) => {
 
         setSubTotal(sum.toFixed(2));
     }
-
     useEffect(calculateTotal, [cart])
 
+    const checkOutClick = () => {
+        dispatch(clearCart());
+    }
 
     return (
         <>
@@ -46,6 +48,7 @@ const Checkout = ({cart}) => {
             <div className="cart-checkout-row">
             <span>Total:</span> <span>${(subTotal*(1-discount)).toFixed(2) - -5.00}</span>
             </div>
+            <button className="button-black" id="checkout-button" onClick={checkOutClick}>Checkout</button>
         </div>
         </>
     )
