@@ -80,13 +80,6 @@ const NavCategories = () => {
                 <TopProductsGrid products={wallets} />
             </div>
         </span>
-        
-        {/* <span className="nav-category">Wedding & Party</span>
-        <span className="nav-category">Toys & Entertainment</span>
-        <span className="nav-category">Art & Collectibles</span>
-        <span className="nav-category">Craft Supplies</span>
-        <span className="nav-category">Gifts & Gift Cards</span> */}
-
       </>
     )
 }

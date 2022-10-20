@@ -10,7 +10,7 @@ class Api::ShopsController < ApplicationController
     end
 
     if params[:title]
-      @shops = Shop.where("name LIKE '%#{params[:title]}%'").limit(num)
+      @shops = Shop.where("name ILIKE '%#{params[:title]}%'").limit(num)
     elsif num
       @shops = Shop.all.sample(num)
     else

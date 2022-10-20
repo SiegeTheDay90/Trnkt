@@ -8,7 +8,7 @@ class Api::ProductsController < ApplicationController
       end
 
       if params[:title]
-        @products = Product.where("name LIKE '%#{params[:title]}%'").limit(num)
+        @products = Product.where("name ILIKE '%#{params[:title]}%'").limit(num)
       elsif num
         @products = Product.all.sample(num)
       else

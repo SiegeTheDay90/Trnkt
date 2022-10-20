@@ -6,6 +6,7 @@ import Shop from './components/Shop/Shop';
 import Product from './components/Product/Product';
 import Splash from './components/Splash/Splash';
 import Cart from './components/Cart/Cart';
+import Search from './components/Search/Search';
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/search/:query">
+          <Search />
         </Route>
         <Route exact path="/">
           <Splash />
