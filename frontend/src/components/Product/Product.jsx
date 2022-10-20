@@ -12,11 +12,12 @@ const Product = () => {
     
     useEffect(() => {
         dispatch(fetchProduct(id))
-    }, []);
+    }, [dispatch, id]);
 
 
     const product = useSelector(state => state.products[id]);
 
+    debugger;
 
     return (
         <>

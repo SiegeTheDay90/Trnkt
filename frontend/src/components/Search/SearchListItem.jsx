@@ -8,7 +8,7 @@ const SearchListItem = ({object, type}) => {
             <li className="search-item">
             <img src={object.photoUrl} alt={object.name}/>
                 <div className="search-item-details">
-                    <Link to={`/${type}/${object.id}`}><div className="search-item-title">{object.name}</div></Link>
+                    <Link to={`/${type}s/${object.id}`}><div className="search-item-title">{object.name}</div></Link>
                     <div className="search-item-description">{object.description}</div>
                 </div>
             
