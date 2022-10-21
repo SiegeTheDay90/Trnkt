@@ -1,5 +1,5 @@
 # Trnkt
-[Trnkt Live](https://trnkt-2022.herokuapp.com/)
+## [Trnkt Live](https://trnkt-2022.herokuapp.com/)
 
 # Description
 Trnkt is an e-commerce app inspired by Etsy. On Trnkt, users can find and view `shops` and `products` based on recommended collections or by using the search bar.
