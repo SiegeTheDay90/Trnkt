@@ -1,24 +1,90 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Trnkt Live](https://trnkt-2022.herokuapp.com/)
 
-Things you may want to cover:
+## Description
+Trnkt is an e-commerce app inspired by Etsy. On Trnkt, users can find and view `shops` and `products` based on recommended collections or by using the search bar.
 
-* Ruby version
+## Technology
+### React Redux
+The Trnkt stack uses `React Redux` to render and manage the state of the app's frontend.
 
-* System dependencies
+### Ruby on Rails
+Trnkt serves information from the database to the frontend using `Ruby on Rails`.
 
-* Configuration
+### Postgresql
+`Postgresql` is used to store the app's data. Active Storage is used to store images with Amazon Web Services and associate them with shops, products and users.
 
-* Database creation
+## Features
+### User Authentication
+Users can sign up for an account that is secured with password encryption.
+![User Authentication](url)
 
-* Database initialization
+### Navigation Menu
+The `Top Selling` and `Best Rated` categories are populated dynamically by sorting all shops in the database by sales or rating. Remaining categories contain products found by keywords such as `"Durable"` The menu choices will update with changes to the database.
+![Navigation Menu](url)
 
-* How to run the test suite
+### Shop & Product Display Pages
+Each `shop`'s page can be customized with a coverphoto, thumbnail, and a profile picture of the store's owner. Users can click a button to follow or unfollow a shop.
+![Shop Display Page](url)
 
-* Services (job queues, cache servers, search engines, etc.)
+The `product`'s image is enlarged. A user who finds a product can also navigate to the shop that sells that product from this page. There is a menu that can take options such as quantity and add the product to the session user's cart.
+![Product Displaly Page](url)
 
-* Deployment instructions
+## Code Snippets
+### Controllers
+Backend controllers such as the `products_controller` use url parameters to efficiently query only necessary data for rendering.
+```ruby
+class Api::ProductsController < ApplicationController
+  def index
+    if params[:num]
+      num = params[:num].to_i
+    else
+      num = nil
+    end
+    if params[:title]
+      @products = Product.where("name ILIKE '%#{params[:title]}%'").limit(num)
+    elsif num
+      @products = Product.all.sample(num)
+    else
+      @products = Product.all
+    end
+    render :index
+  end
 
-* ...
+  def show
+    @product = Product.find(params[:id])
+    if @product
+      @shop = @product.shop
+      render :show
+    else
+      render json: nil
+    end
+  end
+end
+```
+
+### JSON Responses with JBuilder
+A request to backend route `shops/:id` serves a JSON object with top-level keys that represent the `shop`, the `seller`, as well as all `products` sold by that shop.
+```ruby 
+json.set! :shop do 
+    json.extract! @shop, :id, :name, :description, :seller_id, :sales, :rating, :state, :country, :created_at, :updated_at
+    json.set! :cover_photo_url, @shop.cover_photo.url
+    json.set! :photo_url, @shop.thumbnail.url
+    json.liked @liked
+end
+
+json.set! :seller do 
+    json.extract! @seller, :id, :first_name, :last_name, :email
+    json.set! :photo_url, @seller.thumbnail.url
+end
+
+json.set! :products do 
+    @shop.products.each do |product|
+        json.set! product.id do
+            json.extract! product, :id, :name, :price, :description, :shop_id, :created_at, :updated_at
+            json.set! :photo_url, product.thumbnail.url
+        end
+    end
+end
+```
