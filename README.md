@@ -24,6 +24,8 @@ Users can sign up for an account that is secured with password encryption.
 ### Navigation Menu
 The `Top Selling` and `Best Rated` categories are populated dynamically by sorting all shops in the database by sales or rating. Remaining categories contain products found by keywords such as `"Durable"` The menu choices will update with changes to the database.
 
+<img src="https://github.com/SiegeTheDay90/Trnkt/blob/a5744dea5a80e57ff11eb2d59236963ed53788b8/app/assets/images/NavigationMenu.png" alt="Navigation Menu" width="600"/>
+
 ### Shop & Product Display Pages
 Each `shop`'s page can be customized with a coverphoto, thumbnail, and a profile picture of the store's owner. Users can click a button to follow or unfollow a shop.
 
