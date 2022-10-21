@@ -18,18 +18,21 @@ Trnkt serves information from the database to the frontend using `Ruby on Rails`
 ## Features
 ### User Authentication
 Users can sign up for an account that is secured with password encryption.
-![User Authentication](url)
+
+<img src="https://raw.githubusercontent.com/SiegeTheDay90/Trnkt/main/app/assets/images/LoginModal.png" alt="User Authentication" width="600"/>
 
 ### Navigation Menu
 The `Top Selling` and `Best Rated` categories are populated dynamically by sorting all shops in the database by sales or rating. Remaining categories contain products found by keywords such as `"Durable"` The menu choices will update with changes to the database.
-![Navigation Menu](url)
 
 ### Shop & Product Display Pages
 Each `shop`'s page can be customized with a coverphoto, thumbnail, and a profile picture of the store's owner. Users can click a button to follow or unfollow a shop.
-![Shop Display Page](url)
 
 The `product`'s image is enlarged. A user who finds a product can also navigate to the shop that sells that product from this page. There is a menu that can take options such as quantity and add the product to the session user's cart.
-![Product Displaly Page](url)
+
+|Shop| |Product|
+|-|-|-|
+|<img src="https://github.com/SiegeTheDay90/Trnkt/blob/main/app/assets/images/ShopShow.png?raw=true" width="350">| |<img src="https://raw.githubusercontent.com/SiegeTheDay90/Trnkt/347f2ee9e885856a78ed0b15bdc4776ee5cdcbeb/app/assets/images/ProductShow.png" width ="340">|
+
 
 ## Code Snippets
 ### Controllers
