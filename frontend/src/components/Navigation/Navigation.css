@@ -217,6 +217,64 @@ label {
     font-size: 13px;
     line-height: 18px;
     border-bottom: 2px solid transparent;
+    user-select: none;
 }
 
+.dev-card-left, .dev-card-right {
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+    margin: 5% 1% 5% 1%;
+    align-items: center;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
+.dev-card-left h3, .dev-card-right h3 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.dev-card-right ol {
+    margin-bottom: 20%;
+}
+
+.dev-card-right a {
+    text-decoration: none;
+    color: black;
+}
+
+.dev-card-right li {
+    margin-bottom: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.dev-card-right li {
+    animation-duration: 1s;
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    transition: 1s;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1, 1);
+    }
+
+    to {
+        transform: scale(1.05, 1.07);
+    }
+}
+
+.dev-card-left img {
+    height: 200px;
+    width: 200px;
+    max-width: 360px;
+    transition: 0.4s;
+}
+
+.dev-card-left:hover img {
+    box-shadow: 0 0 6px 2px #77410085;
+    transform: scale(1.02, 1.02);
+}

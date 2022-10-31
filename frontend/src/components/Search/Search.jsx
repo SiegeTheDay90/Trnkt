@@ -46,7 +46,7 @@ const Search = () => {
 
         {shops.length > 0 && <>
         <h2>Matching Shops</h2>
-        <ol id="search-list search-list-shops">
+        <ol className="search-list search-list-shops">
             {shops.map((shop) => (
                 <SearchListItem key={shop.id} object={shop} type="shop"/>
             ))}

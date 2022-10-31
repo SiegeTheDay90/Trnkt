@@ -17,8 +17,6 @@ const Product = () => {
 
     const product = useSelector(state => state.products[id]);
 
-    debugger;
-
     return (
         <>
         {product &&

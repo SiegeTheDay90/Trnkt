@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/products";
 import { fetchShops } from "../../store/shops";
+import DeveloperCard from "./DeveloperCard";
 import './Navigation.css'
 import TopProductsGrid from "./TopProductsGrid";
 import TopShopsGrid from "./TopShopsGrid";
@@ -78,6 +79,13 @@ const NavCategories = () => {
             Great Wallets
             <div className="nav-dropdown-container">
                 <TopProductsGrid products={wallets} />
+            </div>
+        </span>
+
+        <span className="nav-category nav-dev-details">
+            Developed by C. Smith
+            <div className="nav-dropdown-container">
+                <DeveloperCard />
             </div>
         </span>
       </>
