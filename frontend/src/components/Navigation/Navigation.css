@@ -220,20 +220,40 @@ label {
     user-select: none;
 }
 
-.dev-card-left, .dev-card-right {
+.dev-card-left,.dev-card-center, .dev-card-right {
     display: flex;
     flex-direction: column;
-    width: 46%;
+    width: 31%;
     margin: 5% 1% 5% 1%;
     align-items: center;
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.dev-card-right {
+    width: 25%;
+    margin-left: -10px;
+}
+
+.dev-card-center {
+    width: 35%;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: 1px solid #00000020;
+    border-left: 1px solid #00000020;
+
+}
+
+.dev-card-center p {
+    font-size:11px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
 .dev-card-left h3, .dev-card-right h3 {
     font-weight: bold;
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .dev-card-right ol {
     margin-bottom: 20%;
@@ -245,31 +265,34 @@ label {
 }
 
 .dev-card-right li {
-    margin-bottom: 3px;
+    margin-bottom: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+    font-size: 14px;
+    font-weight: light;
 
-.dev-card-right li {
-    animation-duration: 1s;
+}
+.pulse {
+    animation-duration: 1.2s;
     animation-name: pulse;
     animation-iteration-count: infinite;
-    animation-direction:alternate;
-    transition: 1s;
+    animation-direction: alternate;
+    /* transition: 1s; */
 }
 
 @keyframes pulse {
     from {
-        transform: scale(1, 1);
+        transform: scale(1.00, 1.00);
     }
 
     to {
-        transform: scale(1.05, 1.07);
+        transform: scale(1.1, 1.1);
     }
 }
 
 .dev-card-left img {
-    height: 200px;
-    width: 200px;
+    /* height: 90%; */
+    width: 100%;
+    border-radius: 50%;
     max-width: 360px;
     transition: 0.4s;
 }
