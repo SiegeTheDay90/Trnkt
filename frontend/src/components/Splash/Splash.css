@@ -17,6 +17,7 @@
 
 #splash-container img:hover {
     box-shadow: 0 0 6px 6px #00000030;
+    transform: scale(1.02, 1.02);
 }
 
 #splash-container img {

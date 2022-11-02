@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import './TopShopsGrid.css';
-import './Navigation.css';
+// import './TopShopsGrid.css';
+// import './Navigation.css';
+import './DeveloperCard.css';
 
 
 const DeveloperCard = () => {
@@ -10,7 +10,7 @@ const DeveloperCard = () => {
                 <h3>Clarence Smith</h3>
 
                 <a href="https://www.linkedin.com/in/clarence-smith-31b21b59/">
-                    <img src="https://lh3.googleusercontent.com/a/ALm5wu0ouL35dm_Op3iQPlIf28Jge-dEZQt77vDyJXAk=s360-p-rw-no" alt="Developer Picture"/>
+                    <img id="dev-img" src="https://trnkt-dev.s3.amazonaws.com/ProfilePic.png" alt="Developer Picture"/>
                 </a>
             </div>
             <div className='dev-card-center'>

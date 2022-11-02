@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
       if (params['type'] == 'add' && CartItem.find_by(product_id: params['product_id'], buyer_id: current_user.id))
         ci = CartItem.find_by(product_id: params['product_id'], buyer_id: current_user.id)
 
-        if ci.update(quantity: params['quantity'])
+        if ci.update(quantity: ci.quantity + params['quantity'].to_i)
         else
           render json: {errors: ["Invalid Cart Action"], status: 422}
         end

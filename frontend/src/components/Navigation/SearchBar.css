@@ -1,5 +1,6 @@
 #SearchText{
-    min-width: 85%;
+    min-width: 30px;
+    width: 85vw;
     max-width: 995px;
     border-radius: 96px 0 0 96px;
     height: 16px;

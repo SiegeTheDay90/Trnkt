@@ -22,7 +22,7 @@ const ProductMenu = () => {
     const addToCart = (e) => {
         e.preventDefault();
         document.getElementById('product-atc-modal-container').showModal();
-        dispatch(sendCartItem(product.id, quantity))
+        dispatch(sendCartItem(product.id, quantity));
     }
 
     const closeModal = (e) => {
