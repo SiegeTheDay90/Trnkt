@@ -37,6 +37,12 @@ export const fetchProducts = (options = {}) => async dispatch => {
     dispatch(addProducts(data));
 }
 
+export const likeProduct = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/products/${id}`, {method: 'PATCH'});
+    const product = await response.json();
+    dispatch(addProduct(product));
+}
+
 const initialState = JSON.parse(sessionStorage.getItem("products"))  || {}
   
 const productsReducer = (state = initialState, action) => {

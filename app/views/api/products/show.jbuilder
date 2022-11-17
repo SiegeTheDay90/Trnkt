@@ -1,6 +1,7 @@
 json.set! :product do
     json.extract! @product, :id, :name, :description, :price, :shop_id
     json.set! :photo_url, @product.thumbnail.url
+    json.liked @liked
 end
 
 json.set! :shop do

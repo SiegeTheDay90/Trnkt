@@ -4,16 +4,22 @@ import './ProductMenu.css'
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from 'react';
 import { sendCartItem } from '../../store/session';
+import { likeProduct } from '../../store/products';
 
 const ProductMenu = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
     const [quantity, setQuantity] = useState(1);
-
-
     const product = useSelector(state => state.products[id]);
     const shops = useSelector(state => state.shops);
+    const sessionUser = useSelector(state => state.session.user);
+    const [liked, setLiked] = useState(false);
+    
+    if(product.liked === "true"){
+        setLiked(true)
+    }
+    
     let shop = {name: "Name"}
     if (product && shops){
         shop = shops[product.shopId]
@@ -34,12 +40,26 @@ const ProductMenu = () => {
         history.push('/cart');
     }
 
+    const followClick = () => {
+        dispatch(likeProduct(product.id));
+        const value = liked ? false : true;
+        setLiked(value);
+    }
+
+    const heart = () => {
+        if(!product.liked){
+            return "fa-regular fa-heart"
+        } else{
+            return "fa-solid fa-heart"
+        }
+    }
+
     return (
         <>
         {product &&
         <div id="product-menu-shop-details">
             <span><Link to=   {`/shops/${product.shopId}`} id="shop-title">{shop.name}</Link> 
-            <button id="follow-button"><i className="fa-regular fa-heart"></i> Follow</button></span>
+            <button id="follow-button" onClick={followClick}><i className={heart()} ></i> &nbsp;{product.liked ? 'Following' : 'Follow'}</button></span>
             <div><span id="sales">{shop.sales} sales |&nbsp;</span>
             <span id="rating">Rating: {shop.rating}</span></div>
         </div>}

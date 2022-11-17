@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './Shop.css'
 import { useParams } from "react-router-dom";
-import { fetchShop, fetchShops, sendLike } from "../../store/shops";
+import { fetchShop, fetchShops, likeShop } from "../../store/shops";
 import { useEffect, useState } from "react";
 import ProductListItem from './ProductListItem';
 import ShopLeft from './ShopLeft';
@@ -34,7 +34,7 @@ const Shop = () => {
     
     const followClick = () => {
 
-        dispatch(sendLike(shop.id))
+        dispatch(likeShop(shop.id))
         const value = liked ? false : true;
         setLiked(value);
     }
