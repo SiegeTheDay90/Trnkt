@@ -13,7 +13,7 @@ const Search = () => {
     const { query } = useParams();
     
     useEffect(() => {
-        dispatch(fetchProducts({num: 5, title: query}));
+        dispatch(fetchProducts([{num: 5, title: query}]));
         dispatch(fetchShops({num: 5, title: query}));
     },[dispatch, query])
 

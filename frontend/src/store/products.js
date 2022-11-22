@@ -20,21 +20,25 @@ export const fetchProduct = (id) => async dispatch => {
     dispatch(addProduct(data));
 }
 
-export const fetchProducts = (options = {}) => async dispatch => {
-    let response;
-    let url = '/api/products?'
+export const fetchProducts = (options = [{}]) => async dispatch => {
+    let products = {};
     
-    if(options.title){
-        url = url + `title=${options.title}&`;
-    }
-    
-    if(options.num){
-        url = url + `num=${options.num}`;
-    }
-    
-    response = await csrfFetch(url);
-    const data = await response.json();
-    dispatch(addProducts(data));
+    await options.forEach(async (option) => {
+        let url = '/api/products?'
+        if(option.title){
+            url = url + `title=${option.title}&`;
+        }
+        
+        if(option.num){
+            url = url + `num=${option.num}`;
+        }
+        
+        const response = await csrfFetch(url);
+        const data = await response.json();
+        products = await {...products, ...data};
+        debugger;
+        dispatch(addProducts(products));
+    })
 }
 
 export const likeProduct = (id) => async dispatch => {

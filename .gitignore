@@ -4,6 +4,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/tmp/cache/bootsnap/load-path-cache
 !/log/.keep
 !/tmp/.keep
 

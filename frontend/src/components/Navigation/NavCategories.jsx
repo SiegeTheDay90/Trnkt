@@ -12,10 +12,7 @@ const NavCategories = () => {
 
     useEffect(() => {
         dispatch(fetchShops());
-        dispatch(fetchProducts({num: 8, title:'Durable'}));
-        dispatch(fetchProducts({num: 8, title:'Silk'}));
-        dispatch(fetchProducts({num: 8, title:'Awesome'}));
-        dispatch(fetchProducts({num: 8, title:'Wallet'}));
+        dispatch(fetchProducts([{num: 8, title:'Durable'}, {num: 8, title:'Silk'}, {num: 8, title:'Awesome'}, {num: 8, title:'Wallet'}]));
     }, [dispatch]);
 
     const fetchedShops = useSelector(state => state.shops);

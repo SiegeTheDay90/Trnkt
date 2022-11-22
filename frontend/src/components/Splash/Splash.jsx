@@ -1,16 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from "../../store/products";
-import { useEffect } from "react";
+import { useSelector } from 'react-redux';
 import './Splash.css'
 import { Link } from 'react-router-dom';
 
 
 const Splash = () => {
-    // const dispatch = useDispatch();
-    
-    // useEffect(() => {
-    //     dispatch(fetchProducts());
-    // }, []);
 
     const fetchedProducts = useSelector(state => state.products)
     const featuredProducts = Object.values(fetchedProducts).shuffle().slice(0,8);
@@ -44,11 +37,6 @@ const Splash = () => {
                 <div className="larger item-8 splash-item"><img src={featuredProducts[7].photoUrl} alt="featured product" /></div>
             </Link>
         </div>
-        // <ul>
-        // {Object.values(shops).map((shop) => (
-        //     <Link to={`/shops/${shop.id}`} key={shop.id}><li key={shop.id}>{shop.name}</li></Link>
-        // ))}
-        // </ul>
     )
 }
 
