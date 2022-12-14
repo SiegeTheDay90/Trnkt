@@ -1,0 +1,20 @@
+.item-card.small {
+    max-height: 150px;
+    max-width: 150px;
+    text-decoration: none;
+    font-size: 12px;
+    color: black;
+}
+
+.item-card:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card-image {
+    max-height: 75%;
+}
+
+.item-card:hover .card-image{
+    transform: scale(1.01, 1.01);
+}

@@ -66,7 +66,6 @@ export const deleteCartItem = (productId) => async dispatch => {
   }).then(async response => {
     const data = await response.json();
     storeCurrentUser(data.user, data.cart);
-    debugger;
     dispatch(addToCart(data));
   })
 }

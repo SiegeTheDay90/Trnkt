@@ -1,0 +1,13 @@
+#splash-container {
+    display: grid;
+    grid-template-areas:
+        'header header header header'
+        'item-1 item-3 item-5 item-7'
+        'item-2 item-4  item-6 item-8';
+    gap: 20px;
+    padding: 10px;
+}
+
+#splash-container h1 {
+    grid-area: header;
+}

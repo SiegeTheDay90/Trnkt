@@ -39,7 +39,7 @@ ApplicationRecord.transaction do
   )
 
   # More users
-  100.times do 
+  15.times do 
     User.create!({
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -66,11 +66,11 @@ ApplicationRecord.transaction do
     sales: (50..10000).to_a.sample
   }) 
 
-  24.times do 
+  10.times do 
     Shop.create!({
       name: Faker::Company.unique.name,
       description: [nil, Faker::Lorem.sentence(word_count: 4)].sample,
-      seller_id: (2..25).to_a.sample,
+      seller_id: (2..16).to_a.sample,
       country: Faker::Fantasy::Tolkien.location,
       state: Faker::Nation.capital_city,
       rating: [3,3.5,4,4.5,5].sample,
@@ -79,7 +79,7 @@ ApplicationRecord.transaction do
   end
 
   # Shop.all.each do |shop|
-  #   pic = Down.download("https://picsum.photos/100/100")
+  #   pic = Down.download("https://picsum.photos/256")
   #   shop.thumbnail.attach(io: pic, filename: "shop#{shop.id}_thumbnail.jpg")
   #   cover = Down.download("https://picsum.photos/1900/475")
   #   shop.cover_photo.attach(io: cover, filename: "shop#{shop.id}_cover.jpg")
@@ -87,12 +87,12 @@ ApplicationRecord.transaction do
 
   puts "Creating products..."
 
-  500.times do 
+  200.times do 
     Product.create!({
       name: Faker::Commerce.product_name,
       description: Faker::Lorem.sentence(word_count: 12),
       price: Faker::Commerce.price,
-      shop_id: (1..25).to_a.sample
+      shop_id: (1..10).to_a.sample
     }) 
   end
 

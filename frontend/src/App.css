@@ -3,18 +3,22 @@
   font-family: Arial, Georgia;
 }
 
-.App-body a {
+a {
   text-decoration: none;
 }
 
 .App-header {
   display: flex;
-  justify-content: space-around;
-  min-height: 10vh;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
   background-color: #ffffff;
+  box-shadow: 0 1px 3px #aaaaaabb;
+  padding: 5px;
 }
 
 .App-body {
+  width: 100vw;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +29,7 @@
   background-color: #ffece4;
 }
 
-.button-white {
+button.white {
   border-radius: 25px;
   background: white;
   color: black;
@@ -37,7 +41,7 @@
   border: none;
 }
 
-.button-black {
+button.black {
   border-radius: 25px;
   background: black;
   color: white;
@@ -49,10 +53,10 @@
   border: none;
 }
 
-.button-white:hover {
+button.white:hover {
   background: #eeeeee
 }
 
-.button-black:hover {
+button.black:hover {
   background: #333333;
 }
