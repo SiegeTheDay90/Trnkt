@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './TopShopsGrid.css'
+import './styles/TopShopsGrid.css'
 
 
 const TopProductsGrid = ({products}) => {

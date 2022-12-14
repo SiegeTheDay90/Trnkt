@@ -4,6 +4,19 @@
     justify-content: center;
     box-shadow: 0 1px 3px #aaaaaabb;
 }
+
+@media (max-width: 1150px) {
+    .wide{
+        display: none
+    }
+}
+
+@media (min-width: 1150px) {
+    .narrow{
+        display: none
+    }
+}
+
 .Navigation {
     display: flex;
     flex-wrap: wrap;
@@ -185,6 +198,18 @@ label {
     display: flex;
     justify-content: space-between;
     padding: 10px 10% 0 10%;
+}
+
+.side-bar-container{
+    position: fixed;
+    left: 0;
+    top: 107px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 20px;
+    padding: 10px 10px 0 5px;
 }
 
 .nav-category {

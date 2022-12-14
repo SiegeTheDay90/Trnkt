@@ -4,11 +4,9 @@ import { fetchProducts } from "../../store/products";
 import { fetchShops } from "../../store/shops";
 import DeveloperCard from "./DeveloperCard";
 import './styles/Navigation.css'
-// import TopProductsGrid from "./TopProductsGrid";
-// import TopShopsGrid from "./TopShopsGrid";
 import Dropdown from "./Dropdown";
 
-const NavCategories = () => {
+const Sidebar = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -38,51 +36,51 @@ const NavCategories = () => {
     if (!shops[0] || !products[0]) return null;
     return (
       <>
-        <span className="nav-category nav-top-sellers">
+        <span className="side-category side-top-sellers">
             Top Selling Shops
-            <div className="nav-dropdown-container">
+            <div className="side-dropdown-container">
                 <Dropdown featured={topSellers} />
             </div>
         </span>
 
-        <span className="nav-category nav-best-rated">
+        <span className="side-category side-best-rated">
             Highest Rated Shops
-            <div className="nav-dropdown-container">
+            <div className="side-dropdown-container">
                 <Dropdown featured={topRated} />
             </div>
         </span>
 
-        <span className="nav-category nav-durable-items">
+        <span className="side-category side-durable-items">
             Durable Items
-            <div className="nav-dropdown-container">
+            <div className="side-dropdown-container">
                 <Dropdown featured={durables} />
             </div>
         </span>
         
-        <span className="nav-category nav-silk-items">
+        <span className="side-category side-silk-items">
             Slip into Something Silky
-            <div className="nav-dropdown-container">
+            <div className="side-dropdown-container">
                 <Dropdown featured={silks} />
             </div>
         </span>
 
-        <span className="nav-category nav-awesome-items">
+        <span className="side-category side-awesome-items">
             Awesome is the Name
-            <div className="nav-dropdown-container">
+            <div className="side-dropdown-container">
                 <Dropdown featured={awesomes} />
             </div>
         </span>
 
-        <span className="nav-category nav-wallet-items">
+        <span className="side-category side-wallet-items">
             Great Wallets
-            <div className="nav-dropdown-container">
+            <div className="side-dropdown-container">
                 <Dropdown featured={wallets} />
             </div>
         </span>
 
-        <span className="nav-category nav-dev-details">
+        <span className="side-category side-dev-details">
             Developed by C. Smith
-            <div className="nav-dropdown-container">
+            <div className="side-dropdown-container">
                 <DeveloperCard />
             </div>
         </span>
@@ -90,4 +88,4 @@ const NavCategories = () => {
     )
 }
 
-export default NavCategories;
+export default Sidebar;

@@ -1,4 +1,4 @@
-import '../Navigation/TopShopsGrid.css'
+import '../Navigation/styles/Dropdown.css'
 import './Shop.css'
 import { Link } from 'react-router-dom';
 

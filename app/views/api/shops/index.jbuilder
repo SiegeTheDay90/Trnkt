@@ -12,5 +12,6 @@
             liked = false
         end
         json.liked liked
+        json.type "shop"
     end
 end

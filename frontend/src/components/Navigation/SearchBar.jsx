@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import './SearchBar.css'
+import './styles/SearchBar.css'
 
 
 const SearchBar = () => {

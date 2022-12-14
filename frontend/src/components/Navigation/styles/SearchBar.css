@@ -47,6 +47,6 @@
 #SearchBar {
     display: flex;
     align-items: center;
-    width: 73%;
+    width: 40vw;
 }
 

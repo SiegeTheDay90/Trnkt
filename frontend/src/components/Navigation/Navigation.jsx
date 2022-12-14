@@ -3,9 +3,10 @@ import LoginFormModal from "../session/LoginFormModal";
 import NavCategories from "./NavCategories";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
-import './Navigation.css'
+import './styles/Navigation.css'
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import Sidebar from "./Sidebar";
 
 
 const Navigation = () => {
@@ -45,8 +46,12 @@ const Navigation = () => {
 
       </div>
 
-      <div className="navrow nav-category-container">
+      <div className="navrow nav-category-container wide">
         <NavCategories />
+      </div>
+
+      <div className="side-bar-container narrow">
+        <Sidebar />
       </div>
       
 

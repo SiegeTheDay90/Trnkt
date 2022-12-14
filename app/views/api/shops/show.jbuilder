@@ -3,6 +3,7 @@ json.set! :shop do
     json.set! :cover_photo_url, @shop.cover_photo.url
     json.set! :photo_url, @shop.thumbnail.url
     json.liked @liked
+    json.type "shop"
 end
 
 json.set! :seller do 
