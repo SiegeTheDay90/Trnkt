@@ -11,7 +11,7 @@ const Splash = () => {
 
     return (
         <div id="splash-container">
-            <h1 className="splash-heading">Featured Productss</h1>
+            <h1 className="splash-heading">Featured Products</h1>
             <ProductCard product = {featuredProducts[0]} />
             <ProductCard product = {featuredProducts[1]} />
             <ProductCard product = {featuredProducts[2]} />

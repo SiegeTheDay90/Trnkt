@@ -13,6 +13,10 @@
     align-items: center;
 }
 
+.navrow.categories {
+    max-width: 80%;
+}
+
 
 .logo {
     max-width: 90px;

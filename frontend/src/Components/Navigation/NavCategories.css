@@ -11,19 +11,6 @@
     position: relative;
 }
 
-.nav-dropdown-content {
-    display: none;
-    position: absolute;
-    top: 35px;
-    width: 75vw;
-    background: green;
-}
-
 .nav-category:hover {
     border-bottom: 2px solid black;
-}
-
-
-.nav-category:hover .nav-dropdown-content{
-    display: flex;
 }

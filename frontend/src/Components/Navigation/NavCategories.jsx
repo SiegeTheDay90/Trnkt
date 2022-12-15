@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/products";
 import { fetchShops } from "../../store/shops";
-import DeveloperCard from "./DeveloperCard";
 import './Navigation.css'
 import './NavCategories.css'
 import Dropdown from "./Dropdown";
@@ -36,7 +35,7 @@ const NavCategories = () => {
 
     if (!shops[0] || !products[0]) return null;
     return (
-      <div className="navrow">
+      <div className="navrow categories">
         <span className="nav-category">
             Top Selling Shops
             <Dropdown items = {topSellers} />
