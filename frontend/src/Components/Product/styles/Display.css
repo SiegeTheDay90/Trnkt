@@ -1,0 +1,74 @@
+.App-body {
+    background-color: white;
+}
+#product-outer-container, #product-header-container {
+    display: flex;
+    margin: 0 auto;
+}
+
+#product-outer-container {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: green; */
+    width:100%;
+    max-width: 1350px;
+}
+
+#product-header-container {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: purple; */
+    width: 100%;
+    padding-top: 25px;
+}
+
+#product-header-left {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 60%;
+    padding-left: 5px;
+    padding-top: 5px;
+    /* background-color: red; */
+}
+
+#product-header-right {
+    height: 500px;
+    width: 40%;
+    /* background-color: yellow; */
+    max-width: 450px;
+}
+
+#product-carousel-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* background-color: green; */
+}
+
+
+
+#product-carousel-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: blue; */
+    width: 100px;
+    height: 100%;
+}
+
+#product-carousel-list img {
+    margin-bottom: 5px;
+    max-width: 75px;
+}
+
+#product-image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#product-carousel-container img {
+    border-radius: 8px;
+}

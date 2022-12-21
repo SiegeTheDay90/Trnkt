@@ -1,12 +1,11 @@
-import './App.css';
 import { Route } from 'react-router-dom';
-import Navigation from './components/Navigation/Navigation';
-import Test from './components/Test/Test';
-import Shop from './components/Shop/Shop';
-import Product from './components/Product/Product';
-import Splash from './components/Splash/Splash';
-import Cart from './components/Cart/Cart';
-import Search from './components/Search/Search';
+import Navigation from './Components/Navigation/Navigation.jsx';
+import Splash from './Pages/Splash/Splash.jsx';
+import Product from './Pages/Product/Product.jsx';
+import Shop from './Pages/Shop/Shop.jsx';
+import Cart from './Pages/Cart/Cart.jsx';
+import Search from './Pages/Search/Search.jsx';
+import './App.css';
 
 
 function App() {
@@ -25,9 +24,6 @@ function App() {
         </Route>
         <Route path="/products/:id">
           <Product />
-        </Route>
-        <Route path="/test">
-          <Test />
         </Route>
         <Route path="/cart">
           <Cart />

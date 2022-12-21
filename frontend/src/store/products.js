@@ -36,7 +36,6 @@ export const fetchProducts = (options = [{}]) => async dispatch => {
         const response = await csrfFetch(url);
         const data = await response.json();
         products = await {...products, ...data};
-        debugger;
         dispatch(addProducts(products));
     })
 }

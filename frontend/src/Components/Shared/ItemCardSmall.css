@@ -1,0 +1,22 @@
+.item-card.small {
+    width: 25%;
+    text-decoration: none;
+    font-size: 12px;
+    color: black;
+    margin: 10px 0 10px 0;
+}
+
+.item-card:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card-image img{
+    max-height: 50%;
+    max-width: 65%;
+    border-radius: 8px;
+}
+
+.item-card:hover .card-image{
+    transform: scale(1.01, 1.01);
+}

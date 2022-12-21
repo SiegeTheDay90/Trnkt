@@ -1,0 +1,42 @@
+.product-li {
+    display: flex;
+    align-items: space-between;
+    position: relative;
+    font-size: 70%;
+    transition: all 0.2s;
+}
+
+.product-li:hover {
+    transform: scale(1.02, 1.02);
+}
+
+.product-image-container {
+    box-sizing: border-box;
+}
+
+.product-image-container img {
+    max-width: 100%;
+    border-radius: 16px;
+    transition: 0.3s;
+}
+
+.product-image-container:hover img {
+    max-width: 100%;
+    box-shadow: 0 0 6px 6px #00000030;
+}
+
+
+
+
+.item-detail.name {
+    max-width: 60%;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    padding: 5px 10px 5px 10px;
+}
+
