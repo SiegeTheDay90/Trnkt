@@ -5,7 +5,7 @@ const SearchListItem = ({object, type}) => {
 
     return (
 
-            <li className="search-item">
+            <li className="search-item foreground-container">
             <img src={object.photoUrl} alt={object.name}/>
                 <div className="search-item-details">
                     <Link to={`/${type}s/${object.id}`}><div className="search-item-title">{object.name}</div></Link>

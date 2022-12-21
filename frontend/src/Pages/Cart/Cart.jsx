@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CartListItem from '../../Components/Cart/CartItem';
-import './Cart.css';
 import Checkout from '../../Components/Cart/Checkout';
+import './Cart.css';
 
 const Cart = () => {
     
@@ -36,7 +36,11 @@ const Cart = () => {
             {(sessionUser && sessionCart) &&
                 <div id='cart-body'>
                     <div id='cart-body-left'>
-                        <CartListItem cart={sessionCart} />
+                        <ol id="cart-item-list">
+                            {Object.values(sessionCart).map((product) => (
+                                <CartListItem key={product.id} product={product} />
+                            ))}
+                        </ol>
                     </div>
                     <div id='cart-body-right'>
                         <Checkout cart={sessionCart} />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import './styles/CartItem.css'
 import { sendCartItem, deleteCartItem } from "../../store/session";
@@ -21,7 +21,7 @@ const CartListItem = ({product, count}) => {
 
     return (
 
-            <li className="cart-item">
+            <li className="cart-item foreground-container">
             <img src={product.photoUrl} alt={product.name}/>
                 <div className="cart-item-details">
                     <Link to={`/products/${id}`}><div className="cart-item-title">{product.name}</div></Link>

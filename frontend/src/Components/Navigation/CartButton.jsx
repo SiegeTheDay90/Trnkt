@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CartButton.css';
 
@@ -9,9 +9,9 @@ const CartButton = ({session}) => {
 
     const sessionCart = session.cart
 
-    if(sessionCart){
+    useEffect(()=>{
         setCartCount(Object.values(sessionCart).length);
-    }
+    }, [])
 
 
     return(

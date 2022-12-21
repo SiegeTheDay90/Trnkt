@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { fetchProducts } from '../../store/products';
 import { fetchShops } from '../../store/shops';
-import SearchListItem from './SearchListItem';
+import SearchListItem from '../../Components/Search/SearchListItem.jsx';
 
 const Search = () => {
 

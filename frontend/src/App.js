@@ -4,7 +4,7 @@ import Splash from './Pages/Splash/Splash.jsx';
 import Product from './Pages/Product/Product.jsx';
 import Shop from './Pages/Shop/Shop.jsx';
 import Cart from './Pages/Cart/Cart.jsx';
-// import Search from './Search/Search';
+import Search from './Pages/Search/Search.jsx';
 import './App.css';
 
 
@@ -28,9 +28,9 @@ function App() {
         <Route path="/cart">
           <Cart />
         </Route>
-        {/* <Route path="/search/:query">
+        <Route path="/search/:query">
           <Search />
-        </Route> */}
+        </Route>
         <Route exact path="/">
           <Splash />
         </Route>

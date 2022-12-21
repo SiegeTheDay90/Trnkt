@@ -59,3 +59,7 @@ button.white:hover {
 button.black:hover {
   background: #333333;
 }
+
+.foreground-container {
+  background-color: white;
+}

@@ -30,7 +30,7 @@ const Checkout = ({cart}) => {
     return (
         <>
         
-        <div id="cart-checkout-container">
+        <div id="cart-checkout-container" className="foreground-container">
             <div className="cart-checkout-row">
                 <span>Item(s) total:</span> <span>${subTotal}</span>
             </div>
@@ -46,7 +46,7 @@ const Checkout = ({cart}) => {
             </div>
             <hr/>
             <div className="cart-checkout-row">
-            <span>Total:</span> <span>${(subTotal*(1-discount)).toFixed(2) - -5.00}</span>
+            <span>Total:</span> <span>${(subTotal*(1.0-discount)).toFixed(2) - -5.00}</span>
             </div>
             <button className="black" id="checkout-button" onClick={checkOutClick}>Checkout</button>
         </div>
