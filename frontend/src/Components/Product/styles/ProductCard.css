@@ -8,25 +8,29 @@
     color: black;
     width: 100%;
     overflow: hidden;
+    border-radius: 4px;
 }
 
-.product-card:hover {
-    transform: scale(1.02, 1.02);
-}
 
 .product-image-container {
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .product-image-container img {
     max-width: 100%;
-    border-radius: 16px;
+    border-radius: 4px;
     transition: 0.3s;
 }
 
-.product-image-container:hover img {
+.product-card:hover {
     max-width: 100%;
     box-shadow: 0 0 6px 6px #00000030;
+    transform: scale(1.02, 1.02);
+}
+
+.product-card:hover img{
+    transform: scale(1.05, 1.05);
 }
 
 

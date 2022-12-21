@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from '../../Components/Product/ProductCard.jsx'
+import CircularBadge from '../../Components/Shared/CircularBadge.jsx';
 import './Splash.css'
 
 
@@ -18,17 +19,51 @@ const Splash = () => {
             arr.push(product)
         })
 
+        
         setFeaturedProducts(arr)
     },[fetchedProducts])
-
-
-
+    
+    
+    
+    const Interceptor = {
+        name: "Interceptor",
+        image: "https://i.imgur.com/ckOh0yf.png",
+        url: "https://siegetheday90.github.io/Interceptor/"
+    }
+    const Advent = {
+        name: "Advent of Code",
+        image: "https://i.imgur.com/bA8Cl7K.png",
+        url: "https://github.com/SiegeTheDay90/Advent-of-code-2022"
+    }
+    const RisingSign = {
+        name: "Rising Sign",
+        image: "https://i.imgur.com/gfjcA0V.png",
+        url: "https://rising-sign.onrender.com/"
+    }
+    const LinkedIn = {
+        name: "LinkedIn",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/640px-LinkedIn_icon_circle.svg.png",
+        url: "https://www.linkedin.com/in/clarence-smith-nyc/"
+    }
+    const Personal = {
+        name: "Personal Site",
+        image: "https://i.imgur.com/KyozHTj.png",
+        url: "https://siegetheday90.github.io/personal-site/"
+    }
 
     if (!featuredProducts[7]) return null;
 
     return (
-        <div id="splash-container">
-            <h1 className="splash-heading">Featured Products</h1>
+        <>
+        <div id="splash-top">
+            <h1 className="splash-heading">More from Clarence Smith</h1>
+            <CircularBadge object={Interceptor} />
+            <CircularBadge object={Advent} />
+            <CircularBadge object={RisingSign} />
+            <CircularBadge object={LinkedIn} />
+            <CircularBadge object={Personal} />
+        </div>
+        <div id="splash-middle">
             <ProductCard product = {featuredProducts[0]} />
             <ProductCard product = {featuredProducts[1]} />
             <ProductCard product = {featuredProducts[2]} />
@@ -38,6 +73,7 @@ const Splash = () => {
             <ProductCard product = {featuredProducts[6]} />
             <ProductCard product = {featuredProducts[7]} />
         </div>
+        </>
     )
 }
 

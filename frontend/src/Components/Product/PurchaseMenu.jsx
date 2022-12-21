@@ -89,7 +89,7 @@ const PurchaseMenu = ({product}) => {
             </div>
         </dialog>
         </>
-        : <marquee>Loading...</marquee>
+        : <h1>Loading...</h1>
     )
 }
 

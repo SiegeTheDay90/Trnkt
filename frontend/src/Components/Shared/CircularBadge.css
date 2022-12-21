@@ -1,0 +1,28 @@
+.circular-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    position: relative;
+    transition: 0.2s;
+}
+
+.circular-badge .name {
+    position: relative;
+    color: black;
+    bottom: -8px;
+    font-size: 0.6em;
+    font-weight: bold;
+}
+
+.circular-badge:hover {
+    color:black;
+    transform: scale(1.05, 1.05);
+}
+
+.circular-badge img {
+    border-radius: 125px;
+    height: 90px;
+    width: 90px;
+}
+

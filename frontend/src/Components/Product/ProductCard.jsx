@@ -28,9 +28,9 @@ const ProductCard = ({ product }) => {
         {
             product 
                 ? <div className="product-card" >
-                        <button className="white follow-button" onClick={followClick}><i className={heart()} ></i></button>
                     <Link to={`/products/${product.id}`}>
                     <div className="product-image-container">
+                        <button className="white follow-button" onClick={followClick}><i className={heart()} ></i></button>
                         <img className="product-image card-image" src={product.photoUrl} alt={product.name}/>
                         <span className="item-detail price">${product.price.toFixed(2)}</span>
                     </div>
@@ -39,7 +39,7 @@ const ProductCard = ({ product }) => {
                     </Link> 
                 </div>
 
-            : <marquee><h1>Loading...</h1></marquee>
+            : <h1>Loading...</h1>
         }
         </>
     )

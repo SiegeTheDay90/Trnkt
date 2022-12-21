@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
-import { fetchShop, fetchShops, likeShop } from "../../store/shops";
+import { fetchShop, likeShop } from "../../store/shops";
 import { useEffect, useState } from "react";
-import ProductListItem from '../../Components/Product/ProductListItem.jsx';
+import ProductListItem from '../../Components/Shop/ListItem.jsx';
 import './Shop.css';
 
 const Shop = () => {
@@ -12,7 +12,7 @@ const Shop = () => {
     useEffect(() => {
         dispatch(fetchShop(id));
         // dispatch(fetchShops({num: 4}));
-    }, [id]);
+    }, [id, dispatch]);
     
     
     const shops = useSelector(state => state.shops);
@@ -54,7 +54,7 @@ const Shop = () => {
         <>{
             shop ?
             <div id="shop-outer-container">
-                <img id="shop-cover-photo" src={shop.coverPhotoUrl} alt="cover photo"/>
+                <img id="shop-cover-photo" src={shop.coverPhotoUrl} alt="cover"/>
                 <div id="shop-info-container">
                     <div id="header">
                         <div id="header-left">
@@ -91,7 +91,7 @@ const Shop = () => {
                     </div>
                 </div>
             </div>
-            : <marquee><h1>Loading...</h1></marquee>}
+            :<h1>Loading...</h1>}
         </>
     )
 }

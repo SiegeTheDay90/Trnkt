@@ -19,7 +19,7 @@ const ProductListItem = ({ product }) => {
                 </div>
             </Link>
 
-            : <marquee><h1>Loading...</h1></marquee>
+            :<h1>Loading...</h1>
         }
         </>
     )
