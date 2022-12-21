@@ -5,3 +5,21 @@
     width: 45px;
     height: 45px;
 }
+
+#cart-button-container {
+    position: relative;
+    right: 1.5vw;
+}
+
+
+@media (max-width: 1200px) {
+    #cart-count {
+        display: none
+    }
+}  
+
+@media (max-width: 1400px){
+    #cart-count {
+        font-size: smaller;
+    }
+}

@@ -19,11 +19,11 @@ const CartButton = ({session}) => {
 
 
     return(
-        <Link to="/cart">
+        <Link to="/cart" id="cart-button-container">
             <button id="cart-button" className="white">
                 <i id="cart" className="fa-solid fa-cart-shopping"></i>
             </button>
-            {cartCount}
+            <span id="cart-count">{cartCount}</span>
         </Link>
     )
 }

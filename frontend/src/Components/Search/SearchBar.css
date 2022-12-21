@@ -47,6 +47,25 @@
 #SearchBar {
     display: flex;
     align-items: center;
-    width: 73%;
+    width: 80%;
+    max-width: 900px;
+    transition: 0.1s;
 }
 
+@media (max-width: 1200px){
+    #SearchBar {
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 1000px){
+    #SearchBar {
+        max-width: 450px
+    }
+}
+
+@media (max-width: 700px){
+    #SearchBar {
+        max-width: 18vw;
+    }
+}

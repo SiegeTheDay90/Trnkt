@@ -8,6 +8,7 @@
 
 .product-li:hover {
     transform: scale(1.02, 1.02);
+    font-weight: bold;
 }
 
 .product-image-container {
