@@ -10,8 +10,12 @@ const CartButton = ({session}) => {
     const sessionCart = session.cart
 
     useEffect(()=>{
-        setCartCount(Object.values(sessionCart).length);
-    }, [])
+        try {
+            setCartCount(Object.values(sessionCart).length);
+        } catch {
+            
+        }
+    }, [sessionCart])
 
 
     return(
