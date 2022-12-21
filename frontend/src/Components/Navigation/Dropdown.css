@@ -1,7 +1,7 @@
 span:has(.nav-dropdown-content):hover .nav-dropdown-content{
     display: flex;
     flex-wrap: wrap;
-    z-index: 1;
+    z-index: 3;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 1px ;
     box-shadow: 0 3px 6px 1px #00000030;
@@ -11,7 +11,7 @@ span:has(.nav-dropdown-content):hover .nav-dropdown-content{
     position: absolute;
     top: calc(100% + 2px);
     width: 100%;
-    z-index: 1;
+    z-index: 3;
 }
 
 .nav-dropdown-content {
@@ -20,5 +20,4 @@ span:has(.nav-dropdown-content):hover .nav-dropdown-content{
     left: 10vw;
     right: 10vw;
     background: white;
-    
 }

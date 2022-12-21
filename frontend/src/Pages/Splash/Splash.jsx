@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from '../../Components/Product/ProductCard.jsx'
 import './Splash.css'
@@ -5,8 +6,24 @@ import './Splash.css'
 
 const Splash = () => {
 
+    const [featuredProducts, setFeaturedProducts] = useState([])
     const fetchedProducts = useSelector(state => state.products)
-    const featuredProducts = Object.values(fetchedProducts).shuffle().slice(0,8);
+    let holder;
+    const arr = [] 
+    
+    useEffect(()=>{
+        holder = Object.values(fetchedProducts).shuffle().slice(0,8);
+
+        holder.forEach((product) => {
+            arr.push(product)
+        })
+
+        setFeaturedProducts(arr)
+    },[fetchedProducts])
+
+
+
+
     if (!featuredProducts[7]) return null;
 
     return (

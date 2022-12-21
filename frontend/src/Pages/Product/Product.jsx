@@ -23,10 +23,10 @@ const Product = () => {
         <div id="product-outer-container">
             <div id="product-header-container">
                 <div id="product-header-left">
-                    <Display id={id}/>
+                    <Display product={product}/>
                 </div>
                 <div id="product-header-right">
-                    <PurchaseMenu id={id} />
+                    <PurchaseMenu product={product} />
                 </div>
             </div>
         </div>}

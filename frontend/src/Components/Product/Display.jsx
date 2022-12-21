@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import './styles/Display.css'
 
-const Display = (product) => {
+const Display = ({product}) => {
 
     return (
         <>

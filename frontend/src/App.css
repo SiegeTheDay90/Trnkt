@@ -18,7 +18,7 @@ a {
 
 .App-body {
   width: 100vw;
-  min-height: 90vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,6 +26,11 @@ a {
   font-size: 24px;
   color: black;
   background-color: #ffece4;
+}
+
+.App-footer {
+  width: 100vw;
+  color: black;
 }
 
 button.white {

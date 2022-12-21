@@ -47,8 +47,9 @@
 #SearchBar {
     display: flex;
     align-items: center;
-    width: 80%;
-    max-width: 900px;
+    width: 90%;
+    margin-top: 8px;
+    /* max-width: px; */
     transition: 0.1s;
 }
 

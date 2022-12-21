@@ -26,10 +26,10 @@ const CartListItem = ({product, count}) => {
                 <div className="cart-item-details">
                     <Link to={`/products/${id}`}><div className="cart-item-title">{product.name}</div></Link>
                     <div className="cart-item-options"></div>
-                    <button className="white cart-item-remove-button" onClick={handleRemove}>Remove</button>
                 </div>
             
                 <div className="cart-item-right">
+                    <button className="white cart-item-remove-button" onClick={handleRemove}>Remove</button>
                     <form>
                     <select className="menu-select" value={quantity} onChange={quantitySelect}>
                         <option value="1">1</option>

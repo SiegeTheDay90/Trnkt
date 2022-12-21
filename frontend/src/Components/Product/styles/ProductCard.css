@@ -5,6 +5,9 @@
     position: relative;
     font-size: 70%;
     transition: all 0.2s;
+    color: black;
+    width: 100%;
+    overflow: hidden;
 }
 
 .product-card:hover {
@@ -32,29 +35,66 @@
 }
 
 .item-detail.name {
-    max-width: 60%;
-}
-
-.product-details {
     display: flex;
     position: absolute;
     visibility: hidden;
-    bottom: 15%;
+    top: 10px;
     justify-content: space-between;
-    width: 100%;
+    min-width: calc(100% - 1px);
     box-sizing: border-box;
     padding: 5px 10px 5px 10px;
     transform: translateY(150%);
-    color: #ffffffee
+    color: #ffffffee;
+    /* border-radius: 8px; */
 }
 
-.product-card:hover .product-details{
+.item-detail.price {
+    position: absolute;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: black;
+    bottom: 20px;
+    left: 15px;
+    font-size: 0.85em;
+    padding: 5px 10px;
+    opacity: 80%;
+    box-shadow: 0 0 6px 3px #ffffffa0;
+}
+
+
+.product-card:hover .follow-button{
     visibility: visible;
     transform: translateY(0%);
     animation: details 0.3s ease-in;
-    background-color: #22222299;
+    /* background-color: #22222299; */
     font-weight: bold;
 }
+
+.product-card .follow-button{
+    position: absolute;
+    transform: translateY(-250%);
+    box-sizing: border-box;
+    height: auto;
+    width: auto;
+    top: 15px;
+    right: 15px;
+    padding: 5px;
+    opacity: 45%;
+    box-shadow: 0 0 4px 1px #ffffffa0;
+    transition: 0.4s;
+    z-index: 2;
+}
+
+.product-card:hover .follow-button, .product-card:hover .price{
+    opacity: 90%;
+    transition: 0.2s
+}
+
+.follow-button:hover {
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 0 7px 2px #ffffffa0;
+}
+
 
 
 @keyframes details {
@@ -74,6 +114,5 @@
     100% {
         transform: translateY(0%);
         opacity: 100%;
-        background-color: #22222299;
     }
 }

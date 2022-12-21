@@ -11,3 +11,33 @@
 #splash-container h1 {
     grid-area: header;
 }
+
+#splash-container .product-card{
+    width: 80%;
+}
+
+@media (max-width: 1250px){
+    #splash-container {
+        display: grid;
+        grid-template-areas:
+            'header header header'
+            'item-1 item-5 item-4'
+            'item-2 item-6 item-8'
+            'item-3 item-7 item-8';
+        gap: 20px;
+        padding: 10px;
+    }
+}
+@media (max-width: 750px){
+    #splash-container {
+        display: grid;
+        grid-template-areas:
+            'header header'
+            'item-1 item-5'
+            'item-2 item-6'
+            'item-3 item-7'
+            'item-4 item-8';
+        gap: 20px;
+        padding: 10px;
+    }
+}
