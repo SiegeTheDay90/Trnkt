@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CartListItem from '../../Components/Cart/CartItem';
 import './Cart.css';
-import CartList from './CartList';
-import Checkout from './Checkout';
+import Checkout from '../../Components/Cart/Checkout';
 
 const Cart = () => {
     
@@ -29,14 +29,14 @@ const Cart = () => {
                     <h1>{cartLength()} items in your cart</h1>
                 </div>
                 <div id='cart-header-right'>
-                    <Link to="/"><button className="button-white" id="keep-shopping-button">Keep Shopping</button></Link>
+                    <Link to="/"><button className="white" id="keep-shopping-button">Keep Shopping</button></Link>
                 </div>
             </div>
 
             {(sessionUser && sessionCart) &&
                 <div id='cart-body'>
                     <div id='cart-body-left'>
-                        <CartList cart={sessionCart} />
+                        <CartListItem cart={sessionCart} />
                     </div>
                     <div id='cart-body-right'>
                         <Checkout cart={sessionCart} />

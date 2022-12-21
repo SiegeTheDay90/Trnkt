@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import './Checkout.css'
+import './styles/Checkout.css'
 import { useEffect, useState } from 'react';
-import { clearCart } from '../store/session';
+import { clearCart } from '../../store/session';
 
 
 const Checkout = ({cart}) => {
@@ -48,7 +48,7 @@ const Checkout = ({cart}) => {
             <div className="cart-checkout-row">
             <span>Total:</span> <span>${(subTotal*(1-discount)).toFixed(2) - -5.00}</span>
             </div>
-            <button className="button-black" id="checkout-button" onClick={checkOutClick}>Checkout</button>
+            <button className="black" id="checkout-button" onClick={checkOutClick}>Checkout</button>
         </div>
         </>
     )

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import './CartListItem.css'
-import { sendCartItem, deleteCartItem } from "../store/session";
+import './styles/CartItem.css'
+import { sendCartItem, deleteCartItem } from "../../store/session";
 
 const CartListItem = ({product, count}) => {
     const dispatch = useDispatch();
@@ -24,9 +24,9 @@ const CartListItem = ({product, count}) => {
             <li className="cart-item">
             <img src={product.photoUrl} alt={product.name}/>
                 <div className="cart-item-details">
-                <Link to={`/products/${id}`}><div className="cart-item-title">{product.name}</div></Link>
+                    <Link to={`/products/${id}`}><div className="cart-item-title">{product.name}</div></Link>
                     <div className="cart-item-options"></div>
-                    <button className="button-white cart-item-remove-button" onClick={handleRemove}>Remove</button>
+                    <button className="white cart-item-remove-button" onClick={handleRemove}>Remove</button>
                 </div>
             
                 <div className="cart-item-right">

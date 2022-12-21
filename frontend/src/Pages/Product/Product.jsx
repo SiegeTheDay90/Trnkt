@@ -3,8 +3,8 @@ import './Product.css'
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchProduct } from '../../store/products';
-import ProductCarousel from './ProductCarousel';
-import ProductMenu from './ProductMenu';
+import Display from '../../Components/Product/Display';
+import PurchaseMenu from '../../Components/Product/PurchaseMenu';
 
 const Product = () => {
     const { id } = useParams();
@@ -23,10 +23,10 @@ const Product = () => {
         <div id="product-outer-container">
             <div id="product-header-container">
                 <div id="product-header-left">
-                    <ProductCarousel id={id}/>
+                    <Display id={id}/>
                 </div>
                 <div id="product-header-right">
-                    <ProductMenu id={id} />
+                    <PurchaseMenu id={id} />
                 </div>
             </div>
         </div>}

@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './ProductMenu.css'
+import './styles/PurchaseMenu.css'
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from 'react';
 import { sendCartItem } from '../../store/session';
 import { likeProduct } from '../../store/products';
 
-const ProductMenu = () => {
+const PurchaseMenu = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -81,19 +81,19 @@ const ProductMenu = () => {
                         <option value="10">10</option>
                 </select>
             </label><br/>
-            <button id="button-add-to-cart" className="button-black" onClick={addToCart}>Add to Cart</button><br/>
+            <button id="button-add-to-cart" className="black" onClick={addToCart}>Add to Cart</button><br/>
             <p id="product-description"><span style={{"fontWeight":"bold"}}>Description:</span> {product.description}</p>
         </div>
 
         <dialog id="product-atc-modal-container">
             <div id="product-atc-modal">
                 <h1>Added to Cart!</h1>
-                <button className="button-black" onClick={goToCart}>Go to Cart</button>
-                <button className="button-white" onClick={closeModal}>Keep Shopping</button>
+                <button className="black" onClick={goToCart}>Go to Cart</button>
+                <button className="white" onClick={closeModal}>Keep Shopping</button>
             </div>
         </dialog>
         </>
     )
 }
 
-export default ProductMenu;
+export default PurchaseMenu;
