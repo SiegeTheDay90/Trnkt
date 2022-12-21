@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
-import './styles/ProductCard.css'
+import './styles/ProductListItem.css'
 
-const ProductCard = ({ product }) => {
+const ProductListItem = ({ product }) => {
 
     return (
         <>
         {
             product 
             ? <Link to={`/products/${product.id}`}>
-                <div className="product-card" >
+                <div className="product-li" >
                     <div className="product-image-container">
                         <img className="product-image card-image" src={product.photoUrl} alt={product.name}/>
                     </div>
@@ -25,4 +25,4 @@ const ProductCard = ({ product }) => {
     )
 }
 
-export default ProductCard;
+export default ProductListItem;

@@ -1,11 +1,12 @@
 import { Route } from 'react-router-dom';
 import Navigation from './Components/Navigation/Navigation.jsx';
 import Splash from './Pages/Splash/Splash.jsx';
+import Product from './Pages/Product/Product.jsx';
 // import Shop from './Shop/Shop';
-// import Product from './Product/Product';
 // import Cart from './Cart/Cart';
 // import Search from './Search/Search';
 import './App.css';
+import Shop from './Pages/Shop/Shop.jsx';
 
 
 function App() {
@@ -19,13 +20,13 @@ function App() {
       </header>
 
       <div className='App-body'>
-        {/* <Route path="/shops/:id">
+        <Route path="/shops/:id">
           <Shop />
         </Route>
         <Route path="/products/:id">
           <Product />
         </Route>
-        <Route path="/cart">
+        {/* <Route path="/cart">
           <Cart />
         </Route>
         <Route path="/search/:query">
