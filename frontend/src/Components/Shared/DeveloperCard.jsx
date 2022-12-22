@@ -1,6 +1,6 @@
 // import './TopShopsGrid.css';
 // import './Navigation.css';
-import './DeveloperCard.css';
+import './styles/DeveloperCard.css';
 
 
 const DeveloperCard = () => {

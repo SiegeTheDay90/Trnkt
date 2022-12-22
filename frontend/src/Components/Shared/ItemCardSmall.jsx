@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './ItemCardSmall.css';
+import './styles/ItemCardSmall.css';
 
 
 const ItemCardSmall = ({item}) => {

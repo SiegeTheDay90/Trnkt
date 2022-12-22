@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-container">
             <div className="footer-column">
                 <h3>About Trnkt</h3>
-                <p>Trnkt is a Single Page Application built with React/Redux and Ruby on Rails. Ruby on Rails is used only as an API, serving JSON built with the jBuilder gem. Please contact me with feedback and take a look at my other projects!</p>
+                <p>Trnkt is a Single Page Application built with React/Redux. Rails is used as a backend API. Data is stored using PostgreSQL and served as JSON  built with the Jbuilder gem.</p>
             </div>
             <div className="footer-column middle">
                 <h3>My Links</h3>

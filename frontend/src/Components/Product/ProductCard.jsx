@@ -19,6 +19,7 @@ const ProductCard = ({ product }) => {
     const followClick = (e) => {
         dispatch(likeProduct(product.id));
         setLiked(!liked);
+        product.liked = !product.liked
     }
 
     return (

@@ -7,12 +7,14 @@
     transition: 0.2s;
 }
 
-.circular-badge .name {
-    position: relative;
+.name {
     color: black;
-    bottom: -8px;
     font-size: 0.6em;
     font-weight: bold;
+}
+
+a:has(.circular-badge:hover){
+    border-bottom: 2px solid black;
 }
 
 .circular-badge:hover {
