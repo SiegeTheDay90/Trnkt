@@ -27,27 +27,27 @@ const Splash = () => {
     
     const Interceptor = {
         name: "Interceptor",
-        image: "https://i.imgur.com/ckOh0yf.png",
+        image: "https://siegetheday90.github.io/Interceptor/images/logo-no-text.png",
         url: "https://siegetheday90.github.io/Interceptor/"
     }
     const Advent = {
         name: "Advent of Code",
-        image: "https://i.imgur.com/bA8Cl7K.png",
+        image: "https://i.imgur.com/LzV0Ec1.png",
         url: "https://github.com/SiegeTheDay90/Advent-of-code-2022"
     }
     const RisingSign = {
         name: "Rising Sign",
-        image: "https://i.imgur.com/gfjcA0V.png",
+        image: "https://i.imgur.com/i13PX9f.png",
         url: "https://rising-sign.onrender.com/"
     }
     const LinkedIn = {
         name: "LinkedIn",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/640px-LinkedIn_icon_circle.svg.png",
+        image: "https://i.imgur.com/MLYTVpn.png",
         url: "https://www.linkedin.com/in/clarence-smith-nyc/"
     }
     const Personal = {
         name: "Personal Site",
-        image: "https://i.imgur.com/KyozHTj.png",
+        image: "https://i.imgur.com/GrhND4Z.png",
         url: "https://siegetheday90.github.io/personal-site/"
     }
 
