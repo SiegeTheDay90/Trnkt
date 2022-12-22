@@ -3,21 +3,26 @@ span:has(.nav-dropdown-content):hover .nav-dropdown-content{
     flex-wrap: wrap;
     z-index: 3;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 1px ;
     box-shadow: 0 3px 6px 1px #00000030;
 }
 
 .nav-dropdown-container {
-    position: absolute;
-    top: calc(100% + 2px);
+    /* position: absolute; */
     width: 100%;
     z-index: 3;
 }
 
 .nav-dropdown-content {
     display: none;
-    position: fixed;
-    left: 10vw;
-    right: 10vw;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 5vw;
+    right: 5vw;
     background: white;
+    padding: 15px 0 10px 0;
+}
+
+.nav-dropdown-content img {
+    max-width: 150px;
+    border-radius: 8px;
 }

@@ -5,6 +5,7 @@ import Product from './Pages/Product/Product.jsx';
 import Shop from './Pages/Shop/Shop.jsx';
 import Cart from './Pages/Cart/Cart.jsx';
 import Search from './Pages/Search/Search.jsx';
+import Footer from './Components/Footer/Footer.jsx';
 import './App.css';
 
 
@@ -33,6 +34,11 @@ function App() {
         </Route>
         <Route exact path="/">
           <Splash />
+        </Route>
+      </div>
+      <div className='App-footer'>
+        <Route path="/">
+          <Footer />
         </Route>
       </div>
     </div>

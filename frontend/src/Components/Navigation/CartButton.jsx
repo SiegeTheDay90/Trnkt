@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './CartButton.css';
+import './styles/CartButton.css';
 
 const CartButton = ({session}) => {
 

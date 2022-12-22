@@ -25,12 +25,12 @@ a {
   align-items: center;
   font-size: 24px;
   color: black;
-  background-color: #ffece4;
+  background-color: #ffffff;
 }
 
 .App-footer {
   width: 100vw;
-  color: black;
+  background-color: #fdebd2;
 }
 
 button.white {

@@ -7,7 +7,6 @@
     line-height: 18px;
     border-bottom: 2px solid transparent;
     user-select: none;
-    position: relative;
 }
 
 .nav-category:hover {

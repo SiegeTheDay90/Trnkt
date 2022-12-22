@@ -5,7 +5,7 @@ import LoginFormModal from "../Session/LoginFormModal.jsx";
 import NavCategories from "./NavCategories.jsx";
 import SearchBar from "../Search/SearchBar.jsx";
 import CartButton from "./CartButton.jsx";
-import './Navigation.css'
+import './styles/Navigation.css'
 
 
 const Navigation = () => {

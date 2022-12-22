@@ -1,5 +1,5 @@
 import ItemCardSmall from '../Shared/ItemCardSmall.jsx';
-import './Dropdown.css'
+import './styles/Dropdown.css'
 
 const Dropdown = ({items}) => {
     if(!items[7]) return null;

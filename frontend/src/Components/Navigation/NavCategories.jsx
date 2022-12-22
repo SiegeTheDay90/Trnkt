@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/products";
 import { fetchShops } from "../../store/shops";
-import './Navigation.css'
-import './NavCategories.css'
+import './styles/Navigation.css'
+import './styles/NavCategories.css'
 import Dropdown from "./Dropdown";
 
 const NavCategories = () => {
