@@ -53,9 +53,9 @@ const Splash = () => {
             <h1 className="splash-heading">More from Clarence Smith</h1>
             <CircularBadge object={Interceptor} />
             <CircularBadge object={Advent} />
-            <CircularBadge object={RisingSign} />
-            <CircularBadge object={LinkedIn} />
             <CircularBadge object={Personal} />
+            <CircularBadge object={LinkedIn} />
+            <CircularBadge object={RisingSign} />
         </div>
         <div id="splash-middle">
             <ProductCard product = {featuredProducts.current[0]} />

@@ -13,10 +13,10 @@ const Footer = () => {
             <div className="footer-column middle">
                 <h3>My Links</h3>
                 <ul>
+                    <a href="https://docs.google.com/document/d/1rtd4u6MFfPYxZM9Lg754KpVTuHZwZyGJwlLLep8CLKQ/"><li>Resume</li></a>
                     <a href="https://www.linkedin.com/in/clarence-smith-nyc/"><li>LinkedIn</li></a>
                     <a href="https://github.com/SiegeTheDay90"><li>Github</li></a>
                     <a href="https://siegetheday90.github.io/Interceptor/"><li>Interceptor</li></a>
-                    <a href="https://docs.google.com/document/d/1rtd4u6MFfPYxZM9Lg754KpVTuHZwZyGJwlLLep8CLKQ/"><li>Resume/CV</li></a>
                 </ul>
             </div>
             <div className="footer-column right">
