@@ -13,9 +13,13 @@ const CartButton = ({session}) => {
         try {
             setCartCount(Object.values(sessionCart).length);
         } catch {
-            
+            setCartCount(0)
         }
     }, [sessionCart])
+
+    const hidden = () => {
+        return cartCount > 0 ? "" : "hidden"
+    }
 
 
     return(
@@ -23,7 +27,7 @@ const CartButton = ({session}) => {
             <button id="cart-button" className="white">
                 <i id="cart" className="fa-solid fa-cart-shopping"></i>
             </button>
-            <span id="cart-count">{cartCount}</span>
+            <span id="cart-count" className={hidden()}>{cartCount}</span>
         </Link>
     )
 }

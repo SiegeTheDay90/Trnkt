@@ -6,10 +6,8 @@
 }
 
 #cart-button-container {
-    position: relative;
     display: flex;
     align-items: center;
-    right: 1.5vw;
     color: black;
 }
 
@@ -17,6 +15,20 @@
     font-weight: bold;
 }
 
+#cart-count {
+    position: relative;
+    left: -17px;
+    top: -12px;
+    font-size: 0.75em;
+    font-weight: bold;
+    background-color:   #ffc0a3;
+    border-radius: 50%;
+    padding: 3px 5px 2px 5px;
+}
+
+.hidden {
+    visibility: hidden;
+}
 
 @media (max-width: 1200px) {
     #cart-count {

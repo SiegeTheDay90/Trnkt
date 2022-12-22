@@ -1,26 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from '../../Components/Product/ProductCard.jsx'
 import CircularBadge from '../../Components/Shared/CircularBadge.jsx';
 import './Splash.css'
 
-
 const Splash = () => {
 
-    const [featuredProducts, setFeaturedProducts] = useState([])
+    const featuredProducts = useRef([])
+    const [loaded, setLoaded] = useState(false)
     const fetchedProducts = useSelector(state => state.products)
-    let holder;
-    const arr = [] 
+
     
     useEffect(()=>{
-        holder = Object.values(fetchedProducts).shuffle().slice(0,8);
-
-        holder.forEach((product) => {
-            arr.push(product)
-        })
-
-        
-        setFeaturedProducts(arr)
+        if (!loaded && Object.values(fetchedProducts)[7]) {
+            featuredProducts.current =  Object.values(fetchedProducts).shuffle().slice(0,8);
+            setLoaded(true)
+        }
     },[fetchedProducts])
     
     
@@ -51,7 +46,6 @@ const Splash = () => {
         url: "https://siegetheday90.github.io/personal-site/"
     }
 
-    if (!featuredProducts[7]) return null;
 
     return (
         <>
@@ -64,14 +58,14 @@ const Splash = () => {
             <CircularBadge object={Personal} />
         </div>
         <div id="splash-middle">
-            <ProductCard product = {featuredProducts[0]} />
-            <ProductCard product = {featuredProducts[1]} />
-            <ProductCard product = {featuredProducts[2]} />
-            <ProductCard product = {featuredProducts[3]} />
-            <ProductCard product = {featuredProducts[4]} />
-            <ProductCard product = {featuredProducts[5]} />
-            <ProductCard product = {featuredProducts[6]} />
-            <ProductCard product = {featuredProducts[7]} />
+            <ProductCard product = {featuredProducts.current[0]} />
+            <ProductCard product = {featuredProducts.current[1]} />
+            <ProductCard product = {featuredProducts.current[2]} />
+            <ProductCard product = {featuredProducts.current[3]} />
+            <ProductCard product = {featuredProducts.current[4]} />
+            <ProductCard product = {featuredProducts.current[5]} />
+            <ProductCard product = {featuredProducts.current[6]} />
+            <ProductCard product = {featuredProducts.current[7]} />
         </div>
         </>
     )

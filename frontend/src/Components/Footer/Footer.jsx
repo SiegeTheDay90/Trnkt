@@ -5,12 +5,12 @@ const Footer = () => {
   
   return (
     <footer>
-        <div class="footer-container">
-            <div class="footer-column">
+        <div className="footer-container">
+            <div className="footer-column">
                 <h3>About Trnkt</h3>
                 <p>Trnkt is a Single Page Application built with React/Redux and Ruby on Rails. Ruby on Rails is used only as an API, serving JSON built with the jBuilder gem. Please contact me with feedback and take a look at my other projects!</p>
             </div>
-            <div class="footer-column middle">
+            <div className="footer-column middle">
                 <h3>My Links</h3>
                 <ul>
                     <a href="https://www.linkedin.com/in/clarence-smith-nyc/"><li>LinkedIn</li></a>
@@ -19,7 +19,7 @@ const Footer = () => {
                     <a href="https://docs.google.com/document/d/1rtd4u6MFfPYxZM9Lg754KpVTuHZwZyGJwlLLep8CLKQ/"><li>Resume/CV</li></a>
                 </ul>
             </div>
-            <div class="footer-column right">
+            <div className="footer-column right">
                 <h3>Contact</h3>
                 <p>Phone: 646-374-7244</p>
                 <p>Email: ClarenceSmith@gmail.com</p>
