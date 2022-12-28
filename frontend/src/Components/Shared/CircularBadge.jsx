@@ -6,7 +6,7 @@ const CircularBadge = ({object}) => {
         <>
         {
             object 
-                ? <a href={object.url} target="_blank">
+                ? <a href={object.url} className="badge-link" target="_blank">
                     <div className="circular-badge" >
                         <img className="cicular-badge-image" src={object.image}/>
                     </div>

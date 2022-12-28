@@ -16,8 +16,8 @@ const SearchBar = () => {
   }
     return (
       <form id="SearchBar" onSubmit={searchSubmit}>
-        <input id="SearchText" placeholder='Search for anything'/>
-        <button type="submit" id="SearchSubmit" className="search-button">&#x2315;</button>
+        <input tabindex="1" id="SearchText" placeholder='Search for anything'/>
+        <button tabindex = "1" type="submit" id="SearchSubmit" className="search-button">&#x2315;</button>
       </form>
     )
 }
