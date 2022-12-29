@@ -67,7 +67,6 @@
     visibility: visible;
     transform: translateY(0%);
     animation: details 0.3s ease-in;
-    /* background-color: #22222299; */
     font-weight: bold;
 }
 
@@ -75,7 +74,6 @@
     visibility: visible;
     transform: translateY(0%);
     animation: details 0.3s ease-in;
-    /* background-color: #22222299; */
     font-weight: bold;
 }
 

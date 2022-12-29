@@ -16,7 +16,7 @@ const Navigation = () => {
     <nav className="navigation">
 
       <div className="navrow">
-        <Link to="/" tabindex="0">
+        <Link to="/" tabIndex="0">
           <img className="logo" alt="mainLogo" src="https://i.ibb.co/5cm3p8n/logo.png"/>
         </Link>
 

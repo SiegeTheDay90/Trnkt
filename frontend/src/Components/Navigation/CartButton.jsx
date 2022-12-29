@@ -23,7 +23,7 @@ const CartButton = ({session}) => {
 
 
     return(
-        <Link tabindex="-1" to="/cart" id="cart-button-container">
+        <Link tabIndex="-1" to="/cart" id="cart-button-container">
             <button id="cart-button" className="white">
                 <i id="cart" className="fa-solid fa-cart-shopping"></i>
             </button>

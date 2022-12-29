@@ -150,6 +150,11 @@
     padding-left: 10px;
 }
 
+#shop-item-grid::after{
+    content: "";
+    flex: auto;
+}
+
 
 
 #other-shops-container{
