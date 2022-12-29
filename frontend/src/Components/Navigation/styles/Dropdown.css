@@ -14,7 +14,7 @@ span:has(.nav-dropdown-content):hover .nav-dropdown-content{
 .nav-dropdown-content {
     display: none;
     position: absolute;
-    top: calc(100% + 2px);
+    top: 100%;
     left: 5vw;
     right: 5vw;
     background: white;

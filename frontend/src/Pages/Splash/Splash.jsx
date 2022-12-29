@@ -12,8 +12,8 @@ const Splash = () => {
 
     
     useEffect(()=>{
-        if (!loaded && Object.values(fetchedProducts)[7]) {
-            featuredProducts.current =  Object.values(fetchedProducts).shuffle().slice(0,8);
+        if (!loaded && Object.values(fetchedProducts)[9]) {
+            featuredProducts.current =  Object.values(fetchedProducts).shuffle().slice(0,10);
             setLoaded(true)
         }
     },[fetchedProducts])
@@ -66,6 +66,8 @@ const Splash = () => {
             <ProductCard product = {featuredProducts.current[5]} />
             <ProductCard product = {featuredProducts.current[6]} />
             <ProductCard product = {featuredProducts.current[7]} />
+            <ProductCard product = {featuredProducts.current[8]} />
+            <ProductCard product = {featuredProducts.current[9]} />
         </div>
         </>
     )

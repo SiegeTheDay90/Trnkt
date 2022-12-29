@@ -36,11 +36,9 @@ function App() {
           <Splash />
         </Route>
       </div>
-      <div className='App-footer'>
         <Route path="/">
           <Footer />
         </Route>
-      </div>
     </div>
   );
 }

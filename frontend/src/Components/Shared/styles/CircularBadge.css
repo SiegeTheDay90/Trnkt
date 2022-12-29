@@ -3,17 +3,26 @@
     flex-direction: column;
     align-items: center;
     border-radius: 50px;
-    position: relative;
     transition: 0.2s;
 }
 
+a.badge-link {
+    position: relative;
+    bottom: -80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(110px + 1em);
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
 .name {
     color: black;
     font-size: 0.6em;
     font-weight: bold;
 }
 
-a:has(.circular-badge:hover){
+a.badge-link:hover{
     border-bottom: 2px solid black;
 }
 
@@ -24,7 +33,12 @@ a:has(.circular-badge:hover){
 
 .circular-badge img {
     border-radius: 125px;
-    height: 90px;
-    width: 90px;
+    height: 110px;
+    width: 110px;
+    transition: 0.2s;
+}
+
+.circular-badge:hover img {
+    box-shadow: 0 0 10px #00000060
 }
 

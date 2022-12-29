@@ -4,8 +4,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 3px 5vw;
-    box-shadow: 0 0 10px 10px #00000033;
+    padding: 0 5vw;
+    box-shadow: 0 0 1px 2px #00000010;
+    z-index: 1;
 }
 
 .navrow{
@@ -15,10 +16,13 @@
     align-items: center;
 }
 
-.navrow.categories {
+
+div.navrow.categories {
     padding-top: 10px;
     position: relative;
+    /* border: 1px solid red; */
 }
+
 
 
 .logo {
