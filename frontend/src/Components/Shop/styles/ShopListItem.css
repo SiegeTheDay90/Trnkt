@@ -1,0 +1,82 @@
+.item {
+    border-radius: 8px;
+    padding: 15px 20px 10px 20px;
+    transition: box-shadow 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+}
+
+.item a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.item:hover .follow-button{
+    visibility: visible;
+    transform: translateY(30%);
+    animation: details 0.3s ease-in;
+    font-weight: bold;
+}
+
+.item:focus .follow-button{
+    visibility: visible;
+    transform: translateY(30%);
+    animation: details 0.3s ease-in;
+    font-weight: bold;
+}
+
+.item .follow-button{
+    position: absolute;
+    transform: translateY(-250%);
+    box-sizing: border-box;
+    height: auto;
+    width: auto;
+    top: 7px;
+    /* background-color: red; */
+    right: 30px;
+    padding: 5px;
+    opacity: 45%;
+    box-shadow: 0 0 4px 1px #ffffffa0;
+    transition: 0.4s;
+    z-index: 5;
+}
+
+.item:hover .follow-button, .item:hover .price{
+    opacity: 90%;
+    transition: 0.2s
+}
+.item:focus .follow-button, .item:focus .price{
+    opacity: 90%;
+    transition: 0.2s
+}
+
+.follow-button:hover {
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 0 7px 2px #ffffffa0;
+}
+
+.item:hover {
+    box-shadow: 0 0 10px #00000055;
+}
+
+.item .item-title {
+    font-size: 13px;
+    color: #000000aa;
+    margin: 5px;
+}
+
+.item .item-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.item img{
+    align-self: center;
+    margin: 2px;
+    max-width: 256px;
+    height: 206px;
+    border-radius: 12px;
+}

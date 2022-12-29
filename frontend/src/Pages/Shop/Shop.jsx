@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { fetchShop, likeShop } from "../../store/shops";
 import { useEffect, useState } from "react";
-import ProductListItem from '../../Components/Shop/ListItem.jsx';
 import './Shop.css';
+import ShopListItem from '../../Components/Shop/ShopListItem.jsx';
 
 const Shop = () => {
     const { id } = useParams();
@@ -11,14 +11,13 @@ const Shop = () => {
     
     useEffect(() => {
         dispatch(fetchShop(id));
-        // dispatch(fetchShops({num: 4}));
     }, [id, dispatch]);
     
     
-    const shops = useSelector(state => state.shops);
+    const shop = useSelector(state => state.shops[id]);
     const users = useSelector(state => state.users);
 
-    const shop = shops[id];
+    // const shop = shops[id];
     // const otherShops = Object.values(shops).filter(ele => ele.id != id);
 
     const [liked, setLiked] = useState(false);
@@ -84,7 +83,7 @@ const Shop = () => {
                         <div id="shop-main-item-container">
                             <div id="shop-item-grid">
                                 {Object.values(products).map((product) => (
-                                    <ProductListItem product={product}/>
+                                    <ShopListItem product={product}/>
                                 ))}                                                
                             </div>
                         </div>

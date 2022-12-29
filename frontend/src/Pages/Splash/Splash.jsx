@@ -50,7 +50,8 @@ const Splash = () => {
     return (
         <>
         <div id="splash-top">
-            <h1 className="splash-heading">More from Clarence Smith</h1>
+            <h1 className="splash-heading">Welcome to Trnkt</h1>
+            <p className="splash-blurb">More from Clarence Smith</p>
             <CircularBadge object={Interceptor} />
             <CircularBadge object={Advent} />
             <CircularBadge object={Personal} />

@@ -110,11 +110,10 @@
 }
 
 #shop-logo{
-    height: 120;
-    width: 120;
-    border-radius: 5px;
-    background-color: rgb(122, 122, 254);
+    height: 120px;
+    width: 120px;
     margin-right: 20px;
+    border-radius: 2px;
 }
 
 #ratings {
@@ -145,49 +144,13 @@
     margin-left: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    gap: 15px;
+    justify-content: space-around;
     width: 100%;
+    padding-left: 10px;
 }
 
-#shop-outer-container img {
-    border-radius: 8px;
-}
 
-.item {
-    display:flex;
-    border-radius: 8px;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 25%;
-    min-width: 200px;
-    margin: 1%;
-    padding: 15px 20px 10px 20px;
-    transition: box-shadow 0.2s ease-in;
-    /* background-color: red; */
-}
-
-.item:hover {
-    box-shadow: 0 0 10px #00000055;
-}
-
-.item .item-title {
-    font-size: 13px;
-    color: #000000aa;
-    margin: 5px;
-}
-
-.item .item-price {
-    font-size: 16px;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-.item img{
-    align-self: center;
-    margin: 2px;
-    max-width: 256px;
-    height: 206px;
-}
 
 #other-shops-container{
     display: flex;
