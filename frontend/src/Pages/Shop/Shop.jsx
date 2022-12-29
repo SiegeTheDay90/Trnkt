@@ -16,11 +16,13 @@ const Shop = () => {
     
     const shop = useSelector(state => state.shops[id]);
     const users = useSelector(state => state.users);
+    const currentUser = useSelector(state => state.session.user);
+
 
     // const shop = shops[id];
     // const otherShops = Object.values(shops).filter(ele => ele.id != id);
 
-    const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(shop?.liked);
     
     let seller = {firstName: "First"};
     if (shop && users){
@@ -32,12 +34,20 @@ const Shop = () => {
 
     const products = useSelector(state => state.products);
     if (!seller) return null;
-    
-    const followClick = () => {
 
-        dispatch(likeShop(shop.id))
-        const value = liked ? false : true;
-        setLiked(value);
+    const showLoginModal = (e) => {
+        const modal = document.getElementById('OverlayContainer');
+        modal.showModal();
+        document.getElementById('App').style.overflow = "hidden";
+    }
+
+    const followClick = (e) => {
+        if(currentUser){
+            dispatch(likeShop(shop.id));
+            setLiked(!liked);
+        } else {
+            showLoginModal();
+        }
     }
 
     const heart = () => {

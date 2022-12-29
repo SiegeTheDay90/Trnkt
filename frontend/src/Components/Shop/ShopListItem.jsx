@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { likeProduct } from "../../store/products";
 import './styles/ShopListItem.css';
 
 const ShopListItem = ({product}) => {
 
-    const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(product?.liked);
+    const currentUser = useSelector(state => state.session.user)
 
     const dispatch = useDispatch();
     const heart = () => {
@@ -17,11 +18,21 @@ const ShopListItem = ({product}) => {
         }
     }
 
-    const followClick = (e) => {
-        dispatch(likeProduct(product.id));
-        setLiked(!liked);
-        product.liked = !product.liked
+    const showLoginModal = (e) => {
+        const modal = document.getElementById('OverlayContainer');
+        modal.showModal();
+        document.getElementById('App').style.overflow = "hidden";
     }
+
+    const followClick = (e) => {
+        if(currentUser){
+            dispatch(likeProduct(product.id));
+            setLiked(!liked);
+        } else {
+            showLoginModal();
+        }
+    }
+
 
     return (
 

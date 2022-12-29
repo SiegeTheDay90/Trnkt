@@ -11,8 +11,9 @@ const PurchaseMenu = ({product}) => {
     const history = useHistory();
     const [quantity, setQuantity] = useState(1);
     const shops = useSelector(state => state.shops);
-    const [liked, setLiked] = useState(false);
-    
+    const [liked, setLiked] = useState(product?.liked);
+    const currentUser = useSelector(state => state.session.user)
+
     if(product.liked === "true"){
         setLiked(true)
     }
@@ -37,10 +38,21 @@ const PurchaseMenu = ({product}) => {
         history.push('/cart');
     }
 
-    const followClick = () => {
-        dispatch(likeProduct(product.id));
-        const value = liked ? false : true;
-        setLiked(value);
+
+
+    const showLoginModal = (e) => {
+        const modal = document.getElementById('OverlayContainer');
+        modal.showModal();
+        document.getElementById('App').style.overflow = "hidden";
+    }
+
+    const followClick = (e) => {
+        if(currentUser){
+            dispatch(likeProduct(product.id));
+            setLiked(!liked);
+        } else {
+            showLoginModal();
+        }
     }
 
     const heart = () => {
