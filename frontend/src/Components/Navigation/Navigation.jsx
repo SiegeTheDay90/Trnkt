@@ -17,7 +17,7 @@ const Navigation = () => {
 
       <div className="navrow">
         <Link to="/" tabIndex="0">
-          <img className="logo" alt="mainLogo" src="https://i.ibb.co/5cm3p8n/logo.png"/>
+          <img className="logo" alt="mainLogo" src="https://trnkt-prod.s3.amazonaws.com/logo.png"/>
         </Link>
 
         <SearchBar />
