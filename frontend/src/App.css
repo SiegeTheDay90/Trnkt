@@ -29,7 +29,11 @@ a {
 }
 
 .App-footer {
-  background-color: #fdebd2;
+  background-color: #2F466C;
+}
+
+.App-footer * {
+  color: #c4daff;
 }
 
 button.white {

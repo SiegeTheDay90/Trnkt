@@ -13,7 +13,6 @@
 }
 .footer-container a {
     text-decoration: underline;
-    color: black;
 }
 
 .footer-column {
@@ -31,8 +30,16 @@
     width: 30%;
 }
 
+.middle a {
+    height: 50px;
+}
+
 .middle ul {
     position: relative;
-    left: 15px;
-    list-style: square;
+    /* left: 15px; */
+    list-style: square inside;
+}
+
+.middle li {
+    width: fit-content;
 }
