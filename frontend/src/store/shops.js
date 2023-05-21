@@ -34,9 +34,9 @@ export const fetchShops = (options = {}) => async dispatch => {
   }
 
   response = await csrfFetch(url);
-  const shops = await response.json();
-  dispatch(listShops(shops));
-  }
+  const data = await response.json();
+  dispatch(listShops(data.shops));
+}
 
 export const likeShop = (id) => async dispatch => {
   const response = await csrfFetch(`/api/shops/${id}`, {method: 'PATCH'});
