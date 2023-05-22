@@ -3,10 +3,11 @@
     padding: 2px 10px 8px 10px;
     min-width: 100px;
     max-width: 12.5%;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 18px;
     border-bottom: 2px solid transparent;
     user-select: none;
+    font-weight: bolder;
 }
 
 .nav-category:hover {

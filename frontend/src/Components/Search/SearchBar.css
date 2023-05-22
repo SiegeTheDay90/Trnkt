@@ -1,9 +1,9 @@
 #SearchText{
     min-width: 30px;
     width: 85vw;
-    max-width: 995px;
+    max-width: 1010px;
     border-radius: 96px 0 0 96px;
-    height: 16px;
+    height: 17px;
     border: 2px solid black;
     border-right: 0;
     padding: 14px;
@@ -30,7 +30,7 @@
     min-width: 5%;
     max-width: 5%;
     border-radius: 96px 0 0 96px;
-    height: 48px;
+    height: 49px;
     border: 2px solid black;
     background-color: #f3f3f3;
     border-right: 0;
@@ -47,6 +47,7 @@
 #SearchBar {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 90%;
     margin-top: 8px;
     /* max-width: px; */

@@ -9,8 +9,12 @@ const ProductCard = ({ product }) => {
     const currentUser = useSelector(state => state.session.user)
 
     useEffect(() => {
-        setLiked(prev => product?.liked)
-    }, [product])
+        if(currentUser){
+            setLiked(prev => product?.liked)
+        } else {
+            setLiked(false)
+        }
+    }, [product, currentUser])
     
     const dispatch = useDispatch();
 
