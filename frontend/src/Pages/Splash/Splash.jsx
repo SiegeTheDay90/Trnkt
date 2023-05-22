@@ -7,14 +7,15 @@ import './Splash.css'
 const Splash = () => {
 
     const featuredProducts = useRef([])
-    const [loaded, setLoaded] = useState(false)
+    // const [loaded, setLoaded] = useState(false)
     const fetchedProducts = useSelector(state => state.products)
 
     
     useEffect(()=>{
-        if (!loaded && Object.values(fetchedProducts)[9]) {
-            featuredProducts.current =  Object.values(fetchedProducts).shuffle().slice(0,10);
-            setLoaded(true)
+        if (Object.values(fetchedProducts)[9]) {
+            // featuredProducts.current =  Object.values(fetchedProducts).shuffle().slice(0,10);
+            featuredProducts.current =  Object.values(fetchedProducts).slice(0,10);
+            // setLoaded(true)
         }
     },[fetchedProducts])
     

@@ -18,6 +18,10 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   attr_accessor :quantity
 
+  def liked?(user_id)
+    return !(self.likes.where(user_id: user_id).empty?)
+  end
+
   belongs_to(
     :shop,
     class_name: 'Shop',

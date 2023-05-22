@@ -11,10 +11,10 @@ const ShopListItem = ({product}) => {
 
     const dispatch = useDispatch();
     const heart = () => {
-        if(!product.liked){
-            return "fa-regular fa-heart"
-        } else{
+        if(liked){
             return "fa-solid fa-heart"
+        } else{
+            return "fa-regular fa-heart"
         }
     }
 
@@ -26,8 +26,11 @@ const ShopListItem = ({product}) => {
 
     const followClick = (e) => {
         if(currentUser){
-            dispatch(likeProduct(product.id));
-            setLiked(!liked);
+            dispatch(likeProduct(product.id)).then(
+                () => {
+                    setLiked(prev => !prev);
+                }
+            )
         } else {
             showLoginModal();
         }
@@ -39,7 +42,6 @@ const ShopListItem = ({product}) => {
         <div className="item">
 
             <button className="white follow-button" onClick={followClick}><i className={heart()}></i></button>
-            {/* <button>heart</button> */}
             <Link to={`/products/${product.id}`}>
                 <img src={product.photoUrl} alt={product.name}/>
                 <span className="item-title">{product.name}</span>

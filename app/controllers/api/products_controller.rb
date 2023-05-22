@@ -19,7 +19,7 @@ class Api::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product && current_user
       @shop = @product.shop
-      @liked = !(@product.likes.where(user_id: current_user.id, likeable_id: @product.id).empty?)
+      @liked = @product.liked?(current_user)
       render :show
     else
       render json: nil

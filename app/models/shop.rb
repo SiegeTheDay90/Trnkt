@@ -19,6 +19,10 @@ class Shop < ApplicationRecord
     validates :name, presence: {message: "can't be blank."}, uniqueness: {message: "is already taken."}
     validates :seller_id, presence: {message: "missing or invalid."}
 
+    def liked?(user_id)
+        return !(self.likes.where(user_id: user_id).empty?)
+    end
+
     belongs_to(
         :seller,
         class_name: 'User',

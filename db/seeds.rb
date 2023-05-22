@@ -15,8 +15,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 ApplicationRecord.transaction do 
-  puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
+  puts "Destroying tables..."
+  Like.destroy_all
   CartItem.destroy_all
   Product.destroy_all
   Shop.destroy_all
@@ -48,10 +49,10 @@ ApplicationRecord.transaction do
     }) 
   end
 
-  # User.all.each do |user|
-  #   pic = Down.download("https://picsum.photos/100/100")
-  #   user.thumbnail.attach(io: pic, filename: "user#{user.id}_thumbnail.jpg")
-  # end
+  User.all.each do |user|
+    pic = Down.download("https://picsum.photos/100/100")
+    user.thumbnail.attach(io: pic, filename: "user#{user.id}_thumbnail.jpg")
+  end
 
 
   puts "Creating shops..."
@@ -78,12 +79,12 @@ ApplicationRecord.transaction do
     }) 
   end
 
-  # Shop.all.each do |shop|
-  #   pic = Down.download("https://picsum.photos/256")
-  #   shop.thumbnail.attach(io: pic, filename: "shop#{shop.id}_thumbnail.jpg")
-  #   cover = Down.download("https://picsum.photos/1900/475")
-  #   shop.cover_photo.attach(io: cover, filename: "shop#{shop.id}_cover.jpg")
-  # end
+  Shop.all.each do |shop|
+    pic = Down.download("https://picsum.photos/256")
+    shop.thumbnail.attach(io: pic, filename: "shop#{shop.id}_thumbnail.jpg")
+    cover = Down.download("https://picsum.photos/1900/475")
+    shop.cover_photo.attach(io: cover, filename: "shop#{shop.id}_cover.jpg")
+  end
 
   puts "Creating products..."
 
@@ -96,10 +97,10 @@ ApplicationRecord.transaction do
     }) 
   end
 
-  # Product.all.each do |product|
-  #   pic = Down.download("https://picsum.photos/256")
-  #   product.thumbnail.attach(io: pic, filename: "product#{product.id}_thumbnail.jpg")
-  # end
+  Product.all.each do |product|
+    pic = Down.download("https://picsum.photos/256")
+    product.thumbnail.attach(io: pic, filename: "product#{product.id}_thumbnail.jpg")
+  end
 
   puts "Created #{User.count} users"
   puts "Created #{Shop.count} shops"

@@ -16,6 +16,7 @@ json.set! :products do
         json.set! product.id do
             json.extract! product, :id, :name, :price, :description, :shop_id, :created_at, :updated_at
             json.set! :photo_url, product.thumbnail.url
+            json.liked product.liked?(@current_user.id) if @current_user
             json.type "product"
         end
     end

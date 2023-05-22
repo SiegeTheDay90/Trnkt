@@ -26,8 +26,9 @@ const ProductCard = ({ product }) => {
 
     const followClick = (e) => {
         if(currentUser){
-            dispatch(likeProduct(product.id));
-            setLiked(!liked);
+            dispatch(likeProduct(product.id)).then(()=>{
+                setLiked(prev => !prev);
+            });
         } else {
             showLoginModal();
         }

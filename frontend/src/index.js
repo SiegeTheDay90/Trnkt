@@ -34,9 +34,9 @@ function Root() {
 
 const renderApp = () => {
   root.render(
-    <React.StrictMode>
+    // <React.StrictMode>
       <Root />
-    </React.StrictMode>
+  //   </React.StrictMode>
   );
 
 }

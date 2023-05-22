@@ -23,13 +23,9 @@ class Api::ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     if @shop
+      @current_user = current_user
       @products = @shop.products
       @seller = @shop.seller
-      if current_user
-        @liked = !(@shop.likes.where(user_id: current_user.id, likeable_id: @shop.id).empty?)
-      else
-        @liked = false
-      end
       render :show
     else
       render json: nil
