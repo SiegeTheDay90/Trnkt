@@ -6,18 +6,17 @@ import './Splash.css'
 
 const Splash = () => {
 
-    const featuredProducts = useRef([])
-    // const [loaded, setLoaded] = useState(false)
+    const [featuredProducts, setFeaturedProducts] = useState([])
     const fetchedProducts = useSelector(state => state.products)
 
     
     useEffect(()=>{
+        // debugger    
         if (Object.values(fetchedProducts)[9]) {
-            // featuredProducts.current =  Object.values(fetchedProducts).shuffle().slice(0,10);
-            featuredProducts.current =  Object.values(fetchedProducts).slice(0,10);
-            // setLoaded(true)
+            // featuredProducts =  Object.values(fetchedProducts).shuffle().slice(0,10);
+            setFeaturedProducts(prev => Object.values(fetchedProducts).slice(0,10));
         }
-    },[fetchedProducts])
+    }, [fetchedProducts])
     
     
     
@@ -60,16 +59,16 @@ const Splash = () => {
             <CircularBadge object={RisingSign} />
         </div>
         <div id="splash-middle">
-            <ProductCard product = {featuredProducts.current[0]} />
-            <ProductCard product = {featuredProducts.current[1]} />
-            <ProductCard product = {featuredProducts.current[2]} />
-            <ProductCard product = {featuredProducts.current[3]} />
-            <ProductCard product = {featuredProducts.current[4]} />
-            <ProductCard product = {featuredProducts.current[5]} />
-            <ProductCard product = {featuredProducts.current[6]} />
-            <ProductCard product = {featuredProducts.current[7]} />
-            <ProductCard product = {featuredProducts.current[8]} />
-            <ProductCard product = {featuredProducts.current[9]} />
+            <ProductCard product = {featuredProducts[0]} />
+            <ProductCard product = {featuredProducts[1]} />
+            <ProductCard product = {featuredProducts[2]} />
+            <ProductCard product = {featuredProducts[3]} />
+            <ProductCard product = {featuredProducts[4]} />
+            <ProductCard product = {featuredProducts[5]} />
+            <ProductCard product = {featuredProducts[6]} />
+            <ProductCard product = {featuredProducts[7]} />
+            <ProductCard product = {featuredProducts[8]} />
+            <ProductCard product = {featuredProducts[9]} />
         </div>
         </>
     )

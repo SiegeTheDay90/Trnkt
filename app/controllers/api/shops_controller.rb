@@ -1,13 +1,9 @@
 class Api::ShopsController < ApplicationController
 
   def index
-    @current_user = current_user
+    @current_user = current_user || User.new(id: nil)
 
-    if params[:num]
-      num = params[:num].to_i
-    else
-      num = nil
-    end
+    num = params[:num] ? params[:num].to_i : nil
 
     if params[:title]
       @shops = Shop.where("name ILIKE '%#{params[:title]}%'").limit(num)
@@ -23,7 +19,7 @@ class Api::ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     if @shop
-      @current_user = current_user
+      @current_user = current_user || User.new(id: nil)
       @products = @shop.products
       @seller = @shop.seller
       render :show

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { likeProduct } from '../../store/products';
@@ -8,6 +8,10 @@ const ProductCard = ({ product }) => {
     const [liked, setLiked] = useState(product?.liked);
     const currentUser = useSelector(state => state.session.user)
 
+    useEffect(() => {
+        setLiked(prev => product?.liked)
+    }, [product])
+    
     const dispatch = useDispatch();
 
     const heart = () => {
@@ -33,7 +37,9 @@ const ProductCard = ({ product }) => {
             showLoginModal();
         }
     }
-
+    if(product?.id == 13){
+        debugger
+    }
     return (
         <>
         {

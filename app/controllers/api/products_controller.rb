@@ -1,5 +1,6 @@
 class Api::ProductsController < ApplicationController
   def index
+    @current_user = current_user || User.new(id: nil)
     if params[:num]
       num = params[:num].to_i
     else
@@ -16,10 +17,10 @@ class Api::ProductsController < ApplicationController
   end
 
   def show
+    @current_user = current_user || User.new(id: nil)
     @product = Product.find(params[:id])
     if @product && current_user
       @shop = @product.shop
-      @liked = @product.liked?(current_user)
       render :show
     else
       render json: nil
