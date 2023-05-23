@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api do
+    patch "/reset", to: "users#reset_password"
+    post "/reset", to: "users#request_reset"
     resources :users, only: [:create, :index, :show]
     resource :session, only: [:show, :create, :destroy, :update]
     resources :shops, only: [:show, :index, :update]

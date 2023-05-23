@@ -38,6 +38,30 @@ const storeCurrentUser = (user, cart={}) => {
     sessionStorage.removeItem("cart");
 }}
 
+export const resetPassword = ({credential, password}) => async dispatch => {
+  await csrfFetch("/api/reset", {
+    method: "PATCH",
+    body: JSON.stringify({credential, password})
+  }).then(async response => {
+    const data = await response.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data));
+  }).catch(async error => {
+    const data = await error.json();
+    dispatch(storeErrors(data));
+  });
+}
+
+export const requestResetPassword = ({credential}) => async dispatch => {
+  await csrfFetch("/api/reset", {
+    method: "POST",
+    body: JSON.stringify({credential})
+  }).catch(async error => {
+    const data = await error.json();
+    dispatch(storeErrors(data));
+  });
+}
+
 export const sendCartItem = (productId, quantity) => async dispatch => {
   await csrfFetch("/api/session", {
     method: "PATCH",

@@ -6,7 +6,9 @@ import Shop from './Pages/Shop/Shop.jsx';
 import Cart from './Pages/Cart/Cart.jsx';
 import Search from './Pages/Search/Search.jsx';
 import Footer from './Components/Footer/Footer.jsx';
+import RequestReset from './Pages/Reset/RequestReset.jsx';
 import './App.css';
+import ConfirmReset from './Pages/Reset/ConfirmReset.jsx';
 
 
 function App() {
@@ -31,6 +33,12 @@ function App() {
         </Route>
         <Route path="/search/:query">
           <Search />
+        </Route>
+        <Route path="/reset">
+          <RequestReset />
+        </Route>
+        <Route path="/confirmreset">
+          <ConfirmReset />
         </Route>
         <Route exact path="/">
           <Splash />

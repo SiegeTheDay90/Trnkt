@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_19_203630) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_23_092535) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_203630) do
     t.index ["buyer_id", "product_id"], name: "index_cart_items_on_buyer_id_and_product_id", unique: true
     t.index ["buyer_id"], name: "index_cart_items_on_buyer_id"
     t.index ["product_id"], name: "index_cart_items_on_product_id"
+  end
+
+  create_table "confirmations", force: :cascade do |t|
+    t.string "code", null: false
+    t.bigint "user_id", null: false
+    t.boolean "confirmed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_confirmations_on_user_id", unique: true
   end
 
   create_table "likes", force: :cascade do |t|
