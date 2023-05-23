@@ -67,7 +67,7 @@ const PurchaseMenu = ({product}) => {
         <>
         <div id="product-menu-shop-details">
             <span><Link to=   {`/shops/${product.shopId}`} id="shop-title">{shop.name}</Link> 
-            <button id="follow-button" onClick={followClick}><i className={heart()} ></i> &nbsp;{product.liked ? 'Following' : 'Follow'}</button></span>
+            <button id="follow-button" onClick={followClick}><i className={heart()} ></i> &nbsp;{product.liked ? 'Liked!' : 'Like'}</button></span>
             <div><span id="sales">{shop.sales} sales |&nbsp;</span>
             <span id="rating">Rating: {shop.rating}</span></div>
         </div>
