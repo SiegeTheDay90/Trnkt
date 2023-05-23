@@ -1,22 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { likeProduct } from '../../store/products';
+import { likeProduct, fetchProduct } from '../../store/products';
 import './styles/ProductCard.css'
 
 const ProductCard = ({ product }) => {
+    const dispatch = useDispatch();
     const [liked, setLiked] = useState(product?.liked);
     const currentUser = useSelector(state => state.session.user)
 
     useEffect(() => {
         if(currentUser){
-            setLiked(prev => product?.liked)
+            setLiked(product?.liked)
         } else {
             setLiked(false)
         }
-    }, [product, currentUser])
+    }, [product])
+
+    useEffect(() => {
+        dispatch(fetchProduct(product?.id))
+    }, [currentUser])
     
-    const dispatch = useDispatch();
 
     const heart = () => {
         if(liked){

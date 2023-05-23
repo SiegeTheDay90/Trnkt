@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {login, signup} from '../../store/session.js';
 import { storeErrors } from '../../store/errors.js';
@@ -115,8 +116,9 @@ const LoginFormModal = () => {
 
                     <div className="StaySignedIn"><input type="checkbox" id="ModalCheck"/> Stay signed in</div> 
 
-                    <div style={{'fontSize': '12px', 'textDecoration': 'underline'}}>Forgot your password?</div>
-
+                    <Link to="/reset" onClick={closeModal}>
+                        <div style={{'fontSize': '12px', 'textDecoration': 'underline'}}>Forgot your password?</div>
+                    </Link>
                 </div>
                 <input className="ModalButton-S" type="submit" value="Sign in" disabled={!password}/>
             </form>

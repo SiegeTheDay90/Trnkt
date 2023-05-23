@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { requestResetPassword } from '../../store/session.js';
+import './Reset.css';
 
 const RequestReset = () => {
     const dispatch = useDispatch();

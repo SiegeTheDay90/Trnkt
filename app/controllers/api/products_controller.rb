@@ -1,11 +1,10 @@
 class Api::ProductsController < ApplicationController
   def index
     @current_user = current_user || User.new(id: nil)
-    if params[:num]
-      num = params[:num].to_i
-    else
-      num = nil
-    end
+
+    num = params[:num] ? params[:num].to_i : nil
+    
+
     if params[:title]
       @products = Product.where("name ILIKE '%#{params[:title]}%'").limit(num)
     elsif num
@@ -13,6 +12,7 @@ class Api::ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    
     render :index
   end
 

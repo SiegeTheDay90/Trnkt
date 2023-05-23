@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SessionInfo from "../Session/Info.jsx";
+import SessionInfo from "../Session/SessionInfo.jsx";
 import LoginFormModal from "../Session/LoginFormModal.jsx";
 import NavCategories from "./NavCategories.jsx";
 import SearchBar from "../Search/SearchBar.jsx";
