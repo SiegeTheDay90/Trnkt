@@ -38,11 +38,6 @@ module TrnkT
 
     config.railties_order = [:all, :main_app]
 
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore,
-      key: '_trnkt_session',
-      same_site: :lax, 
-      secure: Rails.env.production?
   end
 end
 
@@ -51,7 +46,7 @@ module Backend
   class Application < Rails::Application
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-      key: '_auth_me_session',
+      key: '_trnkt_session',
       same_site: :lax, 
       secure: Rails.env.production?
   end

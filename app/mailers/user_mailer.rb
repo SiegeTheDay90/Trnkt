@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
 
     def reset_request
         @user = params[:user]
-        @url = 'https://trnkt-2022.herokuapp.com/reset'
+        @url = 'https://trnkt-2022.herokuapp.com/confirmreset'
         @confirmation = Confirmation.new(user_id: @user.id)
         if @confirmation.save
             mail(to:@user.email, subject: 'Reset Password')

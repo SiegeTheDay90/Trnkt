@@ -109,13 +109,13 @@ export const login = ({ credential, password }) => async dispatch => {
   });
 };
 
-// export const restoreSession = () => async dispatch => {
-//   const response = await csrfFetch("/api/session");
-//   storeCSRF(response);
-//   const data = await response.json();
-//   storeCurrentUser(data.user);
-//   dispatch(setCurrentUser(data));
-// };
+export const restoreSession = () => async dispatch => {
+  const response = await csrfFetch("/api/session");
+  storeCSRF(response);
+  const data = await response.json();
+  storeCurrentUser(data.user);
+  dispatch(setCurrentUser(data));
+};
 
 export const signup = (user) => async (dispatch) => {
   const { firstName, email, password } = user;

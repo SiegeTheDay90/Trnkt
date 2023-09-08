@@ -17,9 +17,9 @@ const ProductCard = ({ product }) => {
         }
     }, [product])
 
-    useEffect(() => {
-        dispatch(fetchProduct(product?.id))
-    }, [currentUser])
+    // useEffect(() => {
+    //     dispatch(fetchProduct(product?.id))
+    // }, [currentUser])
     
 
     const heart = () => {
@@ -44,9 +44,6 @@ const ProductCard = ({ product }) => {
         } else {
             showLoginModal();
         }
-    }
-    if(product?.id == 13){
-        debugger
     }
     return (
         <>

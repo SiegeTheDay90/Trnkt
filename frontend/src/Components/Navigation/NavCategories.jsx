@@ -21,7 +21,6 @@ const NavCategories = () => {
     shops.sort((a, b) => b.sales - a.sales);
 
     const topSellers = shops.slice(0,8);
-    // debugger
 
     shops.sort((a, b) => b.rating - a.rating);
 

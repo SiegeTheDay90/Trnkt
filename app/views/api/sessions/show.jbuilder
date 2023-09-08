@@ -5,9 +5,9 @@ end
 json.cart do
     @products.each do |product|
         json.set! product.id do
-            json.extract! product, :id, :name, :price, :description, :shop_id, :created_at, :updated_at
+            json.extract! product, :id, :name, :price, :description, :shop_id, :quantity, :created_at, :updated_at
             json.set! :photo_url, product.thumbnail.url
-            json.set! :quantity, product.quantity
+            # json.set! :quantity, product.quantity
         end
     end
 end

@@ -8,10 +8,10 @@ const Splash = () => {
 
     const [featuredProducts, setFeaturedProducts] = useState([])
     const fetchedProducts = useSelector(state => state.products)
-
+    const state = useSelector(state => state);
+    console.log(fetchedProducts);
     
     useEffect(()=>{
-        // debugger    
         if (Object.values(fetchedProducts)[9]) {
             // featuredProducts =  Object.values(fetchedProducts).shuffle().slice(0,10);
             setFeaturedProducts(prev => Object.values(fetchedProducts).slice(0,10));
