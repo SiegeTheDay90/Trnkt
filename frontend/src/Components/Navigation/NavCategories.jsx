@@ -36,30 +36,36 @@ const NavCategories = () => {
     if (!shops[0] || !products[0]) return null;
     return (
       <div className="navrow categories">
-        <span tabIndex="4" className="nav-category">
+        <div tabIndex="4" className="nav-category">
             Top Selling Shops
-            <Dropdown items = {topSellers} />
-        </span>
-        <span tabIndex="4" className="nav-category">
+        </div>
+        <Dropdown items = {topSellers} />
+
+        <div tabIndex="4" className="nav-category">
             Highest Rated Shops
-            <Dropdown items = {topRated} />
-        </span>
-        <span tabIndex="4" className="nav-category">
+        </div>
+        <Dropdown items = {topRated} />
+
+        <div tabIndex="4" className="nav-category">
             Durable Items
-            <Dropdown items = {durables} />
-        </span>
-        <span tabIndex="4" className="nav-category">
+        </div>
+        <Dropdown items = {durables} />
+
+        <div tabIndex="4" className="nav-category">
             Something Silky
-            <Dropdown items = {silks} />
-        </span>
-        <span tabIndex="4" className="nav-category">
+        </div>
+        <Dropdown items = {silks} />
+
+        <div tabIndex="4" className="nav-category">
             Awesome Names
-            <Dropdown items = {awesomes} />
-        </span>
-        <span tabIndex="4" className="nav-category">
+        </div>
+        <Dropdown items = {awesomes} />
+
+        <div tabIndex="4" className="nav-category">
             Great Wallets
-            <Dropdown items = {wallets} />
-        </span>
+        </div>
+        <Dropdown items = {wallets} />
+
       </div>
     )
 }

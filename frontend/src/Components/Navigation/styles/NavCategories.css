@@ -1,4 +1,6 @@
 .nav-category {
+    position: relative;
+    border: -100%;
     box-sizing: border-box;
     padding: 2px 10px 8px 10px;
     min-width: 100px;
@@ -8,8 +10,20 @@
     border-bottom: 2px solid transparent;
     user-select: none;
     font-weight: bolder;
+    cursor: pointer;
 }
 
-.nav-category:hover {
+.nav-category::after{
     border-bottom: 2px solid black;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    transition: 0.2s;
+    content: '';
+    box-sizing: border-box;
+}
+
+.nav-category:hover::after{
+    width:100%;
 }
