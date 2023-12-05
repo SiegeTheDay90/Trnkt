@@ -14,7 +14,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-ApplicationRecord.transaction do 
+# ApplicationRecord.transaction do 
   # Unnecessary if using `rails db:seed:replant`
   puts "Destroying tables..."
   Like.destroy_all
@@ -105,4 +105,4 @@ ApplicationRecord.transaction do
   puts "Created #{User.count} users"
   puts "Created #{Shop.count} shops"
   puts "Created #{Product.count} products"
-end
+# end

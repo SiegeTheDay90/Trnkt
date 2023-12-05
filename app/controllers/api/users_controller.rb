@@ -45,7 +45,7 @@ class Api::UsersController < ApplicationController
 
   def request_reset
     @user = User.find_by(email: params[:credential])
-
+    logger.debug("User to Reset: #{@user}")
     if @user
       confirmation = Confirmation.new(user_id: @user.id)
       if confirmation.save
