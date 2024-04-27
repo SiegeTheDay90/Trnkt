@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import HitCounter from './HitCounter.js';
 import ProductCard from '../../Components/Product/ProductCard.jsx'
 import CircularBadge from '../../Components/Shared/CircularBadge.jsx';
 import './Splash.css'
@@ -8,9 +9,12 @@ const Splash = () => {
 
     const [featuredProducts, setFeaturedProducts] = useState([])
     const fetchedProducts = useSelector(state => state.products)
-    const state = useSelector(state => state);
-    console.log(fetchedProducts);
     
+    useEffect(()=>{
+        const counter = HitCounter();
+        counter.inc('Trnkt');
+    }, [])
+
     useEffect(()=>{
         if (Object.values(fetchedProducts)[9]) {
             // featuredProducts =  Object.values(fetchedProducts).shuffle().slice(0,10);
